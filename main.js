@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 8. TERMINAL STREAM LOGGER
   initTerminalLogger();
 
-  // 9. SERVICE CARDS AUDIO & INTERACTION
-  initServiceCards(soundSystem);
 
   // 10. HEADLINE TYPING ANIMATION (DELIBERATE PACE // 2.5S LOOP)
   initHeadlineTyping(soundSystem);
@@ -201,36 +199,6 @@ function initNavigation() {
   }, { passive: true });
 }
 
-/**
- * Service Cards Interactive Hover & Sound
- */
-function initServiceCards(soundSystem) {
-  const cards = document.querySelectorAll('.service-card');
-  cards.forEach((card) => {
-    card.addEventListener('mouseenter', () => {
-      soundSystem.hover();
-      const title = card.querySelector('.service-title')?.textContent;
-      if (title) {
-        logTerminalEvent(`SERVICE HOVER: [${title.trim()}]`);
-      }
-    });
-
-    card.addEventListener('click', () => {
-      soundSystem.reveal();
-      // Scroll to contact or populate service in form
-      const select = document.getElementById('form-service');
-      const cardId = card.id;
-      if (select) {
-        if (cardId === 'service-01') select.value = 'enterprise-cloud';
-        if (cardId === 'service-02') select.value = 'ai-systems';
-        if (cardId === 'service-03') select.value = 'fullstack-engineering';
-        if (cardId === 'service-04') select.value = 'cybersecurity';
-        if (cardId === 'service-05') select.value = 'nextgen-products';
-      }
-      openModal();
-    });
-  });
-}
 
 /**
  * Works Filter Tabs
