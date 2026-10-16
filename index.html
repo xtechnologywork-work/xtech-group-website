@@ -584,21 +584,22 @@
         <!-- Left Column: Intelligence Info & Capability Cards -->
         <div class="industries-left">
           <div class="industries-badge">
+            <span class="badge-live-pulse"></span>
             <svg class="badge-bolt" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
             </svg>
-            <span>Industry Intelligence</span>
+            <span>Autonomous Industry Intelligence</span>
           </div>
 
           <h2 class="industries-heading">Industries We Serve</h2>
 
           <p class="industries-subtitle">
-            Specialized AI solutions tailored for diverse industries and their unique challenges.
+            Specialized neural architectures and sovereign AI pipelines engineered for enterprise verticals and mission-critical scale.
           </p>
 
           <div class="industries-feature-cards">
             <!-- Card 1 -->
-            <div class="industry-card" id="card-integration" tabindex="0">
+            <div class="industry-card" id="card-integration" tabindex="0" role="button" aria-label="Universal Integration capability">
               <div class="card-check-icon" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="9"></circle>
@@ -606,13 +607,17 @@
                 </svg>
               </div>
               <div class="card-text-group">
-                <h3 class="card-title">Universal Integration</h3>
-                <p class="card-desc">Connect any store or custom platform instantly.</p>
+                <div class="card-header-row">
+                  <h3 class="card-title">Universal Integration</h3>
+                  <span class="card-tag">OMNI-API</span>
+                </div>
+                <p class="card-desc">Zero-friction interoperability. Connect legacy ERPs, custom clouds, and edge hardware in under 4 minutes.</p>
               </div>
+              <div class="card-hover-border"></div>
             </div>
 
             <!-- Card 2 -->
-            <div class="industry-card" id="card-workflows" tabindex="0">
+            <div class="industry-card" id="card-workflows" tabindex="0" role="button" aria-label="Automated Workflows capability">
               <div class="card-check-icon" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="9"></circle>
@@ -620,9 +625,32 @@
                 </svg>
               </div>
               <div class="card-text-group">
-                <h3 class="card-title">Automated Workflows</h3>
-                <p class="card-desc">Trigger actions on leads, sales, and support queries.</p>
+                <div class="card-header-row">
+                  <h3 class="card-title">Automated Workflows</h3>
+                  <span class="card-tag">SUB-MS AGENTS</span>
+                </div>
+                <p class="card-desc">Autonomous multi-agent loops. Trigger real-time actions on high-frequency transactions, inventory drift, and customer intent.</p>
               </div>
+              <div class="card-hover-border"></div>
+            </div>
+          </div>
+
+          <!-- Real-Time Telemetry Bar -->
+          <div class="industries-telemetry-bar">
+            <div class="telem-item">
+              <span class="telem-dot"></span>
+              <span class="telem-label">ACTIVE NODES</span>
+              <span class="telem-val">6/6 ONLINE</span>
+            </div>
+            <div class="telem-sep"></div>
+            <div class="telem-item">
+              <span class="telem-label">SYNAPSE LATENCY</span>
+              <span class="telem-val">0.38ms</span>
+            </div>
+            <div class="telem-sep"></div>
+            <div class="telem-item">
+              <span class="telem-label">PROTOCOL</span>
+              <span class="telem-val">X-MESH v4.2</span>
             </div>
           </div>
         </div>
@@ -631,86 +659,142 @@
         <div class="industries-right" aria-label="Interactive Radial Industries Map">
           <div class="radial-network-wrap" id="radial-network">
             
-            <!-- SVG Energy Beams Overlay -->
+            <!-- SVG Energy Beams & Tactical Radar Overlay -->
             <svg class="radial-svg" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
               <defs>
-                <filter id="glow-teal" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <!-- Multi-spectrum Glow Filters -->
+                <filter id="glow-teal" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
-                <filter id="glow-orange" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
-                <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-blue" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
-                <filter id="glow-pink" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-pink" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
-                <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
-                <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+
+                <!-- Conduit Glow Filters for Beam Tubes -->
+                <filter id="conduit-blur" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="5" />
                 </filter>
               </defs>
 
-              <!-- Base Connecting Lines -->
-              <path id="path-realestate" class="beam-base" d="M 280 230 C 275 170, 275 120, 280 80" />
-              <path id="path-restaurants" class="beam-base" d="M 330 255 C 385 220, 415 190, 450 160" />
-              <path id="path-logistics" class="beam-base" d="M 330 305 C 385 340, 415 370, 450 400" />
-              <path id="path-retail" class="beam-base" d="M 280 330 C 285 390, 285 440, 280 485" />
-              <path id="path-finance" class="beam-base" d="M 230 305 C 175 340, 145 370, 110 400" />
-              <path id="path-ecommerce" class="beam-base" d="M 230 255 C 175 220, 145 190, 110 160" />
+              <!-- Tactical Coordinate Radar Grid (Deep Space Atmosphere) -->
+              <g class="radar-grid-group">
+                <circle cx="280" cy="280" r="105" class="radar-circle radar-inner" />
+                <circle cx="280" cy="280" r="165" class="radar-circle radar-mid" />
+                <circle cx="280" cy="280" r="225" class="radar-circle radar-outer" />
+                
+                <!-- Crosshairs -->
+                <line x1="280" y1="45" x2="280" y2="515" class="radar-crosshair" />
+                <line x1="45" y1="280" x2="515" y2="280" class="radar-crosshair" />
+                
+                <!-- Radar Cardinal Degree Markings -->
+                <text x="280" y="38" class="radar-text" text-anchor="middle">000° N</text>
+                <text x="522" y="284" class="radar-text" text-anchor="start">090° E</text>
+                <text x="280" y="530" class="radar-text" text-anchor="middle">180° S</text>
+                <text x="38" y="284" class="radar-text" text-anchor="end">270° W</text>
+              </g>
 
-              <!-- Dashed Colored Glowing Energy Beams -->
-              <path class="beam-active beam-teal" d="M 280 230 C 275 170, 275 120, 280 80" />
-              <path class="beam-active beam-orange" d="M 330 255 C 385 220, 415 190, 450 160" />
-              <path class="beam-active beam-blue" d="M 330 305 C 385 340, 415 370, 450 400" />
-              <path class="beam-active beam-pink" d="M 280 330 C 285 390, 285 440, 280 485" />
-              <path class="beam-active beam-purple" d="M 230 305 C 175 340, 145 370, 110 400" />
-              <path class="beam-active beam-cyan" d="M 230 255 C 175 220, 145 190, 110 160" />
+              <!-- Curved Energy Conduits (Wide Soft Ambient Glow Tubes) -->
+              <g class="conduit-glow-layer">
+                <path id="glow-path-realestate" class="conduit-glow conduit-teal" d="M 280 220 C 265 175, 265 125, 280 80" />
+                <path id="glow-path-restaurants" class="conduit-glow conduit-orange" d="M 325 255 C 375 235, 410 205, 450 175" />
+                <path id="glow-path-logistics" class="conduit-glow conduit-blue" d="M 325 305 C 375 325, 410 355, 450 385" />
+                <path id="glow-path-retail" class="conduit-glow conduit-pink" d="M 280 340 C 295 385, 295 435, 280 480" />
+                <path id="glow-path-finance" class="conduit-glow conduit-purple" d="M 235 305 C 185 325, 150 355, 110 385" />
+                <path id="glow-path-ecommerce" class="conduit-glow conduit-cyan" d="M 235 255 C 185 235, 150 205, 110 175" />
+              </g>
 
-              <!-- Traveling Photon Light Packets -->
-              <circle r="4.5" class="photon photon-teal" filter="url(#glow-teal)">
-                <animateMotion dur="2.4s" repeatCount="indefinite" path="M 280 230 C 275 170, 275 120, 280 80" />
-              </circle>
-              <circle r="4.5" class="photon photon-orange" filter="url(#glow-orange)">
-                <animateMotion dur="2.8s" repeatCount="indefinite" path="M 330 255 C 385 220, 415 190, 450 160" />
-              </circle>
-              <circle r="4.5" class="photon photon-blue" filter="url(#glow-blue)">
-                <animateMotion dur="2.2s" repeatCount="indefinite" path="M 330 305 C 385 340, 415 370, 450 400" />
-              </circle>
-              <circle r="4.5" class="photon photon-pink" filter="url(#glow-pink)">
-                <animateMotion dur="2.6s" repeatCount="indefinite" path="M 280 330 C 285 390, 285 440, 280 485" />
-              </circle>
-              <circle r="4.5" class="photon photon-purple" filter="url(#glow-purple)">
-                <animateMotion dur="2.5s" repeatCount="indefinite" path="M 230 305 C 175 340, 145 370, 110 400" />
-              </circle>
-              <circle r="4.5" class="photon photon-cyan" filter="url(#glow-cyan)">
-                <animateMotion dur="2.3s" repeatCount="indefinite" path="M 230 255 C 175 220, 145 190, 110 160" />
-              </circle>
+              <!-- Base Connecting Guide Track Lines -->
+              <g class="beam-base-layer">
+                <path id="path-realestate" class="beam-base" d="M 280 220 C 265 175, 265 125, 280 80" />
+                <path id="path-restaurants" class="beam-base" d="M 325 255 C 375 235, 410 205, 450 175" />
+                <path id="path-logistics" class="beam-base" d="M 325 305 C 375 325, 410 355, 450 385" />
+                <path id="path-retail" class="beam-base" d="M 280 340 C 295 385, 295 435, 280 480" />
+                <path id="path-finance" class="beam-base" d="M 235 305 C 185 325, 150 355, 110 385" />
+                <path id="path-ecommerce" class="beam-base" d="M 235 255 C 185 235, 150 205, 110 175" />
+              </g>
+
+              <!-- Animated Dashed Glowing Energy Beams -->
+              <g class="beam-active-layer">
+                <path class="beam-active beam-teal" data-beam="realestate" d="M 280 220 C 265 175, 265 125, 280 80" />
+                <path class="beam-active beam-orange" data-beam="restaurants" d="M 325 255 C 375 235, 410 205, 450 175" />
+                <path class="beam-active beam-blue" data-beam="logistics" d="M 325 305 C 375 325, 410 355, 450 385" />
+                <path class="beam-active beam-pink" data-beam="retail" d="M 280 340 C 295 385, 295 435, 280 480" />
+                <path class="beam-active beam-purple" data-beam="finance" d="M 235 305 C 185 325, 150 355, 110 385" />
+                <path class="beam-active beam-cyan" data-beam="ecommerce" d="M 235 255 C 185 235, 150 205, 110 175" />
+              </g>
+
+              <!-- Traveling High-Speed Photon Packets with Comet Glow -->
+              <g class="photons-layer">
+                <circle r="4.5" class="photon photon-teal" filter="url(#glow-teal)">
+                  <animateMotion dur="2.2s" repeatCount="indefinite" path="M 280 220 C 265 175, 265 125, 280 80" />
+                </circle>
+                <circle r="4.5" class="photon photon-orange" filter="url(#glow-orange)">
+                  <animateMotion dur="2.5s" repeatCount="indefinite" path="M 325 255 C 375 235, 410 205, 450 175" />
+                </circle>
+                <circle r="4.5" class="photon photon-blue" filter="url(#glow-blue)">
+                  <animateMotion dur="2.1s" repeatCount="indefinite" path="M 325 305 C 375 325, 410 355, 450 385" />
+                </circle>
+                <circle r="4.5" class="photon photon-pink" filter="url(#glow-pink)">
+                  <animateMotion dur="2.4s" repeatCount="indefinite" path="M 280 340 C 295 385, 295 435, 280 480" />
+                </circle>
+                <circle r="4.5" class="photon photon-purple" filter="url(#glow-purple)">
+                  <animateMotion dur="2.3s" repeatCount="indefinite" path="M 235 305 C 185 325, 150 355, 110 385" />
+                </circle>
+                <circle r="4.5" class="photon photon-cyan" filter="url(#glow-cyan)">
+                  <animateMotion dur="2.2s" repeatCount="indefinite" path="M 235 255 C 185 235, 150 205, 110 175" />
+                </circle>
+              </g>
+
+              <!-- Core Port Anchor Dots (Where Conduit Meets Center Hub) -->
+              <g class="anchor-ports">
+                <circle cx="280" cy="220" r="3.5" class="port-dot port-teal" />
+                <circle cx="325" cy="255" r="3.5" class="port-dot port-orange" />
+                <circle cx="325" cy="305" r="3.5" class="port-dot port-blue" />
+                <circle cx="280" cy="340" r="3.5" class="port-dot port-pink" />
+                <circle cx="235" cy="305" r="3.5" class="port-dot port-purple" />
+                <circle cx="235" cy="255" r="3.5" class="port-dot port-cyan" />
+              </g>
             </svg>
 
-            <!-- Central Hub (White Disc with XTECH Emblem & Glowing Electric Aura) -->
-            <div class="radial-center-hub" id="center-hub" title="XTECH Neural Core">
+            <!-- Central Hub (Quantum Cyber Core with High-Tech Orbiting HUD) -->
+            <div class="radial-center-hub" id="center-hub" title="XTECH Neural Quantum Core" tabindex="0">
               <div class="hub-aura"></div>
+              <div class="hub-reticle-ring"></div>
+              <div class="hub-orbit-ticks"></div>
               <div class="hub-disc">
                 <img src="./assets/xtech-hero-logo.png" alt="XTECH Central Core" class="hub-emblem-img">
               </div>
+              <div class="hub-core-chip">
+                <span class="core-chip-dot"></span>
+                <span>NEURAL CORE</span>
+              </div>
             </div>
 
-            <!-- 6 Industry Radial Nodes -->
+            <!-- 6 Industry Radial Nodes (Floating Holographic Quantum Pods) -->
 
             <!-- 1. Real Estate (Top) -->
-            <div class="radial-node node-realestate" data-node="realestate" style="top: 14.5%; left: 50%;">
+            <div class="radial-node node-realestate" data-node="realestate" style="top: 14.3%; left: 50%;" tabindex="0">
+              <div class="pod-sonar-ripple"></div>
               <div class="node-icon-pod pod-teal">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
                   <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
                   <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
@@ -721,13 +805,17 @@
                 </svg>
                 <span class="beacon-dot beacon-teal"></span>
               </div>
-              <div class="node-pill">REAL ESTATE</div>
+              <div class="node-pill-group">
+                <div class="node-pill">REAL ESTATE</div>
+                <div class="node-metric-tag">+340% VELOCITY</div>
+              </div>
             </div>
 
             <!-- 2. Restaurants (Top Right) -->
-            <div class="radial-node node-restaurants" data-node="restaurants" style="top: 28.5%; left: 80.5%;">
+            <div class="radial-node node-restaurants" data-node="restaurants" style="top: 31.2%; left: 81.5%;" tabindex="0">
+              <div class="pod-sonar-ripple"></div>
               <div class="node-icon-pod pod-orange">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 2v20"></path>
                   <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
                   <path d="M4 2v7c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2V2"></path>
@@ -735,13 +823,17 @@
                 </svg>
                 <span class="beacon-dot beacon-orange"></span>
               </div>
-              <div class="node-pill">RESTAURANTS</div>
+              <div class="node-pill-group">
+                <div class="node-pill">RESTAURANTS</div>
+                <div class="node-metric-tag">-28% WASTE</div>
+              </div>
             </div>
 
             <!-- 3. Logistics (Bottom Right) -->
-            <div class="radial-node node-logistics" data-node="logistics" style="top: 71.5%; left: 80.5%;">
+            <div class="radial-node node-logistics" data-node="logistics" style="top: 68.8%; left: 81.5%;" tabindex="0">
+              <div class="pod-sonar-ripple"></div>
               <div class="node-icon-pod pod-blue">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
                   <path d="M15 18H9"></path>
                   <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14v10Z"></path>
@@ -750,26 +842,34 @@
                 </svg>
                 <span class="beacon-dot beacon-blue"></span>
               </div>
-              <div class="node-pill">LOGISTICS</div>
+              <div class="node-pill-group">
+                <div class="node-pill">LOGISTICS</div>
+                <div class="node-metric-tag">99.98% ON-TIME</div>
+              </div>
             </div>
 
             <!-- 4. Retail (Bottom) -->
-            <div class="radial-node node-retail" data-node="retail" style="top: 86.5%; left: 50%;">
+            <div class="radial-node node-retail" data-node="retail" style="top: 86.6%; left: 50%;" tabindex="0">
+              <div class="pod-sonar-ripple"></div>
               <div class="node-icon-pod pod-pink">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
                   <path d="M3 6h18"></path>
                   <path d="M16 10a4 4 0 0 1-8 0"></path>
                 </svg>
                 <span class="beacon-dot beacon-pink"></span>
               </div>
-              <div class="node-pill">RETAIL</div>
+              <div class="node-pill-group">
+                <div class="node-pill">RETAIL</div>
+                <div class="node-metric-tag">+42% BASKET</div>
+              </div>
             </div>
 
             <!-- 5. Finance (Bottom Left) -->
-            <div class="radial-node node-finance" data-node="finance" style="top: 71.5%; left: 19.5%;">
+            <div class="radial-node node-finance" data-node="finance" style="top: 68.8%; left: 18.5%;" tabindex="0">
+              <div class="pod-sonar-ripple"></div>
               <div class="node-icon-pod pod-purple">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="3" y1="21" x2="21" y2="21"></line>
                   <line x1="3" y1="10" x2="21" y2="10"></line>
                   <polygon points="12 3 2 10 22 10 12 3"></polygon>
@@ -780,20 +880,42 @@
                 </svg>
                 <span class="beacon-dot beacon-purple"></span>
               </div>
-              <div class="node-pill">FINANCE</div>
+              <div class="node-pill-group">
+                <div class="node-pill">FINANCE</div>
+                <div class="node-metric-tag">&lt;0.5MS RISK</div>
+              </div>
             </div>
 
             <!-- 6. E-Commerce (Top Left) -->
-            <div class="radial-node node-ecommerce" data-node="ecommerce" style="top: 28.5%; left: 19.5%;">
+            <div class="radial-node node-ecommerce" data-node="ecommerce" style="top: 31.2%; left: 18.5%;" tabindex="0">
+              <div class="pod-sonar-ripple"></div>
               <div class="node-icon-pod pod-cyan">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="8" cy="21" r="1"></circle>
                   <circle cx="19" cy="21" r="1"></circle>
                   <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
                 </svg>
                 <span class="beacon-dot beacon-cyan"></span>
               </div>
-              <div class="node-pill">E-COMMERCE</div>
+              <div class="node-pill-group">
+                <div class="node-pill">E-COMMERCE</div>
+                <div class="node-metric-tag">3.8X CONV</div>
+              </div>
+            </div>
+
+            <!-- Interactive Holographic Sector Intel HUD Overlay (Appears on Hover / Selection) -->
+            <div class="industry-hud-intel" id="industry-hud-intel" aria-live="polite">
+              <div class="hud-topline">
+                <span class="hud-dot"></span>
+                <span class="hud-sector-code" id="hud-sector-code">SECTOR: PROP-TECH // VERTICAL 01</span>
+                <span class="hud-badge-state">LIVE SYNC</span>
+              </div>
+              <h4 class="hud-title" id="hud-title">Real Estate AI Infrastructure</h4>
+              <p class="hud-body" id="hud-body">Autonomous 3D spatial valuation, photorealistic digital twins, and 24/7 hyper-personalized investor lead qualification pipeline.</p>
+              <div class="hud-footer">
+                <span class="hud-metric" id="hud-metric">IMPACT METRIC: +340% DEAL VELOCITY</span>
+                <span class="hud-hint">// CLICK NODE FOR DEEP DIVE</span>
+              </div>
             </div>
 
           </div>
