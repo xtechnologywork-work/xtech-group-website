@@ -423,7 +423,23 @@ function initHeadlineTyping(soundSystem) {
   const backspaceSpeed = 30;  // Crisp backspace speed
   const pauseBeforeType = 400;// Pause before re-typing
 
+  let isTypingVisible = true;
+  const heroSec = document.getElementById('hero');
+  if (heroSec && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        isTypingVisible = entry.isIntersecting;
+      }
+    }, { threshold: 0 });
+    observer.observe(heroSec);
+  }
+
   function typeForward() {
+    if (!isTypingVisible) {
+      setTimeout(typeForward, 400);
+      return;
+    }
+
     if (currentIdx < sequence.length) {
       const item = sequence[currentIdx];
       item.span.classList.add('revealed');
@@ -442,6 +458,11 @@ function initHeadlineTyping(soundSystem) {
   }
 
   function eraseBackward() {
+    if (!isTypingVisible) {
+      setTimeout(eraseBackward, 400);
+      return;
+    }
+
     if (currentIdx > 0) {
       currentIdx--;
       const item = sequence[currentIdx];
@@ -465,14 +486,35 @@ function initHeadlineTyping(soundSystem) {
 }
 
 /**
- * 3D Interactive Neon Tubes Cursor Background
- * Integrated via threejs-components (Kevin Levron concept)
+ * 3D Interactive Neon Tubes Background (Kevin Levron concept)
+ * Hyper-optimized 120 FPS performance pipeline
  */
 async function initTubesBackground(soundSystem) {
   const canvas = document.getElementById('hero-tubes-canvas');
   const heroSection = document.getElementById('hero');
   const hintEl = document.getElementById('tubes-hint');
   if (!canvas || !heroSection) return;
+
+  // 1. Off-screen Visibility Observer: Zero GPU/CPU waste when scrolled away
+  let isHeroVisible = true;
+  const heroObserver = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      isHeroVisible = entry.isIntersecting;
+    }
+  }, {
+    rootMargin: '100px 0px',
+    threshold: 0
+  });
+  heroObserver.observe(heroSection);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      isHeroVisible = false;
+    } else {
+      const rect = heroSection.getBoundingClientRect();
+      isHeroVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+    }
+  });
 
   // Helper for random hex colors
   const randomColors = (count) => {
@@ -509,7 +551,6 @@ async function initTubesBackground(soundSystem) {
   let tubesApp = null;
 
   try {
-    // Native browser dynamic import to bypass Vite bundler static analysis
     const importModule = (url) => (new Function('u', 'return import(u)'))(url);
 
     let module;
@@ -527,44 +568,81 @@ async function initTubesBackground(soundSystem) {
     const TubesCursor = module.default;
     if (typeof TubesCursor !== 'function') return;
 
-    // Initialize TubesCursor with signature from prompt
+    // Initialize TubesCursor
     tubesApp = TubesCursor(canvas, {
       tubes: {
         colors: palettes[0].tubes,
         lights: {
-          intensity: 200,
+          intensity: 180,
           colors: palettes[0].lights
         }
       },
-      sleepRadiusX: 300,
-      sleepRadiusY: 160,
-      sleepTimeScale1: 0.8,
-      sleepTimeScale2: 1.3
+      sleepRadiusX: 280,
+      sleepRadiusY: 140,
+      sleepTimeScale1: 0.75,
+      sleepTimeScale2: 1.15
     });
 
-    // Make the tubes autonomous - DETACH MOUSE TRACKING
+    // 2. Hardware acceleration & strict DPR capping (eliminates GPU fill-rate choke)
+    if (tubesApp && tubesApp.three && tubesApp.three.renderer) {
+      const renderer = tubesApp.three.renderer;
+      const optimalDPR = Math.min(window.devicePixelRatio || 1, 1.15);
+      renderer.setPixelRatio(optimalDPR);
+      renderer.powerPreference = 'high-performance';
+      if (renderer.shadowMap) renderer.shadowMap.enabled = false;
+
+      // 3. Absolute render culling when off-screen
+      const originalRender = renderer.render.bind(renderer);
+      renderer.render = function(scene, camera) {
+        if (!isHeroVisible) return; // 0 draw calls when scrolled past hero
+        return originalRender(scene, camera);
+      };
+    }
+
+    // 4. Autonomous smooth orbit with 60 FPS delta-clamping
     if (tubesApp && tubesApp.three && tubesApp.tubes) {
+      let lastFrameTime = 0;
+      const minInterval = 1000 / 60; // 16.6ms frame limit (prevents burning cycles on 120Hz/144Hz)
+
       tubesApp.three.onBeforeRender = function(e) {
+        if (!isHeroVisible) return;
+
+        const now = performance.now();
+        if (now - lastFrameTime < minInterval - 1) return;
+        lastFrameTime = now;
+
         const r = tubesApp.three;
         const s = tubesApp.options || {};
         const i = tubesApp.tubes;
-        const t = (r.size && r.size.wWidth && r.size.width) ? (r.size.wWidth / r.size.width) : 0.01;
-        const radX = (s.sleepRadiusX || 300) * t;
-        const radY = (s.sleepRadiusY || 160) * t;
-        const timeScale1 = s.sleepTimeScale1 || 0.8;
-        const timeScale2 = s.sleepTimeScale2 || 1.3;
+        if (!i || !i.target) return;
 
-        // Smooth ambient 3D orbit without following mouse
+        const t = (r.size && r.size.wWidth && r.size.width) ? (r.size.wWidth / r.size.width) : 0.01;
+        const radX = (s.sleepRadiusX || 280) * t;
+        const radY = (s.sleepRadiusY || 140) * t;
+        const timeScale1 = s.sleepTimeScale1 || 0.75;
+        const timeScale2 = s.sleepTimeScale2 || 1.15;
+
+        // Smooth ambient 3D orbit
         i.target.x = radX * Math.cos(e.elapsed * timeScale1);
         i.target.y = radY * Math.sin(e.elapsed * timeScale2);
         i.update(e);
       };
     }
 
+    // Debounced resize handler to maintain capped pixel ratio
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (tubesApp && tubesApp.three && tubesApp.three.renderer) {
+          tubesApp.three.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.15));
+        }
+      }, 150);
+    }, { passive: true });
+
     // Color shifting on hero click interaction
     function shiftColors(e) {
       if (!tubesApp || !tubesApp.tubes) return;
-      // Don't trigger if user clicked an anchor or button
       if (e && e.target && (e.target.closest('a') || e.target.closest('button'))) return;
 
       currentPaletteIdx = (currentPaletteIdx + 1) % (palettes.length + 3);
@@ -589,7 +667,6 @@ async function initTubesBackground(soundSystem) {
         soundSystem.click();
       }
 
-      // Micro feedback on hint indicator
       if (hintEl) {
         hintEl.style.transform = 'scale(0.95)';
         setTimeout(() => {

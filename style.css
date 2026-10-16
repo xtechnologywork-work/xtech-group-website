@@ -414,9 +414,10 @@ body.kinetic-body {
   align-items: center;
   padding: clamp(6.5rem, 12vh, 8.5rem) 2rem clamp(3.5rem, 7vh, 5rem) 2rem;
   overflow: hidden;
+  contain: layout paint;
 }
 
-/* 3D WebGL Tubes Canvas Background */
+/* 3D WebGL Tubes Canvas Background - Isolated GPU Layer */
 .hero-tubes-canvas {
   position: absolute;
   inset: 0;
@@ -425,15 +426,20 @@ body.kinetic-body {
   display: block;
   z-index: 1;
   pointer-events: none;
+  contain: strict;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
-/* Semi-transparent Vignette Overlay to preserve headline contrast & legibility */
+/* Semi-transparent Vignette Overlay - Isolated GPU Layer */
 .hero-tubes-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.75) 75%, #000000 100%);
+  contain: strict;
+  transform: translate3d(0, 0, 0);
 }
 
 /* Headline Wrapper with Authentic User 3D Emblem */
