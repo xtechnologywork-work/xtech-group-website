@@ -15,5 +15,8 @@
   "devDependencies": {
     "sharp": "^0.35.5",
     "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "ogl": "^1.0.11"
   }
 }

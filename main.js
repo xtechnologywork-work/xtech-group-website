@@ -1,3 +1,5 @@
+import { initLightRays } from './light-rays.js';
+
 /* ==========================================================================
    KINETIC ORANGE // CLIENT-SIDE JAVASCRIPT LOGIC
    ========================================================================== */
@@ -20,9 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5.1 OUR PRODUCTS BY XTECH INTERACTION
   initProductsInteractivity(soundSystem);
 
-  // 5.2 PAUSE DECORATIVE ANIMATIONS WHEN SECTIONS ARE OFF-SCREEN
-  initOffscreenAnimationPausing();
-
   // 6. INQUIRY MODAL & FORM TRANSMISSION
   initInquiryModal(soundSystem);
 
@@ -36,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 10. HEADLINE TYPING ANIMATION (DELIBERATE PACE // 2.5S LOOP)
   initHeadlineTyping(soundSystem);
 
-  // 11. 3D INTERACTIVE NEON TUBES CURSOR BACKGROUND (THREEJS-COMPONENTS)
-  initTubesBackground(soundSystem);
+  // 11. WEBGL ATMOSPHERIC LIGHT RAYS BACKGROUND (OGL ENGINE)
+  initHeroLightRays(soundSystem);
 });
 
 /**
@@ -182,45 +181,27 @@ function initSoundSystem() {
  * Navigation ScrollSpy & smooth scroll links
  */
 function initNavigation() {
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], footer[id]');
   const navLinks = document.querySelectorAll('.nav-pill-link');
-  if (!sections.length || !('IntersectionObserver' in window)) return;
 
-  const setActive = (id) => {
-    navLinks.forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 200;
+
+    sections.forEach((sec) => {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      const id = sec.getAttribute('id');
+
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach((link) => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
     });
-  };
-
-  // Zero layout reads on scroll: the browser reports which section crosses the reading line
-  const spy = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) setActive(entry.target.id);
-    });
-  }, { rootMargin: '-35% 0px -60% 0px', threshold: 0 });
-
-  sections.forEach((sec) => spy.observe(sec));
-}
-
-/**
- * Pauses CSS + SVG (SMIL) animations in sections that are not visible
- */
-function initOffscreenAnimationPausing() {
-  if (!('IntersectionObserver' in window)) return;
-  const targets = document.querySelectorAll('#testimonials, #marquee-section, #industries, #products');
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const visible = entry.isIntersecting;
-      entry.target.classList.toggle('is-offscreen', !visible);
-      entry.target.querySelectorAll('svg').forEach((svg) => {
-        if (typeof svg.pauseAnimations !== 'function') return;
-        visible ? svg.unpauseAnimations() : svg.pauseAnimations();
-      });
-    });
-  }, { rootMargin: '200px 0px' });
-
-  targets.forEach((el) => io.observe(el));
+  }, { passive: true });
 }
 
 
@@ -564,220 +545,70 @@ function initHeadlineTyping(soundSystem) {
 }
 
 /**
- * 3D Interactive Neon Tubes Background (Kevin Levron concept)
- * Hyper-optimized 120 FPS performance pipeline
+ * WebGL Atmospheric Light Rays Background Engine (OGL Accelerated)
+ * Cinematic lighting responding to mouse movement and ambient organic flow.
  */
-async function initTubesBackground(soundSystem) {
-  const canvas = document.getElementById('hero-tubes-canvas');
+function initHeroLightRays(soundSystem) {
+  const container = document.getElementById('hero-light-rays');
   const heroSection = document.getElementById('hero');
-  const hintEl = document.getElementById('tubes-hint');
-  if (!canvas || !heroSection) return;
+  const hintEl = document.getElementById('rays-hint');
+  if (!container || !heroSection) return;
 
-  // 0. Skip the 775 KB WebGL scene for reduced-motion users and data-saver connections
-  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const saveData = navigator.connection && navigator.connection.saveData;
-  if (reduceMotion || saveData) return;
-
-  // Defer heavy WebGL until the page has loaded and the main thread is idle
-  await new Promise((resolve) => {
-    const whenIdle = () => ('requestIdleCallback' in window)
-      ? requestIdleCallback(resolve, { timeout: 1500 })
-      : setTimeout(resolve, 200);
-    if (document.readyState === 'complete') whenIdle();
-    else window.addEventListener('load', whenIdle, { once: true });
-  });
-
-  // 1. Off-screen Visibility Observer: Zero GPU/CPU waste when scrolled away
-  let isHeroVisible = true;
-  const heroObserver = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      isHeroVisible = entry.isIntersecting;
-    }
-  }, {
-    rootMargin: '100px 0px',
-    threshold: 0
-  });
-  heroObserver.observe(heroSection);
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      isHeroVisible = false;
-    } else {
-      const rect = heroSection.getBoundingClientRect();
-      isHeroVisible = rect.bottom > 0 && rect.top < window.innerHeight;
-    }
-  });
-
-  // Helper for random hex colors
-  const randomColors = (count) => {
-    return new Array(count)
-      .fill(0)
-      .map(() => "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'));
-  };
-
-  // High-performance curated futuristic tech palettes
-  const palettes = [
-    {
-      tubes: ["#1182FF", "#00F0FF", "#6958D5"],
-      lights: ["#1182FF", "#00F0FF", "#3B82F6", "#FFFFFF"]
-    },
-    {
-      tubes: ["#F967FB", "#53BC28", "#6958D5"],
-      lights: ["#83F36E", "#FE8A2E", "#FF008A", "#60AED5"]
-    },
-    {
-      tubes: ["#00F0FF", "#1182FF", "#FFFFFF"],
-      lights: ["#00F0FF", "#1182FF", "#E2E8F0", "#38BDF8"]
-    },
-    {
-      tubes: ["#A855F7", "#3B82F6", "#06B6D4"],
-      lights: ["#EC4899", "#8B5CF6", "#3B82F6", "#10B981"]
-    },
-    {
-      tubes: ["#FF3366", "#33CCFF", "#FFFF33"],
-      lights: ["#FF0055", "#00E5FF", "#FFE600", "#FFFFFF"]
-    }
+  const colorSpectrums = [
+    { name: 'SOVEREIGN CYAN', hex: '#00F0FF' },
+    { name: 'ROYAL XTECH BLUE', hex: '#1182FF' },
+    { name: 'QUANTUM EMERALD', hex: '#00FFCC' },
+    { name: 'NEURAL INDIGO', hex: '#6366F1' },
+    { name: 'SKY PLATINUM', hex: '#38BDF8' },
+    { name: 'SOLAR LIGHT', hex: '#FFFFFF' }
   ];
 
-  let currentPaletteIdx = 0;
-  let tubesApp = null;
+  let currentSpectrumIdx = 0;
 
-  try {
-    const importModule = (url) => (new Function('u', 'return import(u)'))(url);
+  // Initialize LightRays with the user-specified prompt parameters
+  const rays = initLightRays(container, {
+    raysOrigin: 'top-center',
+    raysColor: colorSpectrums[0].hex,
+    raysSpeed: 1.5,
+    lightSpread: 1.2,
+    rayLength: 1.8,
+    followMouse: true,
+    mouseInfluence: 0.28,
+    noiseAmount: 0.03,
+    distortion: 0.08,
+    fadeDistance: 1.2,
+    saturation: 1.0,
+    pulsating: false
+  });
 
-    let module;
-    try {
-      // Same-origin first: no extra DNS/TLS handshake, served from our own cache
-      module = await importModule('/vendor/tubes1.min.js');
-    } catch (e1) {
-      try {
-        module = await importModule('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
-      } catch (e2) {
-        console.warn('Unable to load TubesCursor module:', e1, e2);
-        return;
-      }
+  if (!rays) return;
+
+  // Click on hero or hint pill to shift atmospheric color spectrum
+  function shiftSpectrum(e) {
+    if (e && e.target && (e.target.closest('a') || e.target.closest('button') || e.target.closest('.hero-emblem-badge'))) return;
+
+    currentSpectrumIdx = (currentSpectrumIdx + 1) % colorSpectrums.length;
+    const nextSpectrum = colorSpectrums[currentSpectrumIdx];
+
+    rays.setColor(nextSpectrum.hex);
+
+    if (soundSystem && typeof soundSystem.click === 'function') {
+      soundSystem.click();
     }
 
-    const TubesCursor = module.default;
-    if (typeof TubesCursor !== 'function') return;
+    logTerminalEvent(`ATMOSPHERIC LIGHT SHIFT: [${nextSpectrum.name}]`);
 
-    // Initialize TubesCursor
-    tubesApp = TubesCursor(canvas, {
-      tubes: {
-        colors: palettes[0].tubes,
-        lights: {
-          intensity: 180,
-          colors: palettes[0].lights
-        }
-      },
-      sleepRadiusX: 280,
-      sleepRadiusY: 140,
-      sleepTimeScale1: 0.75,
-      sleepTimeScale2: 1.15
-    });
-
-    // 2. Hardware acceleration & strict DPR capping (eliminates GPU fill-rate choke)
-    if (tubesApp && tubesApp.three && tubesApp.three.renderer) {
-      const renderer = tubesApp.three.renderer;
-      const optimalDPR = Math.min(window.devicePixelRatio || 1, 1.15);
-      renderer.setPixelRatio(optimalDPR);
-      renderer.powerPreference = 'high-performance';
-      if (renderer.shadowMap) renderer.shadowMap.enabled = false;
-
-      // 3. Absolute render culling when off-screen + hard 60 FPS cap on real GPU draws
-      const originalRender = renderer.render.bind(renderer);
-      const drawInterval = 1000 / 60;
-      let lastDraw = 0;
-      renderer.render = function(scene, camera) {
-        if (!isHeroVisible) return; // 0 draw calls when scrolled past hero
-        const now = performance.now();
-        if (now - lastDraw < drawInterval - 1) return; // no wasted frames on 120/144Hz screens
-        lastDraw = now;
-        return originalRender(scene, camera);
-      };
-    }
-
-    // 4. Autonomous smooth orbit with 60 FPS delta-clamping
-    if (tubesApp && tubesApp.three && tubesApp.tubes) {
-      let lastFrameTime = 0;
-      const minInterval = 1000 / 60; // 16.6ms frame limit (prevents burning cycles on 120Hz/144Hz)
-
-      tubesApp.three.onBeforeRender = function(e) {
-        if (!isHeroVisible) return;
-
-        const now = performance.now();
-        if (now - lastFrameTime < minInterval - 1) return;
-        lastFrameTime = now;
-
-        const r = tubesApp.three;
-        const s = tubesApp.options || {};
-        const i = tubesApp.tubes;
-        if (!i || !i.target) return;
-
-        const t = (r.size && r.size.wWidth && r.size.width) ? (r.size.wWidth / r.size.width) : 0.01;
-        const radX = (s.sleepRadiusX || 280) * t;
-        const radY = (s.sleepRadiusY || 140) * t;
-        const timeScale1 = s.sleepTimeScale1 || 0.75;
-        const timeScale2 = s.sleepTimeScale2 || 1.15;
-
-        // Smooth ambient 3D orbit
-        i.target.x = radX * Math.cos(e.elapsed * timeScale1);
-        i.target.y = radY * Math.sin(e.elapsed * timeScale2);
-        i.update(e);
-      };
-    }
-
-    // Debounced resize handler to maintain capped pixel ratio
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        if (tubesApp && tubesApp.three && tubesApp.three.renderer) {
-          tubesApp.three.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.15));
-        }
+    if (hintEl) {
+      hintEl.style.transform = 'scale(0.95)';
+      const label = hintEl.querySelector('.hint-label');
+      if (label) label.textContent = `${nextSpectrum.name} ACTIVE`;
+      setTimeout(() => {
+        if (hintEl) hintEl.style.transform = '';
       }, 150);
-    }, { passive: true });
-
-    // Color shifting on hero click interaction
-    function shiftColors(e) {
-      if (!tubesApp || !tubesApp.tubes) return;
-      if (e && e.target && (e.target.closest('a') || e.target.closest('button'))) return;
-
-      currentPaletteIdx = (currentPaletteIdx + 1) % (palettes.length + 3);
-
-      let newTubeColors, newLightsColors;
-      if (currentPaletteIdx < palettes.length) {
-        newTubeColors = palettes[currentPaletteIdx].tubes;
-        newLightsColors = palettes[currentPaletteIdx].lights;
-      } else {
-        newTubeColors = randomColors(3);
-        newLightsColors = randomColors(4);
-      }
-
-      if (typeof tubesApp.tubes.setColors === 'function') {
-        tubesApp.tubes.setColors(newTubeColors);
-      }
-      if (typeof tubesApp.tubes.setLightsColors === 'function') {
-        tubesApp.tubes.setLightsColors(newLightsColors);
-      }
-
-      if (soundSystem && typeof soundSystem.click === 'function') {
-        soundSystem.click();
-      }
-
-      if (hintEl) {
-        hintEl.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          if (hintEl) hintEl.style.transform = '';
-        }, 150);
-      }
     }
-
-    heroSection.addEventListener('click', shiftColors);
-
-  } catch (error) {
-    console.warn("Tubes interactive background initialization notice:", error);
   }
+
+  heroSection.addEventListener('click', shiftSpectrum);
 }
 
 
