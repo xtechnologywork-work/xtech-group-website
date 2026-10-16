@@ -631,33 +631,44 @@
             <!-- SVG Energy Beams Overlay -->
             <svg class="radial-svg" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
               <defs>
-                <filter id="glow-teal" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-teal" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
-                <filter id="glow-orange" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
-                <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-blue" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
-                <filter id="glow-pink" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-pink" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
-                <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
-                <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="4.5" result="blur" />
                   <feComposite in="SourceGraphic" in2="blur" operator="over" />
                 </filter>
               </defs>
 
-              <!-- Base Connecting Lines -->
+              <!-- Futuristic Orbital Telemetry & Constellation Rings -->
+              <circle cx="280" cy="280" r="95" class="radar-orbit orbit-inner" />
+              <circle cx="280" cy="280" r="165" class="radar-orbit orbit-mid" />
+              <circle cx="280" cy="280" r="235" class="radar-orbit orbit-outer" />
+              
+              <!-- Subtle Telemetry Reticle Crosshairs -->
+              <line x1="280" y1="36" x2="280" y2="52" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1.5" />
+              <line x1="280" y1="508" x2="280" y2="524" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1.5" />
+              <line x1="36" y1="280" x2="52" y2="280" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1.5" />
+              <line x1="508" y1="280" x2="524" y2="280" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1.5" />
+
+              <!-- Base Connecting Lines (Deep Fiber Guides) -->
               <path id="path-realestate" class="beam-base" d="M 280 230 C 275 170, 275 120, 280 80" />
               <path id="path-restaurants" class="beam-base" d="M 330 255 C 385 220, 415 190, 450 160" />
               <path id="path-logistics" class="beam-base" d="M 330 305 C 385 340, 415 370, 450 400" />
@@ -665,7 +676,15 @@
               <path id="path-finance" class="beam-base" d="M 230 305 C 175 340, 145 370, 110 400" />
               <path id="path-ecommerce" class="beam-base" d="M 230 255 C 175 220, 145 190, 110 160" />
 
-              <!-- Dashed Colored Glowing Energy Beams -->
+              <!-- Radiant Laser Glow Underlays -->
+              <path class="beam-glow glow-teal" d="M 280 230 C 275 170, 275 120, 280 80" />
+              <path class="beam-glow glow-orange" d="M 330 255 C 385 220, 415 190, 450 160" />
+              <path class="beam-glow glow-blue" d="M 330 305 C 385 340, 415 370, 450 400" />
+              <path class="beam-glow glow-pink" d="M 280 330 C 285 390, 285 440, 280 485" />
+              <path class="beam-glow glow-purple" d="M 230 305 C 175 340, 145 370, 110 400" />
+              <path class="beam-glow glow-cyan" d="M 230 255 C 175 220, 145 190, 110 160" />
+
+              <!-- Dashed Glowing Energy Conduits -->
               <path class="beam-active beam-teal" d="M 280 230 C 275 170, 275 120, 280 80" />
               <path class="beam-active beam-orange" d="M 330 255 C 385 220, 415 190, 450 160" />
               <path class="beam-active beam-blue" d="M 330 305 C 385 340, 415 370, 450 400" />
@@ -673,30 +692,67 @@
               <path class="beam-active beam-purple" d="M 230 305 C 175 340, 145 370, 110 400" />
               <path class="beam-active beam-cyan" d="M 230 255 C 175 220, 145 190, 110 160" />
 
-              <!-- Traveling Photon Light Packets -->
-              <circle r="4.5" class="photon photon-teal" filter="url(#glow-teal)">
-                <animateMotion dur="2.4s" repeatCount="indefinite" path="M 280 230 C 275 170, 275 120, 280 80" />
-              </circle>
-              <circle r="4.5" class="photon photon-orange" filter="url(#glow-orange)">
-                <animateMotion dur="2.8s" repeatCount="indefinite" path="M 330 255 C 385 220, 415 190, 450 160" />
-              </circle>
-              <circle r="4.5" class="photon photon-blue" filter="url(#glow-blue)">
-                <animateMotion dur="2.2s" repeatCount="indefinite" path="M 330 305 C 385 340, 415 370, 450 400" />
-              </circle>
-              <circle r="4.5" class="photon photon-pink" filter="url(#glow-pink)">
-                <animateMotion dur="2.6s" repeatCount="indefinite" path="M 280 330 C 285 390, 285 440, 280 485" />
-              </circle>
-              <circle r="4.5" class="photon photon-purple" filter="url(#glow-purple)">
-                <animateMotion dur="2.5s" repeatCount="indefinite" path="M 230 305 C 175 340, 145 370, 110 400" />
-              </circle>
-              <circle r="4.5" class="photon photon-cyan" filter="url(#glow-cyan)">
-                <animateMotion dur="2.3s" repeatCount="indefinite" path="M 230 255 C 175 220, 145 190, 110 160" />
-              </circle>
+              <!-- Dual-Layer Traveling Photon Light Packets -->
+              <g class="photon-group">
+                <circle r="7.5" class="photon-halo photon-teal" filter="url(#glow-teal)" opacity="0.7">
+                  <animateMotion dur="2.4s" repeatCount="indefinite" path="M 280 230 C 275 170, 275 120, 280 80" />
+                </circle>
+                <circle r="3.5" class="photon-core photon-teal">
+                  <animateMotion dur="2.4s" repeatCount="indefinite" path="M 280 230 C 275 170, 275 120, 280 80" />
+                </circle>
+              </g>
+
+              <g class="photon-group">
+                <circle r="7.5" class="photon-halo photon-orange" filter="url(#glow-orange)" opacity="0.7">
+                  <animateMotion dur="2.8s" repeatCount="indefinite" path="M 330 255 C 385 220, 415 190, 450 160" />
+                </circle>
+                <circle r="3.5" class="photon-core photon-orange">
+                  <animateMotion dur="2.8s" repeatCount="indefinite" path="M 330 255 C 385 220, 415 190, 450 160" />
+                </circle>
+              </g>
+
+              <g class="photon-group">
+                <circle r="7.5" class="photon-halo photon-blue" filter="url(#glow-blue)" opacity="0.7">
+                  <animateMotion dur="2.2s" repeatCount="indefinite" path="M 330 305 C 385 340, 415 370, 450 400" />
+                </circle>
+                <circle r="3.5" class="photon-core photon-blue">
+                  <animateMotion dur="2.2s" repeatCount="indefinite" path="M 330 305 C 385 340, 415 370, 450 400" />
+                </circle>
+              </g>
+
+              <g class="photon-group">
+                <circle r="7.5" class="photon-halo photon-pink" filter="url(#glow-pink)" opacity="0.7">
+                  <animateMotion dur="2.6s" repeatCount="indefinite" path="M 280 330 C 285 390, 285 440, 280 485" />
+                </circle>
+                <circle r="3.5" class="photon-core photon-pink">
+                  <animateMotion dur="2.6s" repeatCount="indefinite" path="M 280 330 C 285 390, 285 440, 280 485" />
+                </circle>
+              </g>
+
+              <g class="photon-group">
+                <circle r="7.5" class="photon-halo photon-purple" filter="url(#glow-purple)" opacity="0.7">
+                  <animateMotion dur="2.5s" repeatCount="indefinite" path="M 230 305 C 175 340, 145 370, 110 400" />
+                </circle>
+                <circle r="3.5" class="photon-core photon-purple">
+                  <animateMotion dur="2.5s" repeatCount="indefinite" path="M 230 305 C 175 340, 145 370, 110 400" />
+                </circle>
+              </g>
+
+              <g class="photon-group">
+                <circle r="7.5" class="photon-halo photon-cyan" filter="url(#glow-cyan)" opacity="0.7">
+                  <animateMotion dur="2.3s" repeatCount="indefinite" path="M 230 255 C 175 220, 145 190, 110 160" />
+                </circle>
+                <circle r="3.5" class="photon-core photon-cyan">
+                  <animateMotion dur="2.3s" repeatCount="indefinite" path="M 230 255 C 175 220, 145 190, 110 160" />
+                </circle>
+              </g>
             </svg>
 
-            <!-- Central Hub (White Disc with XTECH Emblem & Glowing Electric Aura) -->
+            <!-- Central Hub (Quantum Cyber Reactor Core) -->
             <div class="radial-center-hub" id="center-hub" title="XTECH Neural Core">
+              <div class="hub-sonar-ring"></div>
               <div class="hub-aura"></div>
+              <div class="hub-outer-reticle"></div>
               <div class="hub-disc">
                 <img src="./assets/xtech-hero-logo.png" alt="XTECH Central Core" class="hub-emblem-img">
               </div>
@@ -706,8 +762,10 @@
 
             <!-- 1. Real Estate (Top) -->
             <div class="radial-node node-realestate" data-node="realestate" style="top: 14.5%; left: 50%;">
+              <div class="pod-ambient-bloom bloom-teal"></div>
               <div class="node-icon-pod pod-teal">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="pod-sonar-ripple"></div>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
                   <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
                   <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
@@ -723,8 +781,10 @@
 
             <!-- 2. Restaurants (Top Right) -->
             <div class="radial-node node-restaurants" data-node="restaurants" style="top: 28.5%; left: 80.5%;">
+              <div class="pod-ambient-bloom bloom-orange"></div>
               <div class="node-icon-pod pod-orange">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="pod-sonar-ripple"></div>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 2v20"></path>
                   <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
                   <path d="M4 2v7c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2V2"></path>
@@ -737,8 +797,10 @@
 
             <!-- 3. Logistics (Bottom Right) -->
             <div class="radial-node node-logistics" data-node="logistics" style="top: 71.5%; left: 80.5%;">
+              <div class="pod-ambient-bloom bloom-blue"></div>
               <div class="node-icon-pod pod-blue">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="pod-sonar-ripple"></div>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
                   <path d="M15 18H9"></path>
                   <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14v10Z"></path>
@@ -752,8 +814,10 @@
 
             <!-- 4. Retail (Bottom) -->
             <div class="radial-node node-retail" data-node="retail" style="top: 86.5%; left: 50%;">
+              <div class="pod-ambient-bloom bloom-pink"></div>
               <div class="node-icon-pod pod-pink">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="pod-sonar-ripple"></div>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
                   <path d="M3 6h18"></path>
                   <path d="M16 10a4 4 0 0 1-8 0"></path>
@@ -765,8 +829,10 @@
 
             <!-- 5. Finance (Bottom Left) -->
             <div class="radial-node node-finance" data-node="finance" style="top: 71.5%; left: 19.5%;">
+              <div class="pod-ambient-bloom bloom-purple"></div>
               <div class="node-icon-pod pod-purple">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="pod-sonar-ripple"></div>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="3" y1="21" x2="21" y2="21"></line>
                   <line x1="3" y1="10" x2="21" y2="10"></line>
                   <polygon points="12 3 2 10 22 10 12 3"></polygon>
@@ -782,8 +848,10 @@
 
             <!-- 6. E-Commerce (Top Left) -->
             <div class="radial-node node-ecommerce" data-node="ecommerce" style="top: 28.5%; left: 19.5%;">
+              <div class="pod-ambient-bloom bloom-cyan"></div>
               <div class="node-icon-pod pod-cyan">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="pod-sonar-ripple"></div>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="8" cy="21" r="1"></circle>
                   <circle cx="19" cy="21" r="1"></circle>
                   <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
