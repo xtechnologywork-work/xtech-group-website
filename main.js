@@ -551,7 +551,6 @@ function initHeadlineTyping(soundSystem) {
 function initHeroLightRays(soundSystem) {
   const container = document.getElementById('hero-light-rays');
   const heroSection = document.getElementById('hero');
-  const hintEl = document.getElementById('rays-hint');
   if (!container || !heroSection) return;
 
   const colorSpectrums = [
@@ -582,7 +581,7 @@ function initHeroLightRays(soundSystem) {
 
   if (!rays) return;
 
-  // Click on hero or hint pill to shift atmospheric color spectrum
+  // Click on hero background to shift atmospheric color spectrum
   function shiftSpectrum(e) {
     if (e && e.target && (e.target.closest('a') || e.target.closest('button') || e.target.closest('.hero-emblem-badge'))) return;
 
@@ -596,15 +595,6 @@ function initHeroLightRays(soundSystem) {
     }
 
     logTerminalEvent(`ATMOSPHERIC LIGHT SHIFT: [${nextSpectrum.name}]`);
-
-    if (hintEl) {
-      hintEl.style.transform = 'scale(0.95)';
-      const label = hintEl.querySelector('.hint-label');
-      if (label) label.textContent = `${nextSpectrum.name} ACTIVE`;
-      setTimeout(() => {
-        if (hintEl) hintEl.style.transform = '';
-      }, 150);
-    }
   }
 
   heroSection.addEventListener('click', shiftSpectrum);
