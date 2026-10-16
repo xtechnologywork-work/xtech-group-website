@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. INDUSTRIES RADIAL NETWORK INTERACTION
   initIndustriesInteractivity(soundSystem);
 
+  // 5.1 OUR PRODUCTS BY XTECH INTERACTION
+  initProductsInteractivity(soundSystem);
+
   // 6. INQUIRY MODAL & FORM TRANSMISSION
   initInquiryModal(soundSystem);
 
@@ -201,196 +204,38 @@ function initNavigation() {
 
 
 /**
- * Industries Radial Network Interactivity (Ultra Pro Max HUD Controller)
+ * Industries Radial Network Interactivity
  */
 function initIndustriesInteractivity(soundSystem) {
-  const container = document.querySelector('.industries-right');
   const nodes = document.querySelectorAll('.radial-node');
   const cards = document.querySelectorAll('.industry-card');
   const centerHub = document.getElementById('center-hub');
-  const hud = document.getElementById('industry-hud-intel');
-  const hudCode = document.getElementById('hud-sector-code');
-  const hudTitle = document.getElementById('hud-title');
-  const hudBody = document.getElementById('hud-body');
-  const hudMetric = document.getElementById('hud-metric');
 
-  // Sector Intelligence Metadata Map
-  const sectorData = {
-    realestate: {
-      code: 'SECTOR: PROP-TECH // ARCHITECTURAL AI',
-      title: 'Real Estate & Spatial Digital Twins',
-      body: 'Autonomous 3D spatial valuation, photorealistic digital twin rendering, and 24/7 AI-driven investor lead qualification and deal matching.',
-      metric: 'IMPACT METRIC: +340% DEAL VELOCITY // 99.8% PRECISION',
-      beam: 'realestate',
-      color: '#10B981'
-    },
-    restaurants: {
-      code: 'SECTOR: HOSPITALITY & F&B // KITCHEN AI',
-      title: 'Predictive Kitchen & Guest Intelligence',
-      body: 'Dynamic inventory forecasting, AI-powered reservation orchestration, automated prep scheduling, and zero-leakage kitchen telemetry.',
-      metric: 'IMPACT METRIC: -28% FOOD WASTE // +18% TABLE TURNOVER',
-      beam: 'restaurants',
-      color: '#F97316'
-    },
-    logistics: {
-      code: 'SECTOR: SUPPLY CHAIN & FREIGHT // GLOBAL EDGE',
-      title: 'Autonomous Freight & Route Optimization',
-      body: 'Multi-modal real-time dispatch, cold-chain sensor analytics, automated customs compliance, and sub-second fleet routing algorithms.',
-      metric: 'IMPACT METRIC: 99.98% ON-TIME DISPATCH // -22% FUEL COST',
-      beam: 'logistics',
-      color: '#3B82F6'
-    },
-    retail: {
-      code: 'SECTOR: RETAIL & OMNI-COMMERCE // STORE MATRIX',
-      title: 'Hyper-Personalized Recommendation AI',
-      body: 'Computer-vision frictionless checkout, automated RFID replenishment, live customer intent heatmaps, and unified omnichannel sync.',
-      metric: 'IMPACT METRIC: +42% BASKET SIZE // 4.1X RETENTION',
-      beam: 'retail',
-      color: '#EC4899'
-    },
-    finance: {
-      code: 'SECTOR: FINANCE & SOVEREIGN WEALTH // FINTECH',
-      title: 'Zero-Trust Sub-Millisecond Risk Ledger',
-      body: 'High-frequency algorithmic fraud mitigation, continuous portfolio stress testing, sovereign regulatory bots, and instant clearing.',
-      metric: 'IMPACT METRIC: <0.5MS RISK SETTLEMENT // 99.999% INTEGRITY',
-      beam: 'finance',
-      color: '#8B5CF6'
-    },
-    ecommerce: {
-      code: 'SECTOR: E-COMMERCE & MARKETPLACES // CONVERSION',
-      title: 'Dynamic Pricing & Checkout Multi-Agents',
-      body: 'Real-time algorithmic pricing engines, neural search re-ranking, autonomous cart abandonment recovery, and instant cross-border routing.',
-      metric: 'IMPACT METRIC: 3.8X CHECKOUT CONVERSION // 0.12S LATENCY',
-      beam: 'ecommerce',
-      color: '#00F0FF'
-    }
-  };
-
-  const beams = document.querySelectorAll('.beam-active');
-  const conduits = document.querySelectorAll('.conduit-glow');
-  const photons = document.querySelectorAll('.photon');
-
-  let activeSectorKey = 'realestate';
-  let isUserInteracting = false;
-  let cycleTimer = null;
-  let idleTimer = null;
-
-  function activateSector(key, isUser = true) {
-    const data = sectorData[key];
-    if (!data) return;
-
-    activeSectorKey = key;
-
-    // Apply focus spotlight
-    if (container) {
-      container.classList.add('has-focus');
-    }
-
-    // Update Nodes
-    nodes.forEach((n) => {
-      const match = n.getAttribute('data-node') === key;
-      n.classList.toggle('active', match);
-    });
-
-    // Update Beams & Conduits
-    beams.forEach((b) => {
-      const match = b.getAttribute('data-beam') === key;
-      b.classList.toggle('active-beam', match);
-    });
-
-    conduits.forEach((c) => {
-      const match = c.id === `glow-path-${key}`;
-      c.classList.toggle('active-conduit', match);
-    });
-
-    photons.forEach((p) => {
-      const match = p.classList.contains(`photon-${key}`);
-      p.classList.toggle('active-photon', match);
-    });
-
-    // Update HUD Content smoothly
-    if (hud) {
-      hud.style.borderColor = data.color;
-      hud.style.boxShadow = `0 16px 40px rgba(0, 0, 0, 0.9), 0 0 30px ${data.color}33`;
-    }
-    if (hudCode) hudCode.textContent = data.code;
-    if (hudTitle) hudTitle.textContent = data.title;
-    if (hudBody) hudBody.textContent = data.body;
-    if (hudMetric) {
-      hudMetric.textContent = data.metric;
-      hudMetric.style.color = data.color;
-    }
-
-    if (isUser) {
-      logTerminalEvent(`SECTOR ACTIVE: [${data.title.toUpperCase()}]`);
-    }
-  }
-
-  // Node event listeners
   nodes.forEach((node) => {
-    const key = node.getAttribute('data-node');
-
     node.addEventListener('mouseenter', () => {
-      isUserInteracting = true;
-      stopAutoCycle();
       if (soundSystem && typeof soundSystem.hover === 'function') {
         soundSystem.hover();
       }
-      activateSector(key, true);
+      const label = node.querySelector('.node-pill')?.textContent;
+      if (label) {
+        logTerminalEvent(`INTELLIGENCE NODE ACTIVE: [${label.trim()}]`);
+      }
     });
 
     node.addEventListener('click', () => {
-      isUserInteracting = true;
-      stopAutoCycle();
       if (soundSystem && typeof soundSystem.click === 'function') {
         soundSystem.click();
       }
-      activateSector(key, true);
+      nodes.forEach(n => n.classList.remove('active'));
+      node.classList.add('active');
     });
   });
 
-  // Reset focus when leaving the network
-  if (container) {
-    container.addEventListener('mouseleave', () => {
-      isUserInteracting = false;
-      // Start idle delay before resuming subtle auto cycle
-      clearTimeout(idleTimer);
-      idleTimer = setTimeout(() => {
-        if (!isUserInteracting) {
-          startAutoCycle();
-        }
-      }, 4000);
-    });
-  }
-
-  // Left Feature Cards Interactive Sync
   cards.forEach((card) => {
     card.addEventListener('mouseenter', () => {
       if (soundSystem && typeof soundSystem.hover === 'function') {
         soundSystem.hover();
       }
-
-      if (card.id === 'card-integration') {
-        // Universal integration -> light up all nodes simultaneously
-        if (container) container.classList.remove('has-focus');
-        nodes.forEach(n => n.classList.add('active'));
-        beams.forEach(b => b.classList.add('active-beam'));
-        conduits.forEach(c => c.classList.add('active-conduit'));
-        photons.forEach(p => p.classList.add('active-photon'));
-        if (hudTitle) hudTitle.textContent = 'Universal Integration Active';
-        if (hudBody) hudBody.textContent = 'All 6 enterprise neural sectors synchronizing through the XTECH Central Core at 0.38ms synapse latency.';
-      } else if (card.id === 'card-workflows') {
-        // Automated Workflows -> sequential wave
-        triggerSequentialWave();
-      }
-    });
-
-    card.addEventListener('mouseleave', () => {
-      nodes.forEach(n => n.classList.remove('active'));
-      beams.forEach(b => b.classList.remove('active-beam'));
-      conduits.forEach(c => c.classList.remove('active-conduit'));
-      photons.forEach(p => p.classList.remove('active-photon'));
-      activateSector(activeSectorKey, false);
     });
 
     card.addEventListener('click', () => {
@@ -399,59 +244,46 @@ function initIndustriesInteractivity(soundSystem) {
       }
       cards.forEach(c => c.classList.remove('active'));
       card.classList.add('active');
+      const title = card.querySelector('.card-title')?.textContent;
+      if (title) {
+        logTerminalEvent(`CAPABILITY SELECTED: [${title.trim().toUpperCase()}]`);
+      }
     });
   });
 
-  function triggerSequentialWave() {
-    const keys = Object.keys(sectorData);
-    keys.forEach((key, index) => {
-      setTimeout(() => {
-        activateSector(key, false);
-      }, index * 220);
-    });
-  }
-
-  // Auto-Cycle Demo Mode (Smoothly cycles when user is idle)
-  const sectorKeys = Object.keys(sectorData);
-  let cycleIndex = 0;
-
-  function startAutoCycle() {
-    stopAutoCycle();
-    cycleTimer = setInterval(() => {
-      if (isUserInteracting) return;
-      cycleIndex = (cycleIndex + 1) % sectorKeys.length;
-      activateSector(sectorKeys[cycleIndex], false);
-    }, 4500);
-  }
-
-  function stopAutoCycle() {
-    if (cycleTimer) {
-      clearInterval(cycleTimer);
-      cycleTimer = null;
-    }
-  }
-
-  // Center Hub Interaction
   if (centerHub) {
     centerHub.addEventListener('mouseenter', () => {
       if (soundSystem && typeof soundSystem.hover === 'function') {
         soundSystem.hover();
       }
-      logTerminalEvent('QUANTUM NEURAL CORE: 100% OPERATIONAL // ALL 6 CONDUITS SYNCHRONIZED');
-      triggerSequentialWave();
-    });
-
-    centerHub.addEventListener('click', () => {
-      if (soundSystem && typeof soundSystem.click === 'function') {
-        soundSystem.click();
-      }
-      triggerSequentialWave();
+      logTerminalEvent('XTECH NEURAL CORE: NOMINAL 100% OPERATIONAL');
     });
   }
+}
 
-  // Initial activation
-  activateSector('realestate', false);
-  startAutoCycle();
+/**
+ * Our Products by Xtech Interactivity
+ */
+function initProductsInteractivity(soundSystem) {
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    const prodName = card.querySelector('.product-name')?.textContent || 'PRODUCT';
+    card.addEventListener('mouseenter', () => {
+      if (soundSystem && typeof soundSystem.hover === 'function') {
+        soundSystem.hover();
+      }
+      logTerminalEvent(`PRODUCT VENTURE INSPECTED: [${prodName.trim()}]`);
+    });
+
+    const actionBtn = card.querySelector('.product-action-btn');
+    if (actionBtn) {
+      actionBtn.addEventListener('click', () => {
+        if (soundSystem && typeof soundSystem.click === 'function') {
+          soundSystem.click();
+        }
+      });
+    }
+  });
 }
 
 /**
