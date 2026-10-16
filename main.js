@@ -264,122 +264,28 @@ function initIndustriesInteractivity(soundSystem) {
 }
 
 /**
- * 3D Digital Wallet & Product Suite Controller
+ * Our Products by Xtech Interactivity
  */
 function initProductsInteractivity(soundSystem) {
-  const walletStage = document.getElementById('wallet-interactive-area');
-  const walletHolder = document.getElementById('digital-wallet-holder');
-  const smartCards = document.querySelectorAll('.wallet-smart-card');
-  const tabBtns = document.querySelectorAll('.wallet-tab-btn');
-  const dossierCards = document.querySelectorAll('.dossier-card');
-  const balanceDisplay = document.getElementById('wallet-display-balance');
-  const subDisplay = document.getElementById('wallet-display-sub');
-
-  if (!smartCards.length) return;
-
-  const productData = {
-    walae: {
-      title: 'ALWALAE // LIVE',
-      sub: 'CUSTOMER RETENTION PLATFORM • QATAR',
-      log: 'ALWALAE DIGITAL LOYALTY [ACTIVE // LIVE IN QATAR]'
-    },
-    flexchange: {
-      title: 'FLEXCHANGE // DEV',
-      sub: 'LAST-MILE CASHLESS MOBILITY • QATAR',
-      log: 'FLEXCHANGE CASHLESS DRIVER FINTECH [BETA 2026]'
-    },
-    baqala: {
-      title: 'BAQALA // PILOT',
-      sub: '15-MIN GROCERY SUPER APP • QATAR',
-      log: 'BAQALA NEIGHBORHOOD GROCERY SUPER APP [PILOT]'
-    }
-  };
-
-  function selectProduct(productId, playSound = true) {
-    if (!productData[productId]) return;
-
-    if (playSound && soundSystem && typeof soundSystem.click === 'function') {
-      soundSystem.click();
-    }
-
-    // 1. Update 3D Wallet Smart Cards
-    smartCards.forEach(card => {
-      if (card.dataset.card === productId) {
-        card.classList.add('is-active');
-      } else {
-        card.classList.remove('is-active');
-      }
-    });
-
-    // 2. Update Tabs
-    tabBtns.forEach(btn => {
-      const isMatch = btn.dataset.product === productId;
-      btn.classList.toggle('tab-active', isMatch);
-      btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
-    });
-
-    // 3. Update Dossier Card
-    dossierCards.forEach(dossier => {
-      const isMatch = dossier.dataset.product === productId;
-      dossier.classList.toggle('is-active', isMatch);
-    });
-
-    // 4. Update Wallet Console Readout
-    if (balanceDisplay && subDisplay) {
-      balanceDisplay.style.opacity = '0';
-      balanceDisplay.style.transform = 'translateY(4px)';
-      setTimeout(() => {
-        balanceDisplay.textContent = productData[productId].title;
-        subDisplay.textContent = productData[productId].sub;
-        balanceDisplay.style.opacity = '1';
-        balanceDisplay.style.transform = 'translateY(0)';
-      }, 150);
-    }
-
-    logTerminalEvent(`VENTURE INSPECTION: ${productData[productId].log}`);
-  }
-
-  // Card click events
-  smartCards.forEach(card => {
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    const prodName = card.querySelector('.product-name')?.textContent || 'PRODUCT';
     card.addEventListener('mouseenter', () => {
       if (soundSystem && typeof soundSystem.hover === 'function') {
         soundSystem.hover();
       }
+      logTerminalEvent(`PRODUCT VENTURE INSPECTED: [${prodName.trim()}]`);
     });
 
-    card.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const targetProduct = card.dataset.card;
-      selectProduct(targetProduct);
-    });
+    const actionBtn = card.querySelector('.product-action-btn');
+    if (actionBtn) {
+      actionBtn.addEventListener('click', () => {
+        if (soundSystem && typeof soundSystem.click === 'function') {
+          soundSystem.click();
+        }
+      });
+    }
   });
-
-  // Tab button click events
-  tabBtns.forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-      if (soundSystem && typeof soundSystem.hover === 'function') {
-        soundSystem.hover();
-      }
-    });
-
-    btn.addEventListener('click', () => {
-      const targetProduct = btn.dataset.product;
-      selectProduct(targetProduct);
-    });
-  });
-
-  // Wallet stage hover class toggle for smooth physics
-  if (walletHolder && walletStage) {
-    walletHolder.addEventListener('mouseenter', () => {
-      walletStage.classList.add('is-hovered');
-      if (soundSystem && typeof soundSystem.hover === 'function') {
-        soundSystem.hover();
-      }
-    });
-    walletHolder.addEventListener('mouseleave', () => {
-      walletStage.classList.remove('is-hovered');
-    });
-  }
 }
 
 /**
