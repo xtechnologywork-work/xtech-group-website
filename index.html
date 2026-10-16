@@ -34,11 +34,14 @@
     <!-- Center Floating Pill Container with Micro-Numbered Index Links -->
     <nav class="nav-pill-wrapper" aria-label="Main Navigation">
       <div class="nav-pill" id="nav-pill">
+        <a href="#testimonials" class="nav-pill-link" id="nav-link-testimonials">
+          <span class="pill-num">01</span><span>TESTIMONIALS</span>
+        </a>
         <a href="#work" class="nav-pill-link" id="nav-link-work">
-          <span class="pill-num">01</span><span>SOLUTIONS</span>
+          <span class="pill-num">02</span><span>SOLUTIONS</span>
         </a>
         <a href="#contact" class="nav-pill-link" id="nav-link-contact">
-          <span class="pill-num">02</span><span>CONNECT</span>
+          <span class="pill-num">03</span><span>CONNECT</span>
         </a>
       </div>
     </nav>
@@ -156,10 +159,424 @@
       </div>
     </section>
 
+    <!-- TESTIMONIALS: SCROLLING COLUMNS (LIGHT SHADCN SPEC // XTECH ENTERPRISE VALIDATION) -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="testimonials-container">
+        
+        <header class="testimonials-header">
+          <div class="testimonials-eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span class="eyebrow-text">ENTERPRISE VALIDATION</span>
+          </div>
+          <h2 class="testimonials-title">Engineered for scale. Proven in production.</h2>
+          <p class="testimonials-desc">
+            What engineering leaders, CTOs, and sovereign partners report after deploying XTECH mission-critical architectures.
+          </p>
+        </header>
 
+        <div class="testimonials-viewport" aria-label="Customer Testimonials Scrolling Lanes">
+          <div class="testimonials-fade-top" aria-hidden="true"></div>
+          <div class="testimonials-fade-bottom" aria-hidden="true"></div>
 
+          <div class="testimonials-columns">
+            <!-- Column 1: Drifting Up (Speed 1) -->
+            <div class="testimonial-col testimonial-col-1">
+              <div class="testimonial-track">
+                <!-- Group 1 -->
+                <div class="testimonial-group">
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-indigo" aria-hidden="true">TM</div>
+                      <div class="author-info">
+                        <div class="author-name">Dr. Tariq Al-Mansoor</div>
+                        <div class="author-role">CTO, Qatar Sovereign Logistics</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“XTECH replaced our legacy monolithic cloud infrastructure with an ultra-resilient sovereign Kubernetes topology across three regions. Zero downtime migration, sub-12ms transaction times.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">SOVEREIGN CLOUD</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
 
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-emerald" aria-hidden="true">MV</div>
+                      <div class="author-info">
+                        <div class="author-name">Marcus Vance</div>
+                        <div class="author-role">VP of Infrastructure, Apex Global Trading</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“Their neural agent deployment pipeline slashed our unstructured financial data processing time from 45 minutes to 3.2 seconds. Exceptional systems engineering from the XTECH team.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">AI SYSTEMS</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
 
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-rose" aria-hidden="true">SL</div>
+                      <div class="author-info">
+                        <div class="author-name">Sarah Lin</div>
+                        <div class="author-role">Head of Platform Security, CyberShield ME</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“The zero-trust cryptographic perimeter XTECH implemented survived our unannounced red-team offensive penetration audit without a single exposed attack vector.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">ZERO TRUST</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-purple" aria-hidden="true">KA</div>
+                      <div class="author-info">
+                        <div class="author-name">Khalid Al-Kuwari</div>
+                        <div class="author-role">Director of Digital Services, Gulf FinTech Group</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“XTECH's distributed gRPC microservices architecture handled 42,000 requests per second during peak national campaigns without a millisecond of network jitter.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">FULLSTACK</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- Duplicate Group 1 for seamless infinite loop -->
+                <div class="testimonial-group" aria-hidden="true">
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-indigo" aria-hidden="true">TM</div>
+                      <div class="author-info">
+                        <div class="author-name">Dr. Tariq Al-Mansoor</div>
+                        <div class="author-role">CTO, Qatar Sovereign Logistics</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“XTECH replaced our legacy monolithic cloud infrastructure with an ultra-resilient sovereign Kubernetes topology across three regions. Zero downtime migration, sub-12ms transaction times.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">SOVEREIGN CLOUD</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-emerald" aria-hidden="true">MV</div>
+                      <div class="author-info">
+                        <div class="author-name">Marcus Vance</div>
+                        <div class="author-role">VP of Infrastructure, Apex Global Trading</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“Their neural agent deployment pipeline slashed our unstructured financial data processing time from 45 minutes to 3.2 seconds. Exceptional systems engineering from the XTECH team.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">AI SYSTEMS</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-rose" aria-hidden="true">SL</div>
+                      <div class="author-info">
+                        <div class="author-name">Sarah Lin</div>
+                        <div class="author-role">Head of Platform Security, CyberShield ME</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“The zero-trust cryptographic perimeter XTECH implemented survived our unannounced red-team offensive penetration audit without a single exposed attack vector.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">ZERO TRUST</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-purple" aria-hidden="true">KA</div>
+                      <div class="author-info">
+                        <div class="author-name">Khalid Al-Kuwari</div>
+                        <div class="author-role">Director of Digital Services, Gulf FinTech Group</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“XTECH's distributed gRPC microservices architecture handled 42,000 requests per second during peak national campaigns without a millisecond of network jitter.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">FULLSTACK</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 2: Drifting Down / Reversed (Speed 2) -->
+            <div class="testimonial-col testimonial-col-2">
+              <div class="testimonial-track">
+                <!-- Group 2 -->
+                <div class="testimonial-group">
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-cyan" aria-hidden="true">ER</div>
+                      <div class="author-info">
+                        <div class="author-name">Elena Rostova</div>
+                        <div class="author-role">Chief Architecture Officer, Zenith Data</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“Most dev studios deliver slow, bloated templates. XTECH built us a mathematical, zero-bloat edge interface in WebGL and Rust with 99.999% availability.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">NEXT-GEN PRODUCTS</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-amber" aria-hidden="true">NS</div>
+                      <div class="author-info">
+                        <div class="author-name">Nasser Al-Sulaiti</div>
+                        <div class="author-role">Operations Lead, PetroTech Holdings</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“Their sovereign LLM cluster runs strictly on-premise within our sovereign perimeter, keeping our proprietary reservoir intelligence completely secure and isolated.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">SOVEREIGN AI</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-indigo" aria-hidden="true">JC</div>
+                      <div class="author-info">
+                        <div class="author-name">James Chen</div>
+                        <div class="author-role">Principal Engineer, CloudScale Int.</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“Deploying XTECH's enterprise cloud blueprint reduced our multi-cloud computing overhead by 38% while doubling automated disaster recovery redundancy.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">CLOUD TOPOLOGY</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-rose" aria-hidden="true">AB</div>
+                      <div class="author-info">
+                        <div class="author-name">Amira Benali</div>
+                        <div class="author-role">VP of Engineering, Maghreb Telecom</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“XTECH engineers don't cut corners. Their edge-rendered architecture delivers instantaneous page interactions across all North African and GCC networks.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">HIGH-VELOCITY UI</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- Duplicate Group 2 for seamless infinite loop -->
+                <div class="testimonial-group" aria-hidden="true">
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-cyan" aria-hidden="true">ER</div>
+                      <div class="author-info">
+                        <div class="author-name">Elena Rostova</div>
+                        <div class="author-role">Chief Architecture Officer, Zenith Data</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“Most dev studios deliver slow, bloated templates. XTECH built us a mathematical, zero-bloat edge interface in WebGL and Rust with 99.999% availability.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">NEXT-GEN PRODUCTS</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-amber" aria-hidden="true">NS</div>
+                      <div class="author-info">
+                        <div class="author-name">Nasser Al-Sulaiti</div>
+                        <div class="author-role">Operations Lead, PetroTech Holdings</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“Their sovereign LLM cluster runs strictly on-premise within our sovereign perimeter, keeping our proprietary reservoir intelligence completely secure and isolated.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">SOVEREIGN AI</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-indigo" aria-hidden="true">JC</div>
+                      <div class="author-info">
+                        <div class="author-name">James Chen</div>
+                        <div class="author-role">Principal Engineer, CloudScale Int.</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“Deploying XTECH's enterprise cloud blueprint reduced our multi-cloud computing overhead by 38% while doubling automated disaster recovery redundancy.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">CLOUD TOPOLOGY</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-rose" aria-hidden="true">AB</div>
+                      <div class="author-info">
+                        <div class="author-name">Amira Benali</div>
+                        <div class="author-role">VP of Engineering, Maghreb Telecom</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“XTECH engineers don't cut corners. Their edge-rendered architecture delivers instantaneous page interactions across all North African and GCC networks.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">HIGH-VELOCITY UI</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 3: Drifting Up (Speed 3) -->
+            <div class="testimonial-col testimonial-col-3">
+              <div class="testimonial-track">
+                <!-- Group 3 -->
+                <div class="testimonial-group">
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-slate" aria-hidden="true">DM</div>
+                      <div class="author-info">
+                        <div class="author-name">David K. Miller</div>
+                        <div class="author-role">Managing Director, Sovereign Capital</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“XTECH isn't just a development studio; they are tactical enterprise architects. Every deliverable was production-grade and security-audited on day one.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">MISSION CRITICAL</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-emerald" aria-hidden="true">FH</div>
+                      <div class="author-info">
+                        <div class="author-name">Fatima Al-Hajri</div>
+                        <div class="author-role">Head of Cloud, National Health Grid</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“In healthcare, sovereign national compliance is non-negotiable. XTECH's zero-trust infrastructure passed every sovereign data audit with flying colors.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">NATIONAL COMPLIANCE</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-indigo" aria-hidden="true">RD</div>
+                      <div class="author-info">
+                        <div class="author-name">Robert De Vries</div>
+                        <div class="author-role">Chief Technology Officer, Nordic Edge AI</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“The telemetry and real-time observability engineered into our XTECH AI platform gives us microsecond-level insight into our distributed neural mesh.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">NEURAL MESH</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-orange" aria-hidden="true">OC</div>
+                      <div class="author-info">
+                        <div class="author-name">Omar Cherif</div>
+                        <div class="author-role">Founder & CEO, Horizon Autonomous Fleet</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“From low-latency embedded telematics to our distributed control plane, XTECH proved why they are the elite engineering tier in the region.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">EDGE TELEMETRY</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- Duplicate Group 3 for seamless infinite loop -->
+                <div class="testimonial-group" aria-hidden="true">
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-slate" aria-hidden="true">DM</div>
+                      <div class="author-info">
+                        <div class="author-name">David K. Miller</div>
+                        <div class="author-role">Managing Director, Sovereign Capital</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“XTECH isn't just a development studio; they are tactical enterprise architects. Every deliverable was production-grade and security-audited on day one.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">MISSION CRITICAL</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-emerald" aria-hidden="true">FH</div>
+                      <div class="author-info">
+                        <div class="author-name">Fatima Al-Hajri</div>
+                        <div class="author-role">Head of Cloud, National Health Grid</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“In healthcare, sovereign national compliance is non-negotiable. XTECH's zero-trust infrastructure passed every sovereign data audit with flying colors.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">NATIONAL COMPLIANCE</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-indigo" aria-hidden="true">RD</div>
+                      <div class="author-info">
+                        <div class="author-name">Robert De Vries</div>
+                        <div class="author-role">Chief Technology Officer, Nordic Edge AI</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“The telemetry and real-time observability engineered into our XTECH AI platform gives us microsecond-level insight into our distributed neural mesh.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">NEURAL MESH</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+
+                  <article class="testimonial-card">
+                    <div class="card-head">
+                      <div class="avatar-disc disc-orange" aria-hidden="true">OC</div>
+                      <div class="author-info">
+                        <div class="author-name">Omar Cherif</div>
+                        <div class="author-role">Founder & CEO, Horizon Autonomous Fleet</div>
+                      </div>
+                    </div>
+                    <p class="testimonial-body">“From low-latency embedded telematics to our distributed control plane, XTECH proved why they are the elite engineering tier in the region.”</p>
+                    <div class="card-foot">
+                      <span class="spec-pill">EDGE TELEMETRY</span>
+                      <span class="rating-stars" aria-label="5 stars">★★★★★</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
     <!-- SELECTED WORKS SHOWCASE (USING ONLY USER'S REAL AUTHENTIC ICONS) -->
     <section class="works-section" id="work">
       <div class="works-header">
@@ -345,8 +762,9 @@
         <div class="footer-nav-group">
           <span class="footer-group-title">// SYSTEM LINKS</span>
           <a href="#hero" class="f-link">01. TOP RESTART</a>
-          <a href="#work" class="f-link">02. SOLUTIONS</a>
-          <a href="#contact" class="f-link">03. TRANSMIT</a>
+          <a href="#testimonials" class="f-link">02. TESTIMONIALS</a>
+          <a href="#work" class="f-link">03. SOLUTIONS</a>
+          <a href="#contact" class="f-link">04. TRANSMIT</a>
         </div>
 
         <div class="footer-nav-group">

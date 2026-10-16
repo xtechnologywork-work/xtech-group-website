@@ -734,11 +734,353 @@ body.kinetic-body {
   100% { transform: translate3d(0%, 0, 0); }
 }
 
-
-
 /* --------------------------------------------------------------------------
-   07. MANIFESTO & SYSTEM TELEMETRY (CLEAN SOLID MONOLITHS)
+   05. TESTIMONIALS: SCROLLING COLUMNS (LIGHT SHADCN SPEC)
    -------------------------------------------------------------------------- */
+.testimonials-section {
+  position: relative;
+  background-color: #FAFAFA;
+  color: #09090B;
+  padding: 6.5rem 2rem 7rem 2rem;
+  z-index: 12;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  border-top: 1px solid #E4E4E7;
+  border-bottom: 1px solid #E4E4E7;
+  overflow: hidden;
+}
+
+.testimonials-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* Header */
+.testimonials-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.testimonials-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E4E4E7;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px rgba(9, 9, 11, 0.04);
+}
+
+.eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #4F46E5;
+}
+
+.eyebrow-text {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #4F46E5;
+}
+
+.testimonials-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  font-weight: 700;
+  color: #09090B;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.testimonials-desc {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  font-weight: 400;
+  color: #71717A;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Scrolling Lanes Viewport with Top & Bottom Mask */
+.testimonials-viewport {
+  position: relative;
+  height: 620px;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
+}
+
+.testimonials-fade-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 85px;
+  background: linear-gradient(to bottom, #FAFAFA 20%, rgba(250, 250, 250, 0.7) 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.testimonials-fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 85px;
+  background: linear-gradient(to top, #FAFAFA 20%, rgba(250, 250, 250, 0.7) 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* 3 Columns Grid */
+.testimonials-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.testimonial-col {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Vertical duplicate-and-translate track */
+.testimonial-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  will-change: transform;
+}
+
+.testimonial-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+/* Keyframes for Drift Up and Down */
+@keyframes driftUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes driftDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.testimonial-col-1 .testimonial-track {
+  animation: driftUp 38s linear infinite;
+}
+
+.testimonial-col-2 .testimonial-track {
+  animation: driftDown 46s linear infinite;
+}
+
+.testimonial-col-3 .testimonial-track {
+  animation: driftUp 32s linear infinite;
+}
+
+/* Hover pauses every lane at once */
+.testimonials-viewport:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+/* Testimonial Card (Light shadcn register) */
+.testimonial-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E4E4E7;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(9, 9, 11, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-2px);
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 14px rgba(9, 9, 11, 0.05);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Initials Avatar Disc (No Asset Dependency) */
+.avatar-disc {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.disc-indigo { background-color: #EEF2FF; color: #4F46E5; }
+.disc-emerald { background-color: #ECFDF5; color: #059669; }
+.disc-rose { background-color: #FFF1F2; color: #E11D48; }
+.disc-purple { background-color: #F5F3FF; color: #7C3AED; }
+.disc-cyan { background-color: #ECFEFF; color: #0891B2; }
+.disc-amber { background-color: #FFFBEB; color: #D97706; }
+.disc-slate { background-color: #F1F5F9; color: #334155; }
+.disc-orange { background-color: #FFF7ED; color: #EA580C; }
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.author-name {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #09090B;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.author-role {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #71717A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.testimonial-body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.62;
+  color: #09090B;
+  margin: 0;
+}
+
+.card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid #F4F4F5;
+}
+
+.spec-pill {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #4F46E5;
+  background-color: #EEF2FF;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(79, 70, 229, 0.12);
+}
+
+.rating-stars {
+  font-size: 11px;
+  color: #F59E0B;
+  letter-spacing: 2px;
+}
+
+/* Responsive: columns drop out progressively rather than shrinking */
+@media (max-width: 1024px) {
+  .testimonials-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .testimonial-col-3 {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials-section {
+    padding: 4.5rem 1.25rem 5rem 1.25rem;
+  }
+  .testimonials-container {
+    gap: 2.25rem;
+  }
+  .testimonials-viewport {
+    height: 520px;
+  }
+  .testimonials-columns {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .testimonial-col-2,
+  .testimonial-col-3 {
+    display: none;
+  }
+  .testimonial-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Reduced Motion: plain readable static list/grid */
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-viewport {
+    height: auto !important;
+    overflow: visible !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+  .testimonials-fade-top,
+  .testimonials-fade-bottom {
+    display: none !important;
+  }
+  .testimonial-track {
+    animation: none !important;
+    transform: none !important;
+  }
+  .testimonial-group[aria-hidden="true"] {
+    display: none !important;
+  }
+  .testimonials-columns {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 1.25rem !important;
+    height: auto !important;
+  }
+  .testimonial-col-2,
+  .testimonial-col-3 {
+    display: block !important;
+  }
+}
+
 .manifesto-section {
   position: relative;
   background-color: #000000;
