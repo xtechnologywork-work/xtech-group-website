@@ -7,17 +7,17 @@ import { Renderer, Program, Triangle, Mesh } from 'ogl';
 
 const DEFAULT_OPTIONS = {
   raysOrigin: 'top-center',
-  raysColor: '#00F0FF',
-  raysSpeed: 1.5,
-  lightSpread: 1.2,
-  rayLength: 1.8,
+  raysColor: '#0E4EAD',
+  raysSpeed: 1.2,
+  lightSpread: 1.1,
+  rayLength: 1.9,
   pulsating: false,
   fadeDistance: 1.2,
   saturation: 1.0,
-  followMouse: true,
-  mouseInfluence: 0.28,
-  noiseAmount: 0.03,
-  distortion: 0.08
+  followMouse: false,
+  mouseInfluence: 0.0,
+  noiseAmount: 0.02,
+  distortion: 0.06
 };
 
 const hexToRgb = (hex) => {

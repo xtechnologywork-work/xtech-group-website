@@ -555,27 +555,26 @@ function initHeroLightRays(soundSystem) {
   if (!container || !heroSection) return;
 
   const colorSpectrums = [
-    { name: 'SOVEREIGN CYAN', hex: '#00F0FF' },
-    { name: 'ROYAL XTECH BLUE', hex: '#1182FF' },
-    { name: 'QUANTUM EMERALD', hex: '#00FFCC' },
-    { name: 'NEURAL INDIGO', hex: '#6366F1' },
-    { name: 'SKY PLATINUM', hex: '#38BDF8' },
-    { name: 'SOLAR LIGHT', hex: '#FFFFFF' }
+    { name: 'DEEP COBALT BLUE', hex: '#0E4EAD' },
+    { name: 'MIDNIGHT NAVY', hex: '#0A3470' },
+    { name: 'ROYAL SAPPHIRE', hex: '#104085' },
+    { name: 'ABYSS BLUE', hex: '#07224A' },
+    { name: 'STEEL INDIGO BLUE', hex: '#1B3B6F' }
   ];
 
   let currentSpectrumIdx = 0;
 
-  // Initialize LightRays with the user-specified prompt parameters
+  // Initialize LightRays with dark blue palette and no mouse tracking
   const rays = initLightRays(container, {
     raysOrigin: 'top-center',
     raysColor: colorSpectrums[0].hex,
-    raysSpeed: 1.5,
-    lightSpread: 1.2,
-    rayLength: 1.8,
-    followMouse: true,
-    mouseInfluence: 0.28,
-    noiseAmount: 0.03,
-    distortion: 0.08,
+    raysSpeed: 1.2,
+    lightSpread: 1.1,
+    rayLength: 1.9,
+    followMouse: false,
+    mouseInfluence: 0.0,
+    noiseAmount: 0.02,
+    distortion: 0.06,
     fadeDistance: 1.2,
     saturation: 1.0,
     pulsating: false
