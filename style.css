@@ -412,7 +412,7 @@ body.kinetic-body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: clamp(6.5rem, 12vh, 8.5rem) 2rem clamp(3.5rem, 7vh, 5rem) 2rem;
+  padding: clamp(6.5rem, 12vh, 8.5rem) 2rem clamp(2rem, 4vh, 3rem) 2rem;
   overflow: hidden;
   contain: layout paint;
 }
@@ -620,6 +620,7 @@ body.kinetic-body {
 
 #marquee-section {
   order: 2; /* 2 - slide */
+  margin: 0;
 }
 
 #industries {
@@ -644,7 +645,7 @@ body.kinetic-body {
   }
   #marquee-section {
     order: 2;
-    margin: 4.5rem 0 5rem 0;
+    margin: 0;
   }
   #industries {
     order: 3;
@@ -665,11 +666,11 @@ body.kinetic-body {
   width: 100%;
   background-color: #000000;
   transform: none; /* Straight, level, and independent (mosta9ila) */
-  margin: 2.5rem 0 3.5rem 0;
-  padding: 2.25rem 0;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
-  border-top: 1px solid var(--color-primary);
-  border-bottom: 1px solid var(--color-primary);
+  border-top: 1.5px solid var(--color-primary);
+  border-bottom: 1.5px solid var(--color-primary);
   z-index: 10;
 }
 
@@ -677,7 +678,7 @@ body.kinetic-body {
   transform: none;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0;
 }
 
 .marquee-track {
@@ -1246,9 +1247,9 @@ body.kinetic-body {
   position: relative;
   background-color: #000000;
   color: var(--color-white);
-  padding: 6.5rem 2.5rem 7.5rem 2.5rem;
+  padding: 4.5rem 2.5rem 7.5rem 2.5rem;
   z-index: 12;
-  border-top: 1px solid var(--color-dark-border);
+  border-top: none;
   border-bottom: 1px solid var(--color-dark-border);
   overflow: hidden;
 }
@@ -2882,8 +2883,8 @@ body.kinetic-body {
   /* --- 03. MARQUEE MOBILE (FAST & STRAIGHT) --- */
   .skewed-marquee-wrapper {
     transform: none;
-    margin: 2rem 0;
-    padding: 1.5rem 0;
+    margin: 0;
+    padding: 0;
   }
 
   .marquee-track-primary .marquee-content,
