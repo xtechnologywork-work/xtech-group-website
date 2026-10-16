@@ -668,20 +668,19 @@ body.kinetic-body {
 }
 
 #marquee-section {
-  order: 2; /* Mobile version: kept above Testimonials */
+  order: 2; /* 2 - slide */
 }
 
-#testimonials {
-  order: 3; /* Mobile version: kept below Marquee */
-}
-
-#work,
 #industries {
-  order: 4;
+  order: 3; /* 3 - Industries We Serve */
 }
 
 #products {
-  order: 5;
+  order: 4; /* 4 - Our Products by Xtech */
+}
+
+#testimonials {
+  order: 5; /* 5 - Trusted by teams who ship */
 }
 
 #contact {
@@ -689,18 +688,20 @@ body.kinetic-body {
 }
 
 @media (min-width: 769px) {
-  /* Desktop version: Slide / Marquee section placed BELOW Testimonial: Scrolling Columns */
-  #testimonials {
-    order: 2;
+  #hero {
+    order: 1;
   }
   #marquee-section {
-    order: 3;
+    order: 2;
     margin: 4.5rem 0 5rem 0;
   }
   #industries {
-    order: 4;
+    order: 3;
   }
   #products {
+    order: 4;
+  }
+  #testimonials {
     order: 5;
   }
   #contact {
