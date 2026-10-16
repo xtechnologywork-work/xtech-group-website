@@ -1,0 +1,2383 @@
+/* ==========================================================================
+   XTECHNOLOGY GROUP QATAR // ULTRA-PRO BRUTALIST ARCHITECTURE SYSTEM
+   PURE OBSIDIAN & TITANIUM SYSTEM // ZERO NEON // SOLID SIMPLE BACKDROP
+   TAGLINE: "TECH SOLUTIONS FOR A SMARTER TOMORROW"
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   01. DESIGN TOKENS & SYSTEM PALETTE (CLEAN, SOLID, LUXURY EDITORIAL)
+   -------------------------------------------------------------------------- */
+:root {
+  /* XTECH Brand Electric Blue (Solid, Crisp, No Neon Blur) */
+  --color-primary: #1182FF;          /* Electric Blue */
+  --color-primary-dark: #0a60c2;     /* Core Deep Blue */
+  --color-primary-subtle: rgba(17, 130, 255, 0.08);
+
+  /* Solid Black & Carbon Surfaces (Pure, No AI Effects/Haze) */
+  --color-black: #000000;            /* Solid Pitch Black */
+  --color-dark-bg: #000000;          /* Clean Simple Black Backdrop */
+  --color-dark-surface: #070707;     /* Solid Dark Surface */
+  --color-dark-card: #0a0a0a;        /* Solid Dark Card */
+  --color-dark-border: #1a1a1a;      /* Razor-Sharp Architecture Border */
+  --color-dark-border-hover: #333333;/* Border Hover */
+
+  /* Titanium Chrome & Technical Typographic Tones */
+  --color-silver: #E2E8F0;           /* Clean Titanium White */
+  --color-silver-dim: #7E8694;       /* Balanced Neutral Subtext */
+  --color-silver-faint: #444952;     /* Muted Dividers & Minor Meta */
+  --color-white: #FFFFFF;            /* Pure Crisp White */
+  
+  /* Opacity Utilities */
+  --color-white-90: rgba(255, 255, 255, 0.90);
+  --color-white-60: rgba(255, 255, 255, 0.60);
+  --color-white-15: rgba(255, 255, 255, 0.15);
+  --color-white-08: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --font-display: 'Archivo Black', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Strict Geometric Borders */
+  --border-thick: 2px solid var(--color-black);
+  --border-thin: 1px solid var(--color-dark-border);
+  --border-blue: 2px solid var(--color-primary);
+  --border-white-div: 1px solid var(--color-dark-border);
+
+  /* Transitions */
+  --transition-snappy: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* CSS RESET & SELECTION SPEC */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #000000;
+}
+
+::-moz-selection {
+  background: var(--color-primary);
+  color: #000000;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: #000000;
+  color: var(--color-white);
+}
+
+body.kinetic-body {
+  font-family: var(--font-body);
+  background-color: #000000;
+  color: var(--color-white);
+  line-height: 1.4;
+  overflow-x: hidden;
+  position: relative;
+  cursor: default;
+}
+
+/* --------------------------------------------------------------------------
+   02. FLOATING COMMAND HEADER (ULTRA PRO MAX X9999 ARCHITECTURE)
+   -------------------------------------------------------------------------- */
+.nav-container {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1240px, calc(100% - 2rem));
+  height: 56px;
+  padding: 0 0.85rem 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  background: rgba(8, 10, 15, 0.78);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all var(--transition-smooth);
+}
+
+/* Logo Left with Authentic 3D Emblem */
+.nav-logo {
+  text-decoration: none;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  transition: opacity var(--transition-snappy);
+}
+
+.nav-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.nav-logo-pod {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  transition: transform var(--transition-snappy);
+}
+
+.nav-logo:hover .nav-logo-pod {
+  transform: scale(1.08);
+}
+
+.nav-brand-icon {
+  height: 28px;
+  width: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+
+.nav-brand-headline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-title {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #FFFFFF;
+}
+
+.nav-qatar-badge {
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  background: rgba(17, 130, 255, 0.1);
+  border: 1px solid rgba(17, 130, 255, 0.3);
+  padding: 2.5px 7px;
+  border-radius: 9999px;
+  line-height: 1;
+}
+
+/* Center Floating Pill Container with Micro-Numbered Tabs */
+.nav-pill-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 9999px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.nav-pill-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #A0AEC0;
+  text-decoration: none;
+  padding: 0.45rem 0.95rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all var(--transition-snappy);
+}
+
+.pill-num {
+  font-size: 9px;
+  font-weight: 700;
+  opacity: 0.45;
+  color: inherit;
+  transition: opacity var(--transition-snappy), color var(--transition-snappy);
+}
+
+.nav-pill-link:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.02);
+}
+
+.nav-pill-link:hover .pill-num {
+  opacity: 0.9;
+  color: var(--color-primary);
+}
+
+.nav-pill-link.active {
+  background: var(--color-white);
+  color: #000000;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.nav-pill-link.active .pill-num {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+/* Right Controls / Telemetry Console & Uplink */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.nav-telemetry-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #A0AEC0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.tel-radar {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: inline-block;
+  box-shadow: 0 0 6px var(--color-primary);
+  animation: pulseSquare 1.5s infinite steps(2);
+}
+
+.nav-sound-pod {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-snappy);
+}
+
+.nav-sound-pod:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.nav-sound-pod.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(17, 130, 255, 0.1);
+}
+
+/* Sound Wave indicator */
+.sound-wave {
+  display: flex;
+  align-items: center;
+  gap: 2.5px;
+  height: 12px;
+}
+
+.sound-wave span {
+  display: block;
+  width: 2px;
+  height: 4px;
+  background: currentColor;
+  transition: height 0.15s ease;
+}
+
+.nav-sound-pod.active .sound-wave span:nth-child(1) { animation: waveAnim 0.7s ease-in-out infinite alternate; }
+.nav-sound-pod.active .sound-wave span:nth-child(2) { animation: waveAnim 0.7s ease-in-out infinite 0.2s alternate; }
+.nav-sound-pod.active .sound-wave span:nth-child(3) { animation: waveAnim 0.7s ease-in-out infinite 0.4s alternate; }
+.nav-sound-pod.active .sound-wave span:nth-child(4) { animation: waveAnim 0.7s ease-in-out infinite 0.15s alternate; }
+
+@keyframes waveAnim {
+  0% { height: 3px; }
+  100% { height: 12px; }
+}
+
+/* Executive Transmit CTA Pill - Precision Engineered */
+.nav-cta-pill {
+  background: #FFFFFF;
+  color: #000000;
+  border: 1px solid #FFFFFF;
+  border-radius: 9999px;
+  height: 36px;
+  padding: 0 1.15rem;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.12);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.cta-pulse-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: inline-block;
+  box-shadow: 0 0 6px var(--color-primary);
+  transition: background 0.2s ease;
+}
+
+.cta-arr {
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+.nav-cta-pill:hover {
+  background: var(--color-primary);
+  color: #000000;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 18px rgba(17, 130, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.nav-cta-pill:hover .cta-pulse-dot {
+  background: #000000;
+  box-shadow: none;
+}
+
+.nav-cta-pill:hover .cta-arr {
+  transform: translate(2px, -2px);
+}
+
+.hide-tablet {
+  display: flex;
+}
+
+.sound-toggle.active .sound-wave span:nth-child(1) {
+  animation: waveAnim 0.8s ease-in-out infinite alternate;
+}
+.sound-toggle.active .sound-wave span:nth-child(2) {
+  animation: waveAnim 0.8s ease-in-out infinite 0.2s alternate;
+}
+.sound-toggle.active .sound-wave span:nth-child(3) {
+  animation: waveAnim 0.8s ease-in-out infinite 0.4s alternate;
+}
+
+@keyframes waveAnim {
+  0% { height: 3px; }
+  100% { height: 12px; }
+}
+
+/* --------------------------------------------------------------------------
+   03. TYPOGRAPHIC HERO SECTION (PURE SOLID BLACK // ZERO EFFECTS)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  background-color: #000000;
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(6.5rem, 12vh, 8.5rem) 2rem clamp(3.5rem, 7vh, 5rem) 2rem;
+  overflow: hidden;
+}
+
+/* 3D WebGL Tubes Canvas Background */
+.hero-tubes-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Semi-transparent Vignette Overlay to preserve headline contrast & legibility */
+.hero-tubes-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.75) 75%, #000000 100%);
+}
+
+/* Headline Wrapper with Authentic User 3D Emblem */
+.hero-headline-wrap {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.25rem, 2.6vh, 2rem);
+  pointer-events: auto;
+}
+
+/* Interactive 3D Spectrum Shift Pill */
+.hero-interactive-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.95rem;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #A0AEC0;
+  margin-top: 0.5rem;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: all var(--transition-snappy);
+}
+
+.hero-interactive-hint:hover {
+  border-color: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(17, 130, 255, 0.25);
+}
+
+.hint-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 8px var(--color-primary);
+  animation: hintPulse 2s infinite ease-in-out;
+}
+
+@keyframes hintPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.hero-emblem-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.hero-emblem-img {
+  height: clamp(80px, 12vw, 130px);
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-snappy);
+}
+
+.hero-emblem-img:hover {
+  transform: scale(1.05);
+}
+
+/* Monolithic Headline: Clean, Crisp, Legible */
+.hero-headline {
+  font-family: var(--font-display);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  user-select: text;
+  margin: 0;
+  padding: 0;
+}
+
+.headline-primary {
+  font-size: clamp(2.5rem, 8.5vw, 8.8rem);
+  color: #FFFFFF;
+  display: block;
+  white-space: nowrap;
+  line-height: 0.9;
+}
+
+.headline-subgroup {
+  font-size: clamp(1.35rem, 4vw, 4rem);
+  letter-spacing: 0.06em;
+  color: var(--color-silver);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.35rem;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.qatar-tag {
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+}
+
+/* Typing Animation (50ms character reveal) */
+.type-char {
+  display: inline-block;
+  white-space: pre;
+}
+
+.typing-active .type-char {
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.04s ease, transform 0.04s ease;
+}
+
+.typing-active .type-char.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.type-cursor {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.85em;
+  background-color: var(--color-primary);
+  margin-left: 0.06em;
+  vertical-align: -0.05em;
+  border-radius: 1px;
+  animation: cursorBlink 0.55s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-subheadline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+}
+
+.hero-tagline-text {
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 1.25vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.hero-caps-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-silver-dim);
+}
+
+.hero-cap-item {
+  color: var(--color-silver-dim);
+  transition: color var(--transition-snappy);
+}
+
+.hero-cap-item:hover {
+  color: var(--color-white);
+}
+
+.hero-cap-sep {
+  color: var(--color-dark-border-hover);
+  font-size: 0.85em;
+}
+
+/* --------------------------------------------------------------------------
+   04. INDEPENDENT HIGH-SPEED MARQUEE SECTION (FAST & LEVEL // RESPONSIVE ORDER)
+   -------------------------------------------------------------------------- */
+#main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+#hero {
+  order: 1;
+}
+
+#marquee-section {
+  order: 2; /* Mobile version: above Operations & Disciplines */
+}
+
+#services {
+  order: 3; /* Mobile version: below Marquee */
+}
+
+#work {
+  order: 4;
+}
+
+.brand-strip-section {
+  order: 5;
+}
+
+#contact {
+  order: 6;
+}
+
+@media (min-width: 769px) {
+  /* Desktop version: Marquee placed BELOW "XTECHNOLOGY GROUP OPERATIONS & DISCIPLINES" (#services) */
+  #services {
+    order: 2;
+  }
+  #marquee-section {
+    order: 3;
+    margin: 4.5rem 0 5rem 0;
+  }
+}
+
+.skewed-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  transform: none; /* Straight, level, and independent (mosta9ila) */
+  margin: 2.5rem 0 3.5rem 0;
+  padding: 2.25rem 0;
+  overflow: hidden;
+  border-top: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+  z-index: 10;
+}
+
+.skewed-marquee-inner {
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.marquee-track {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.marquee-bullet {
+  margin: 0 1.25vw;
+  font-size: 0.4em;
+  vertical-align: middle;
+  color: var(--color-primary);
+}
+
+.marquee-track-primary {
+  color: var(--color-primary);
+}
+
+.marquee-track-primary .marquee-content {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.5vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Fast, smooth kinetic scroll left (12s instead of 30s) */
+.marquee-slide-left {
+  animation: marqueeLeft 12s linear infinite;
+}
+
+@keyframes marqueeLeft {
+  0% { transform: translate3d(0%, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
+.marquee-track-white {
+  color: var(--color-silver);
+}
+
+.marquee-track-white .marquee-content {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.5vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Fast, smooth kinetic scroll right (14s instead of 34s) */
+.marquee-slide-right {
+  animation: marqueeRight 14s linear infinite;
+}
+
+@keyframes marqueeRight {
+  0% { transform: translate3d(-100%, 0, 0); }
+  100% { transform: translate3d(0%, 0, 0); }
+}
+
+/* --------------------------------------------------------------------------
+   06. VERTICAL SERVICE LIST SECTION (SOLID MINIMAL MONOLITH)
+   -------------------------------------------------------------------------- */
+.services-section {
+  position: relative;
+  background-color: #000000;
+  color: var(--color-white);
+  padding: 6rem 2.5rem 8rem 2.5rem;
+  z-index: 12;
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--color-dark-border);
+  font-family: var(--font-mono);
+}
+
+.services-badge {
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.services-sub {
+  color: var(--color-silver-dim);
+  font-size: 11px;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card {
+  width: 100%;
+  padding: 2.75rem 1rem;
+  border-bottom: 1px solid var(--color-dark-border);
+  display: grid;
+  grid-template-columns: 100px 1fr 80px;
+  align-items: center;
+  gap: 2rem;
+  text-decoration: none;
+  color: var(--color-white);
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  transition: background-color var(--transition-snappy), padding var(--transition-snappy);
+}
+
+.service-index {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+.service-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.service-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5.5vw, 4.8rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  transition: transform var(--transition-snappy), color var(--transition-snappy);
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+}
+
+.tag-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-silver-dim);
+  background: #080808;
+  border: 1px solid var(--color-dark-border);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  transition: all var(--transition-snappy);
+}
+
+.service-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-silver-dim);
+  max-width: 650px;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.25s ease, max-height 0.25s ease, margin-top 0.25s ease;
+}
+
+.service-arrow {
+  color: var(--color-primary);
+  opacity: 0;
+  transform: rotate(0deg) scale(0.8);
+  transition: opacity var(--transition-snappy), transform var(--transition-snappy);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.service-card:hover,
+.service-card:focus-visible {
+  background-color: #070707;
+}
+
+.service-card:hover .service-title,
+.service-card:focus-visible .service-title {
+  transform: translateX(12px);
+  color: var(--color-primary);
+}
+
+.service-card:hover .tag-pill,
+.service-card:focus-visible .tag-pill {
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.service-card:hover .service-arrow,
+.service-card:focus-visible .service-arrow {
+  opacity: 1;
+  transform: rotate(45deg) scale(1.1);
+}
+
+.service-card:hover .service-desc,
+.service-card:focus-visible .service-desc {
+  opacity: 1;
+  max-height: 100px;
+  margin-top: 0.65rem;
+}
+
+/* --------------------------------------------------------------------------
+   07. MANIFESTO & SYSTEM TELEMETRY (CLEAN SOLID MONOLITHS)
+   -------------------------------------------------------------------------- */
+.manifesto-section {
+  position: relative;
+  background-color: #000000;
+  color: var(--color-white);
+  padding: 0 2.5rem 6rem 2.5rem;
+  z-index: 12;
+}
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2rem;
+  border-top: 1px solid var(--color-dark-border);
+  padding-top: 4rem;
+}
+
+.manifesto-box {
+  border: 1px solid var(--color-dark-border);
+  padding: 2.5rem;
+  background: var(--color-dark-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.box-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.manifesto-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+}
+
+.manifesto-body {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-silver-dim);
+  margin-bottom: 2.5rem;
+}
+
+.manifesto-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  border-top: 1px solid var(--color-dark-border);
+  padding-top: 1.5rem;
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  color: var(--color-primary);
+  letter-spacing: -0.04em;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-silver-dim);
+  margin-top: 0.25rem;
+}
+
+/* Telemetry Display */
+.telemetry-display {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin-bottom: 1.75rem;
+}
+
+.tel-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed var(--color-dark-border);
+  padding-bottom: 0.4rem;
+}
+
+.tel-k {
+  color: var(--color-silver-dim);
+}
+
+.tel-v {
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+/* Interactive Brutalist Terminal */
+.interactive-terminal {
+  border: 1px solid var(--color-dark-border);
+  background: #050505;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.term-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-dark-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.term-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary);
+}
+
+.term-body {
+  color: var(--color-silver-dim);
+  line-height: 1.6;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.term-body div {
+  margin-bottom: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   08. SELECTED WORKS SHOWCASE (CLEAN PRO PRESENTATION)
+   -------------------------------------------------------------------------- */
+.works-section {
+  position: relative;
+  background-color: #000000;
+  color: var(--color-white);
+  padding: 0 2.5rem 5rem 2.5rem;
+  z-index: 12;
+}
+
+.works-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-dark-border);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.works-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.works-filter {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--color-silver-dim);
+  padding: 0.3rem 0.6rem;
+  border: 1px solid transparent;
+  transition: all var(--transition-snappy);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  color: var(--color-white);
+  background: #111111;
+  border-color: var(--color-dark-border-hover);
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.work-tile {
+  border: 1px solid var(--color-dark-border);
+  background: var(--color-dark-card);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-snappy), transform var(--transition-snappy);
+}
+
+.work-tile:hover,
+.work-tile:focus-visible {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+.tile-bar {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-dark-border);
+  color: var(--color-silver-dim);
+}
+
+.tile-visual {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+  background-color: #050505;
+  border-bottom: 1px solid var(--color-dark-border);
+}
+
+.tile-symbol-img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-snappy);
+}
+
+.tile-symbol-caption {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.caption-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: var(--color-white);
+}
+
+.caption-sub {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+}
+
+.tile-app-img {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-snappy);
+}
+
+.tile-badge-overlay {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  background: #000000;
+  color: var(--color-primary);
+  border: 1px solid var(--color-dark-border);
+  padding: 0.2rem 0.45rem;
+}
+
+.work-tile:hover .tile-symbol-img,
+.work-tile:hover .tile-app-img {
+  transform: scale(1.05);
+}
+
+.tile-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.15rem 1rem;
+  font-family: var(--font-mono);
+}
+
+.tile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.tile-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.tile-desc-sub {
+  font-size: 11px;
+  color: var(--color-silver-dim);
+  font-family: var(--font-body);
+}
+
+.tile-arrow {
+  color: var(--color-primary);
+  font-size: 1.15rem;
+  transition: transform var(--transition-snappy);
+}
+
+.work-tile:hover .tile-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* --------------------------------------------------------------------------
+   09. BRAND STRIP SECTION (AUTHENTIC REAL EMBLEM ARTIFACTS)
+   -------------------------------------------------------------------------- */
+.brand-strip-section {
+  position: relative;
+  background-color: #000000;
+  color: var(--color-white);
+  padding: 0 2.5rem 6rem 2.5rem;
+  z-index: 12;
+}
+
+.brand-strip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  border-top: 1px solid var(--color-dark-border);
+  padding-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.strip-badge {
+  color: var(--color-primary);
+}
+
+.strip-tagline {
+  color: var(--color-silver-dim);
+}
+
+.brand-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.brand-item {
+  border: 1px solid var(--color-dark-border);
+  background: var(--color-dark-card);
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: border-color var(--transition-snappy), transform var(--transition-snappy);
+}
+
+.brand-item:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  background: #0d0d0d;
+}
+
+.brand-clean-lockup {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.brand-real-mini {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-app-mini {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-clean-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.b-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-white);
+}
+
+.b-brand-qatar {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  margin-top: 2px;
+}
+
+.b-brand-sub {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-silver-dim);
+  margin-top: 4px;
+}
+
+.strip-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-silver-dim);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   10. GIANT CTA SECTION (PURE SOLID BLACK // ULTRA-CLEAN PRO)
+   -------------------------------------------------------------------------- */
+.cta-section {
+  position: relative;
+  background-color: #000000;
+  color: var(--color-white);
+  padding: 8rem 2.5rem;
+  text-align: center;
+  z-index: 12;
+  border-top: 2px solid var(--color-primary);
+  overflow: hidden;
+}
+
+.cta-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-badge {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.cta-heading {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 12vw, 11rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 1.75rem;
+  user-select: text;
+}
+
+.cta-sub {
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-silver-dim);
+  max-width: 780px;
+  margin-bottom: 3rem;
+  line-height: 1.5;
+}
+
+.cta-button-wrap {
+  margin-bottom: 2.5rem;
+}
+
+.cta-btn-giant {
+  background-color: var(--color-primary);
+  color: #000000;
+  border: 2px solid var(--color-primary);
+  border-radius: 9999px;
+  padding: 1.35rem 3.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.75vw, 1.35rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all var(--transition-snappy);
+}
+
+.cta-btn-giant:hover {
+  transform: scale(1.05);
+  background-color: #FFFFFF;
+  color: #000000;
+  border-color: #FFFFFF;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  transition: transform var(--transition-snappy);
+}
+
+.cta-btn-giant:hover .btn-icon {
+  transform: translateX(6px);
+}
+
+.cta-direct-contact {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid var(--color-dark-border);
+  padding: 0.65rem 1.35rem;
+  background: #080808;
+}
+
+.direct-label {
+  color: var(--color-silver-dim);
+}
+
+.direct-email {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.copy-hint {
+  font-size: 10px;
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   11. BRUTALIST FOOTER (CLEAN SOLID MONOLITH)
+   -------------------------------------------------------------------------- */
+.kinetic-footer {
+  position: relative;
+  background-color: #000000;
+  color: var(--color-white);
+  border-top: 1px solid var(--color-dark-border);
+  padding: 4rem 2.5rem 2rem 2.5rem;
+  z-index: 12;
+}
+
+.footer-top-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  padding-bottom: 3rem;
+}
+
+.footer-col-brand {
+  max-width: 520px;
+}
+
+.footer-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-real-icon {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.04em;
+  color: var(--color-white);
+}
+
+.footer-sub {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  color: var(--color-silver-dim);
+  margin-top: 3px;
+}
+
+.footer-mission {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.6;
+  color: var(--color-silver-dim);
+}
+
+.footer-col-links {
+  display: flex;
+  gap: 4rem;
+}
+
+.footer-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-group-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.f-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--color-silver-dim);
+  transition: color var(--transition-snappy);
+  display: inline-block;
+}
+
+.f-link:hover {
+  color: var(--color-white);
+}
+
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-dark-border);
+  padding-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-silver-dim);
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.f-sep {
+  opacity: 0.3;
+}
+
+/* --------------------------------------------------------------------------
+   12. INTERACTIVE INQUIRY MODAL (CLEAN BRUTALIST PRO)
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-window {
+  background: #0a0a0a;
+  border: 1px solid var(--color-dark-border-hover);
+  width: 100%;
+  max-width: 600px;
+  padding: 2.25rem;
+  color: var(--color-white);
+  position: relative;
+  animation: modalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.96) translateY(12px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--color-dark-border);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin-top: 0.25rem;
+  color: var(--color-white);
+}
+
+.modal-close-btn {
+  background: #111111;
+  color: var(--color-white);
+  border: 1px solid var(--color-dark-border);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-snappy);
+}
+
+.modal-close-btn:hover {
+  background: var(--color-primary);
+  color: #000000;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-silver);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border: 1px solid var(--color-dark-border);
+  background: #000000;
+  color: var(--color-white);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 0.75rem 0.9rem;
+  outline: none;
+  border-radius: 0;
+  transition: border-color var(--transition-snappy);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.modal-submit-btn {
+  background: var(--color-primary);
+  color: #000000;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  padding: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color var(--transition-snappy), color var(--transition-snappy);
+}
+
+.modal-submit-btn:hover {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.form-feedback {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  min-height: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   13. COMPREHENSIVE RESPONSIVE BREAKPOINTS (TABLETS & MOBILE PERFECTION)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero-metadata-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .meta-left, .meta-right {
+    text-align: center;
+  }
+  .meta-center {
+    order: 3;
+  }
+  .manifesto-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .works-grid, .brand-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top-row {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* --- 01. NAVIGATION MOBILE PERFECTION (Ultra-Pro 1-Row Floating Island) --- */
+  .nav-container {
+    position: fixed;
+    top: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 1.5rem);
+    max-width: 600px;
+    height: 50px;
+    border-radius: 9999px;
+    padding: 0 0.65rem 0 0.85rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(8, 10, 15, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+  }
+
+  .nav-logo {
+    order: 1;
+    max-width: calc(100% - 120px);
+    flex-shrink: 0;
+  }
+
+  .nav-logo-wrap {
+    gap: 0.5rem;
+  }
+
+  .nav-logo-pod {
+    width: 28px;
+    height: 28px;
+  }
+
+  .nav-brand-icon {
+    height: 24px;
+    width: 24px;
+  }
+
+  .nav-brand-headline {
+    gap: 0.35rem;
+  }
+
+  .nav-title {
+    font-size: 0.8rem;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-qatar-badge {
+    font-size: 6.5px;
+    padding: 2px 5px;
+  }
+
+  .hide-tablet {
+    display: none !important;
+  }
+
+  .nav-pill-wrapper {
+    display: none; /* Keep mobile header sleek, 1-row, and pro */
+  }
+
+  .nav-actions {
+    order: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .nav-cta-pill {
+    height: 32px;
+    padding: 0 0.85rem;
+    font-size: 9px;
+    letter-spacing: 0.03em;
+    gap: 0.35rem;
+  }
+
+  /* --- 02. HERO SECTION MOBILE (BALANCED & PROPORTIONAL) --- */
+  .hero-section {
+    min-height: calc(100svh - 75px);
+    padding: 6.5rem 1.25rem 2.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-headline-wrap {
+    gap: 1.15rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .hero-emblem-badge {
+    margin: 0;
+  }
+
+  .hero-emblem-img {
+    height: clamp(62px, 16vw, 76px);
+  }
+
+  .headline-primary {
+    font-size: clamp(2.1rem, 10.5vw, 3.2rem);
+    letter-spacing: -0.03em;
+    line-height: 0.92;
+  }
+
+  .headline-subgroup {
+    font-size: clamp(1.15rem, 5.6vw, 1.75rem);
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+  }
+
+  .hero-subheadline {
+    gap: 0.45rem;
+    margin-top: 0.25rem;
+  }
+
+  .hero-tagline-text {
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+  }
+
+  .hero-caps-strip {
+    gap: 0.35rem 0.6rem;
+    font-size: 9.5px;
+    line-height: 1.5;
+  }
+
+  .hero-cap-sep {
+    font-size: 0.8em;
+    opacity: 0.6;
+  }
+
+  /* --- 03. MARQUEE MOBILE (FAST & STRAIGHT) --- */
+  .skewed-marquee-wrapper {
+    transform: none;
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+  }
+
+  .marquee-track-primary .marquee-content,
+  .marquee-track-white .marquee-content {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+  }
+
+  .marquee-slide-left {
+    animation-duration: 9s;
+  }
+
+  .marquee-slide-right {
+    animation-duration: 11s;
+  }
+
+  .marquee-bullet {
+    margin: 0 0.9rem;
+  }
+
+  /* --- 04. SERVICES LIST MOBILE --- */
+  .services-section {
+    padding: 4rem 1.25rem 5rem 1.25rem;
+  }
+
+  .services-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .services-badge {
+    font-size: 11.5px;
+  }
+
+  .services-sub {
+    font-size: 10px;
+  }
+
+  .service-card {
+    grid-template-columns: 36px 1fr 26px;
+    gap: 0.75rem;
+    padding: 1.75rem 0;
+  }
+
+  .service-index {
+    font-size: 1.05rem;
+  }
+
+  .service-title {
+    font-size: clamp(1.35rem, 5.8vw, 2.1rem);
+    line-height: 0.95;
+  }
+
+  .service-tags {
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+  }
+
+  .tag-pill {
+    font-size: 9px;
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* Readable by default on mobile touch screens */
+  .service-desc {
+    opacity: 0.85;
+    max-height: 200px;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  .service-arrow {
+    opacity: 0.75;
+    transform: rotate(0deg) scale(0.9);
+  }
+
+  /* --- 05. MANIFESTO & TELEMETRY MOBILE --- */
+  .manifesto-section {
+    padding: 0 1.25rem 4rem 1.25rem;
+  }
+
+  .manifesto-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-top: 2rem;
+  }
+
+  .manifesto-box {
+    padding: 1.5rem 1.15rem;
+  }
+
+  .manifesto-heading {
+    font-size: clamp(1.4rem, 6.2vw, 2.1rem);
+    margin-bottom: 1.15rem;
+  }
+
+  .manifesto-body {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 1.75rem;
+  }
+
+  .manifesto-stat-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding-top: 1.25rem;
+  }
+
+  .stat-num {
+    font-size: clamp(1.1rem, 4.8vw, 1.45rem);
+  }
+
+  .stat-label {
+    font-size: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .telemetry-display {
+    font-size: 10px;
+    gap: 0.55rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .interactive-terminal {
+    font-size: 9.5px;
+    padding: 0.85rem;
+  }
+
+  /* --- 06. SELECTED WORKS MOBILE --- */
+  .works-section {
+    padding: 0 1.25rem 4rem 1.25rem;
+  }
+
+  .works-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .works-title {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+  }
+
+  .works-filter {
+    display: flex;
+    gap: 0.35rem;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .filter-btn {
+    font-size: 10px;
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .work-tile {
+    width: 100%;
+  }
+
+  .tile-visual {
+    height: 190px;
+    padding: 1rem;
+  }
+
+  .tile-symbol-img {
+    height: 80px;
+  }
+
+  .tile-app-img {
+    height: 90px;
+  }
+
+  .caption-title {
+    font-size: 0.95rem;
+  }
+
+  .caption-sub {
+    font-size: 7.5px;
+  }
+
+  .tile-footer {
+    padding: 1rem 0.85rem;
+  }
+
+  .tile-name {
+    font-size: 11.5px;
+  }
+
+  .tile-desc-sub {
+    font-size: 10px;
+  }
+
+  /* --- 07. BRAND ARTIFACTS MOBILE --- */
+  .brand-strip-section {
+    padding: 0 1.25rem 4rem 1.25rem;
+  }
+
+  .brand-strip-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .brand-strip-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .brand-item {
+    padding: 1.5rem 1.15rem;
+    gap: 1.15rem;
+  }
+
+  .brand-clean-lockup {
+    gap: 0.85rem;
+  }
+
+  .brand-real-mini {
+    height: 40px;
+  }
+
+  .brand-app-mini {
+    height: 40px;
+  }
+
+  .b-brand-name {
+    font-size: 1rem;
+  }
+
+  .b-brand-qatar {
+    font-size: 0.9rem;
+  }
+
+  .b-brand-sub {
+    font-size: 7.5px;
+  }
+
+  .strip-label {
+    font-size: 9.5px;
+  }
+
+  /* --- 08. GIANT CTA MOBILE --- */
+  .cta-section {
+    padding: 5rem 1.25rem;
+  }
+
+  .cta-badge {
+    font-size: 10.5px;
+    margin-bottom: 1rem;
+  }
+
+  .cta-heading {
+    font-size: clamp(2.8rem, 15vw, 5rem);
+    line-height: 0.9;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-sub {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .cta-button-wrap {
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta-btn-giant {
+    width: 100%;
+    max-width: 300px;
+    padding: 1.15rem 1.5rem;
+    font-size: 0.95rem;
+    justify-content: center;
+  }
+
+  .cta-direct-contact {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    padding: 0.75rem 1rem;
+    gap: 0.35rem;
+    text-align: center;
+  }
+
+  .direct-email {
+    font-size: 11px;
+    word-break: break-all;
+  }
+
+  .copy-hint {
+    font-size: 9.5px;
+  }
+
+  /* --- 09. FOOTER MOBILE --- */
+  .kinetic-footer {
+    padding: 3.5rem 1.25rem 2rem 1.25rem;
+  }
+
+  .footer-top-row {
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-brand-logo {
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-real-icon {
+    height: 36px;
+  }
+
+  .footer-name {
+    font-size: 1.05rem;
+  }
+
+  .footer-sub {
+    font-size: 8px;
+  }
+
+  .footer-mission {
+    font-size: 10.5px;
+    line-height: 1.55;
+  }
+
+  .footer-col-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-group-title {
+    font-size: 10px;
+  }
+
+  .f-link {
+    font-size: 10.5px;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .footer-legal-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* --- 10. MODAL MOBILE --- */
+  .modal-overlay {
+    padding: 1rem;
+  }
+
+  .modal-window {
+    padding: 1.5rem 1.15rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-title {
+    font-size: 1.6rem;
+  }
+
+  .modal-close-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .form-group label {
+    font-size: 10px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px !important; /* CRITICAL: Prevents iOS auto-zoom on input focus */
+    padding: 0.65rem 0.8rem;
+  }
+
+  .modal-submit-btn {
+    padding: 0.85rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* --- SMALL MOBILES (iPhone SE / Galaxy / 375px & below) --- */
+@media (max-width: 400px) {
+  .nav-container {
+    width: calc(100% - 1rem);
+    height: 46px;
+    padding: 0 0.5rem 0 0.65rem;
+  }
+
+  .nav-title {
+    font-size: 0.74rem;
+  }
+
+  .nav-qatar-badge {
+    display: none;
+  }
+
+  .nav-cta-pill {
+    height: 28px;
+    padding: 0 0.65rem;
+    font-size: 8px;
+    gap: 0.25rem;
+  }
+
+  .nav-cta-pill .cta-txt {
+    font-size: 8px;
+  }
+
+  .headline-primary {
+    font-size: 1.95rem;
+  }
+
+  .headline-subgroup {
+    font-size: 1.05rem;
+  }
+
+  .manifesto-stat-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .footer-col-links {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
