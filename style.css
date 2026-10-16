@@ -660,8 +660,12 @@ body.kinetic-body {
   order: 4;
 }
 
-#contact {
+.brand-strip-section {
   order: 5;
+}
+
+#contact {
+  order: 6;
 }
 
 @media (min-width: 769px) {
