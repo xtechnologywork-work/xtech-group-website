@@ -899,185 +899,343 @@
           </p>
 
           <!-- Ecosystem Meta Chips -->
-          <div class="products-meta-strip">
-            <div class="meta-pill"><span class="meta-dot dot-live"></span> 1 ACTIVE IN PRODUCTION</div>
-            <div class="meta-pill"><span class="meta-dot dot-progress"></span> 2 IN DEVELOPMENT</div>
-            <div class="meta-pill"><span class="meta-dot dot-qatar"></span> BUILT FOR QATAR & GCC</div>
-          </div>
+               <!-- Quick Interactive Product Selector Tabs -->
+        <div class="products-selector-tabs" role="tablist" aria-label="Select XTECH Product">
+          <button class="wallet-tab-btn tab-active" data-product="walae" role="tab" aria-selected="true">
+            <span class="tab-indicator dot-live"></span>
+            <span class="tab-label">ALWALAE</span>
+            <span class="tab-status-pill pill-live">LIVE</span>
+          </button>
+          <button class="wallet-tab-btn" data-product="flexchange" role="tab" aria-selected="false">
+            <span class="tab-indicator dot-progress"></span>
+            <span class="tab-label">FlexChange</span>
+            <span class="tab-status-pill pill-dev">DEV</span>
+          </button>
+          <button class="wallet-tab-btn" data-product="baqala" role="tab" aria-selected="false">
+            <span class="tab-indicator dot-qatar"></span>
+            <span class="tab-label">BAQALA</span>
+            <span class="tab-status-pill pill-pilot">PILOT</span>
+          </button>
         </div>
 
-        <!-- 3 Products Grid -->
-        <div class="products-grid">
+        <!-- 3D Digital Wallet & Product Dossier Stage -->
+        <div class="wallet-stage-wrapper">
           
-          <!-- Product Card 1: ALWALAE (Active / Live) -->
-          <article class="product-card card-active" data-product="walae">
-            <div class="card-glow-overlay glow-green"></div>
+          <!-- LEFT: 3D Physical Digital Wallet -->
+          <div class="digital-wallet-stage" id="wallet-interactive-area" aria-label="Interactive 3D Digital Wallet">
+            <!-- Forest Green Ambient Vignette Glow -->
+            <div class="wallet-stage-ambient"></div>
             
-            <div class="card-top-bar">
-              <span class="card-status-badge badge-live">
-                <span class="status-pulse-dot"></span>
-                ACTIVE // LIVE
-              </span>
-              <span class="card-edition-tag">ENTERPRISE SAAS</span>
-            </div>
+            <div class="digital-wallet-holder" id="digital-wallet-holder">
+              
+              <!-- 3D Card Stack Pocket Area -->
+              <div class="wallet-card-stack" id="wallet-card-stack">
+                
+                <!-- Card 1: ALWALAE (Prestige Emerald & Gold Edition // Active) -->
+                <div class="wallet-smart-card card-walae is-active" data-card="walae" tabindex="0" role="button" aria-label="Inspect ALWALAE Card">
+                  <div class="card-foil-sheen"></div>
+                  <div class="card-noise-layer"></div>
+                  
+                  <div class="card-inner-content">
+                    <div class="card-top-row">
+                      <!-- Gold EMV Smart Chip -->
+                      <div class="card-emv-chip chip-gold">
+                        <div class="chip-pin-line"></div>
+                      </div>
+                      <!-- Contactless NFC Wave -->
+                      <div class="card-nfc-wave">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                          <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                          <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                        </svg>
+                      </div>
+                      <span class="card-tier-pill tier-gold">PRESTIGE GOLD</span>
+                    </div>
 
-            <!-- Logo Showcase Frame -->
-            <div class="product-logo-showcase showcase-walae">
-              <div class="logo-ambient-aura aura-green"></div>
-              <img src="./assets/product-walae-white.png" alt="ALWALAE - Digital Loyalty Platform Logo" class="prod-img img-walae" loading="lazy">
-            </div>
+                    <!-- Center Brand Lockup -->
+                    <div class="card-brand-showcase">
+                      <img src="./assets/product-walae-white.png" alt="ALWALAE Logo" class="card-logo-img logo-walae">
+                    </div>
 
-            <!-- Product Body Info -->
-            <div class="product-content">
-              <div class="product-meta-header">
-                <span class="product-cat-tag">CUSTOMER RETENTION PLATFORM</span>
-                <h3 class="product-name">ALWALAE <span class="product-subname">// Digital Loyalty</span></h3>
+                    <!-- Bottom Cardholder Telemetry -->
+                    <div class="card-bottom-row">
+                      <div class="card-digits">•••• •••• •••• 2026</div>
+                      <div class="card-sub-telemetry">
+                        <div class="holder-group">
+                          <span class="telemetry-caption">CARDHOLDER / PLATFORM</span>
+                          <span class="telemetry-value">ALWALAE LOYALTY</span>
+                        </div>
+                        <div class="expiry-group">
+                          <span class="telemetry-caption">STATUS</span>
+                          <span class="telemetry-value text-emerald">ACTIVE // LIVE</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2: FlexChange (Titanium & Burnt Amber Edition) -->
+                <div class="wallet-smart-card card-flexchange" data-card="flexchange" tabindex="0" role="button" aria-label="Inspect FlexChange Card">
+                  <div class="card-foil-sheen"></div>
+                  <div class="card-noise-layer"></div>
+                  
+                  <div class="card-inner-content">
+                    <div class="card-top-row">
+                      <div class="card-emv-chip chip-titanium">
+                        <div class="chip-pin-line"></div>
+                      </div>
+                      <div class="card-nfc-wave">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                          <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                          <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                        </svg>
+                      </div>
+                      <span class="card-tier-pill tier-amber">TITANIUM AMBER</span>
+                    </div>
+
+                    <div class="card-brand-showcase">
+                      <img src="./assets/product-flexchange-white.png" alt="FlexChange Logo" class="card-logo-img logo-flexchange">
+                    </div>
+
+                    <div class="card-bottom-row">
+                      <div class="card-digits">•••• •••• •••• 0142</div>
+                      <div class="card-sub-telemetry">
+                        <div class="holder-group">
+                          <span class="telemetry-caption">CARDHOLDER / PLATFORM</span>
+                          <span class="telemetry-value">FLEXCHANGE CASHLESS</span>
+                        </div>
+                        <div class="expiry-group">
+                          <span class="telemetry-caption">STATUS</span>
+                          <span class="telemetry-value text-amber">DEV // BETA 2026</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3: BAQALA (Platinum & Arctic Cyan Edition) -->
+                <div class="wallet-smart-card card-baqala" data-card="baqala" tabindex="0" role="button" aria-label="Inspect BAQALA Card">
+                  <div class="card-foil-sheen"></div>
+                  <div class="card-noise-layer"></div>
+                  
+                  <div class="card-inner-content">
+                    <div class="card-top-row">
+                      <div class="card-emv-chip chip-platinum">
+                        <div class="chip-pin-line"></div>
+                      </div>
+                      <div class="card-nfc-wave">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                          <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                          <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                        </svg>
+                      </div>
+                      <span class="card-tier-pill tier-cyan">PLATINUM CYAN</span>
+                    </div>
+
+                    <div class="card-brand-showcase">
+                      <div class="card-baqala-badge">
+                        <img src="./assets/product-baqala.jpg" alt="BAQALA Logo" class="card-logo-img logo-baqala">
+                      </div>
+                    </div>
+
+                    <div class="card-bottom-row">
+                      <div class="card-digits">•••• •••• •••• 9740</div>
+                      <div class="card-sub-telemetry">
+                        <div class="holder-group">
+                          <span class="telemetry-caption">CARDHOLDER / PLATFORM</span>
+                          <span class="telemetry-value">BAQALA SUPER APP</span>
+                        </div>
+                        <div class="expiry-group">
+                          <span class="telemetry-caption">STATUS</span>
+                          <span class="telemetry-value text-cyan">PILOT // QATAR</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
-              <p class="product-desc">
+              <!-- Physical Matte Black Wallet Front Pocket -->
+              <div class="wallet-front-pocket" id="wallet-front-pocket">
+                <!-- Leather Stitching -->
+                <div class="wallet-stitching"></div>
+                <!-- Top Slot Lip Shadow -->
+                <div class="wallet-slot-lip"></div>
+                
+                <!-- Central Display Console -->
+                <div class="wallet-front-console">
+                  <div class="wallet-console-eyebrow">
+                    <span class="console-signal-dot"></span>
+                    <span>XTECH VENTURE ECOSYSTEM</span>
+                  </div>
+                  <div class="wallet-console-balance" id="wallet-display-balance">
+                    ALWALAE // LIVE
+                  </div>
+                  <div class="wallet-console-sub" id="wallet-display-sub">
+                    CUSTOMER RETENTION PLATFORM • QATAR
+                  </div>
+                </div>
+              </div>
+
+              <!-- Wallet Backing Depth Layer -->
+              <div class="wallet-back-pocket"></div>
+            </div>
+
+            <!-- Interaction Instruction Cue -->
+            <div class="wallet-instruction-cue" id="wallet-cue">
+              <svg class="cue-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+              </svg>
+              <span>HOVER TO FAN • CLICK CARD TO INSPECT</span>
+            </div>
+          </div>
+
+          <!-- RIGHT: Active Product Dossier & Live Spec View -->
+          <div class="product-dossier-panel" id="product-dossier-panel">
+            
+            <!-- Dossier 1: ALWALAE -->
+            <article class="dossier-card is-active" id="dossier-walae" data-product="walae">
+              <div class="dossier-glow glow-emerald"></div>
+              
+              <div class="dossier-top-bar">
+                <span class="dossier-status-badge badge-live">
+                  <span class="status-pulse-dot"></span>
+                  ACTIVE // LIVE
+                </span>
+                <span class="dossier-edition-tag">ENTERPRISE SAAS</span>
+              </div>
+
+              <div class="dossier-meta-header">
+                <span class="dossier-cat-tag">CUSTOMER RETENTION PLATFORM</span>
+                <h3 class="dossier-title">ALWALAE <span class="dossier-subtitle">// Digital Loyalty</span></h3>
+              </div>
+
+              <p class="dossier-desc">
                 Next-generation customer loyalty and rewards ecosystem designed for merchants, restaurants, and retail brands in Qatar. Eliminates physical cards with instantaneous QR point accumulation, seamless POS integration, and automated customer retention workflows.
               </p>
 
-              <!-- Product Feature Bullets -->
-              <div class="product-specs-list">
+              <div class="dossier-specs-list">
                 <div class="spec-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Instant POS & QR Merchant Integration</span>
                 </div>
                 <div class="spec-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Real-Time Cash-Back & Points Ledger</span>
                 </div>
                 <div class="spec-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Automated Re-engagement Campaigns</span>
                 </div>
               </div>
 
-              <!-- Action Footer -->
-              <div class="product-card-footer">
-                <a href="#contact" class="product-action-btn btn-live">
+              <div class="dossier-footer">
+                <a href="#contact" class="dossier-action-btn btn-live">
                   <span>Explore Platform</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
-                <span class="product-market-pill">LIVE IN QATAR</span>
+                <span class="dossier-market-pill">LIVE IN QATAR</span>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- Product Card 2: FlexChange (In Progress) -->
-          <article class="product-card card-progress" data-product="flexchange">
-            <div class="card-glow-overlay glow-orange"></div>
-            
-            <div class="card-top-bar">
-              <span class="card-status-badge badge-progress">
-                <span class="status-amber-dot"></span>
-                IN PROGRESS // DEV
-              </span>
-              <span class="card-edition-tag">DRIVER FINTECH</span>
-            </div>
-
-            <!-- Logo Showcase Frame -->
-            <div class="product-logo-showcase showcase-flexchange">
-              <div class="logo-ambient-aura aura-orange"></div>
-              <img src="./assets/product-flexchange-white.png" alt="FlexChange Driver App Logo" class="prod-img img-flexchange" loading="lazy">
-            </div>
-
-            <!-- Product Body Info -->
-            <div class="product-content">
-              <div class="product-meta-header">
-                <span class="product-cat-tag">LAST-MILE CASHLESS MOBILITY</span>
-                <h3 class="product-name">FlexChange <span class="product-subname">// Driver Change App</span></h3>
+            <!-- Dossier 2: FlexChange -->
+            <article class="dossier-card" id="dossier-flexchange" data-product="flexchange">
+              <div class="dossier-glow glow-amber"></div>
+              
+              <div class="dossier-top-bar">
+                <span class="dossier-status-badge badge-progress">
+                  <span class="status-amber-dot"></span>
+                  IN PROGRESS // DEV
+                </span>
+                <span class="dossier-edition-tag">DRIVER FINTECH</span>
               </div>
 
-              <p class="product-desc">
+              <div class="dossier-meta-header">
+                <span class="dossier-cat-tag">LAST-MILE CASHLESS MOBILITY</span>
+                <h3 class="dossier-title">FlexChange <span class="dossier-subtitle">// Driver Change App</span></h3>
+              </div>
+
+              <p class="dossier-desc">
                 Dedicated micro-fintech application resolving the cash-on-delivery change challenge for delivery drivers and courier operations in Qatar. Drivers no longer carry loose change; exact coin balances are instantly disbursed to customers' mobile wallets in seconds.
               </p>
 
-              <!-- Product Feature Bullets -->
-              <div class="product-specs-list">
+              <div class="dossier-specs-list">
                 <div class="spec-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Zero-Change Cash-on-Delivery Settlement</span>
                 </div>
                 <div class="spec-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Instant Driver Micro-Wallet Disbursement</span>
                 </div>
                 <div class="spec-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Courier Fleet & Dispatch Integration</span>
                 </div>
               </div>
 
-              <!-- Action Footer -->
-              <div class="product-card-footer">
-                <div class="product-action-btn btn-dev">
+              <div class="dossier-footer">
+                <div class="dossier-action-btn btn-dev">
                   <span>In Development // Beta Soon</span>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
-                <span class="product-market-pill">ACTIVE ENGINEERING</span>
+                <span class="dossier-market-pill">ACTIVE ENGINEERING</span>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- Product Card 3: BAQALA (In Progress) -->
-          <article class="product-card card-progress" data-product="baqala">
-            <div class="card-glow-overlay glow-cyan"></div>
-            
-            <div class="card-top-bar">
-              <span class="card-status-badge badge-cyan">
-                <span class="status-cyan-dot"></span>
-                IN PROGRESS // PILOT
-              </span>
-              <span class="card-edition-tag">QUICK COMMERCE</span>
-            </div>
-
-            <!-- Logo Showcase Frame -->
-            <div class="product-logo-showcase showcase-baqala">
-              <div class="logo-ambient-aura aura-cyan"></div>
-              <div class="baqala-badge-wrap">
-                <img src="./assets/product-baqala.jpg" alt="BAQALA - Neighborhood Grocery Super App Logo" class="prod-img img-baqala" loading="lazy">
-              </div>
-            </div>
-
-            <!-- Product Body Info -->
-            <div class="product-content">
-              <div class="product-meta-header">
-                <span class="product-cat-tag">QATAR GROCERY SUPER APP</span>
-                <h3 class="product-name">BAQALA <span class="product-subname">// بقالة قطر</span></h3>
+            <!-- Dossier 3: BAQALA -->
+            <article class="dossier-card" id="dossier-baqala" data-product="baqala">
+              <div class="dossier-glow glow-cyan"></div>
+              
+              <div class="dossier-top-bar">
+                <span class="dossier-status-badge badge-cyan">
+                  <span class="status-cyan-dot"></span>
+                  IN PROGRESS // PILOT
+                </span>
+                <span class="dossier-edition-tag">QUICK COMMERCE</span>
               </div>
 
-              <p class="product-desc">
+              <div class="dossier-meta-header">
+                <span class="dossier-cat-tag">QATAR GROCERY SUPER APP</span>
+                <h3 class="dossier-title">BAQALA <span class="dossier-subtitle">// بقالة قطر</span></h3>
+              </div>
+
+              <p class="dossier-desc">
                 Hyper-local grocery super app engineered exclusively for local neighborhood baqalas across Qatar. Digitizes corner store inventories and delivers groceries to doorsteps in under 15 minutes, making daily essentials and home shopping seamless and ultra-fast.
               </p>
 
-              <!-- Product Feature Bullets -->
-              <div class="product-specs-list">
+              <div class="dossier-specs-list">
                 <div class="spec-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Hyper-Local Baqala Cloud Inventory</span>
                 </div>
                 <div class="spec-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Sub-15 Minute Doorstep Express Dispatch</span>
                 </div>
                 <div class="spec-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Native Bilingual Arabic & English UX</span>
                 </div>
               </div>
 
-              <!-- Action Footer -->
-              <div class="product-card-footer">
-                <div class="product-action-btn btn-dev">
+              <div class="dossier-footer">
+                <div class="dossier-action-btn btn-dev">
                   <span>Qatar Pilot // Coming Soon</span>
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 16 14"/></svg>
                 </div>
-                <span class="product-market-pill">PILOT IN QATAR</span>
+                <span class="dossier-market-pill">PILOT IN QATAR</span>
               </div>
-            </div>
-          </article>
+            </article>
+
+          </div>
 
         </div>
 
