@@ -7,7 +7,7 @@ import { Renderer, Program, Triangle, Mesh } from 'ogl';
 
 const DEFAULT_OPTIONS = {
   raysOrigin: 'top-center',
-  raysColor: '#0E4EAD',
+  raysColor: '#165DFC',
   raysSpeed: 1.2,
   lightSpread: 1.1,
   rayLength: 1.9,
@@ -26,7 +26,8 @@ const hexToRgb = (hex) => {
 };
 
 const getAnchorAndDir = (origin, w, h) => {
-  const outside = 0.2;
+  const isPortrait = h > w;
+  const outside = isPortrait ? 0.05 : 0.15;
   switch (origin) {
     case 'top-left':
       return { anchor: [0, -outside * h], dir: [0.7, 0.7] };
@@ -122,9 +123,15 @@ const frag = `
     float r2 = rayStrength(rayPos, finalRayDir, coord, 28.5, 19.8, 1.2 * raysSpeed);
     float r3 = rayStrength(rayPos, finalRayDir, coord, 12.1, 56.2, 0.5 * raysSpeed);
     
-    float combined = (r1 * 0.4 + r2 * 0.4 + r3 * 0.2);
-    combined = pow(combined, 0.7); // Boost mid-tones for visibility
-    combined *= 1.5; // Overall intensity boost
+    float combined = (r1 * 0.45 + r2 * 0.35 + r3 * 0.2);
+    combined = pow(combined, 0.62); // Lift mid-tones for visibility
+    combined *= 2.2; // Elevated luminous beam intensity for rich dark blue contrast
+    
+    // Ambient atmospheric back-glow around top origin so the upper center is luminous
+    float centerDist = length(coord - rayPos) / max(iResolution.x, iResolution.y);
+    float ambientBloom = clamp(1.0 - centerDist * 1.3, 0.0, 1.0) * 0.22;
+    combined += ambientBloom;
+
     vec3 finalColor = raysColor * combined;
     
     if (noiseAmount > 0.0) {
@@ -204,6 +211,18 @@ export function initLightRays(container, userOptions = {}) {
     const { anchor, dir } = getAnchorAndDir(options.raysOrigin, w, h);
     uniforms.rayPos.value = anchor;
     uniforms.rayDir.value = dir;
+
+    // Mobile / Portrait adaptive tuning: Wider fan, deeper reach, vibrant visibility
+    const isMobile = wCSS < 768 || hCSS > wCSS;
+    if (isMobile) {
+      uniforms.lightSpread.value = Math.max(options.lightSpread, 1.85);
+      uniforms.rayLength.value = Math.max(options.rayLength, 2.5);
+      uniforms.fadeDistance.value = Math.max(options.fadeDistance, 1.6);
+    } else {
+      uniforms.lightSpread.value = options.lightSpread;
+      uniforms.rayLength.value = options.rayLength;
+      uniforms.fadeDistance.value = options.fadeDistance;
+    }
   };
 
   const mouse = { x: 0.5, y: 0.5 };

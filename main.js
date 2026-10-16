@@ -555,11 +555,11 @@ function initHeroLightRays(soundSystem) {
   if (!container || !heroSection) return;
 
   const colorSpectrums = [
-    { name: 'DEEP COBALT BLUE', hex: '#0E4EAD' },
-    { name: 'MIDNIGHT NAVY', hex: '#0A3470' },
-    { name: 'ROYAL SAPPHIRE', hex: '#104085' },
-    { name: 'ABYSS BLUE', hex: '#07224A' },
-    { name: 'STEEL INDIGO BLUE', hex: '#1B3B6F' }
+    { name: 'ROYAL SAPPHIRE BLUE', hex: '#165DFC' },
+    { name: 'DEEP COBALT BLUE', hex: '#124EDB' },
+    { name: 'ELECTRIC NAVY', hex: '#1D4ED8' },
+    { name: 'MIDNIGHT BLUE', hex: '#0F3EA3' },
+    { name: 'STEEL INDIGO', hex: '#2563EB' }
   ];
 
   let currentSpectrumIdx = 0;
