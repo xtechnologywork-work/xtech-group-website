@@ -637,11 +637,42 @@ body.kinetic-body {
 }
 
 /* --------------------------------------------------------------------------
-   04. INDEPENDENT HIGH-SPEED MARQUEE SECTION (FAST & LEVEL // ZERO TILT)
+   04. INDEPENDENT HIGH-SPEED MARQUEE SECTION (FAST & LEVEL // RESPONSIVE ORDER)
    -------------------------------------------------------------------------- */
 #main-content {
   display: flex;
   flex-direction: column;
+}
+
+#hero {
+  order: 1;
+}
+
+#marquee-section {
+  order: 2; /* Mobile version: kept above Testimonials */
+}
+
+#testimonials {
+  order: 3; /* Mobile version: kept below Marquee */
+}
+
+#work {
+  order: 4;
+}
+
+#contact {
+  order: 5;
+}
+
+@media (min-width: 769px) {
+  /* Desktop version: Slide / Marquee section placed BELOW Testimonial: Scrolling Columns */
+  #testimonials {
+    order: 2;
+  }
+  #marquee-section {
+    order: 3;
+    margin: 4.5rem 0 5rem 0;
+  }
 }
 
 .skewed-marquee-wrapper {
