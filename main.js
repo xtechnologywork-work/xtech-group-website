@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. NAVIGATION SCROLLSPY & SMOOTH SCROLL
   initNavigation();
 
-  // 5. WORKS FILTERING
-  initWorksFilter();
+  // 5. INDUSTRIES RADIAL NETWORK INTERACTION
+  initIndustriesInteractivity(soundSystem);
 
   // 6. INQUIRY MODAL & FORM TRANSMISSION
   initInquiryModal(soundSystem);
@@ -201,32 +201,61 @@ function initNavigation() {
 
 
 /**
- * Works Filter Tabs
+ * Industries Radial Network Interactivity
  */
-function initWorksFilter() {
-  const buttons = document.querySelectorAll('.filter-btn');
-  const tiles = document.querySelectorAll('.work-tile');
+function initIndustriesInteractivity(soundSystem) {
+  const nodes = document.querySelectorAll('.radial-node');
+  const cards = document.querySelectorAll('.industry-card');
+  const centerHub = document.getElementById('center-hub');
 
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
+  nodes.forEach((node) => {
+    node.addEventListener('mouseenter', () => {
+      if (soundSystem && typeof soundSystem.hover === 'function') {
+        soundSystem.hover();
+      }
+      const label = node.querySelector('.node-pill')?.textContent;
+      if (label) {
+        logTerminalEvent(`INTELLIGENCE NODE ACTIVE: [${label.trim()}]`);
+      }
+    });
 
-      tiles.forEach((tile) => {
-        if (filter === 'all') {
-          tile.style.display = 'flex';
-        } else if (filter === 'enterprise' && (tile.innerText.includes('ENTERPRISE') || tile.innerText.includes('MONOLITH') || tile.innerText.includes('CLIENT'))) {
-          tile.style.display = 'flex';
-        } else if (filter === 'blueprint' && (tile.innerText.includes('BLUEPRINT') || tile.innerText.includes('ARCHITECTURE'))) {
-          tile.style.display = 'flex';
-        } else {
-          tile.style.display = 'none';
-        }
-      });
-      logTerminalEvent(`SOLUTIONS FILTER ENGAGED: [${filter.toUpperCase()}]`);
+    node.addEventListener('click', () => {
+      if (soundSystem && typeof soundSystem.click === 'function') {
+        soundSystem.click();
+      }
+      nodes.forEach(n => n.classList.remove('active'));
+      node.classList.add('active');
     });
   });
+
+  cards.forEach((card) => {
+    card.addEventListener('mouseenter', () => {
+      if (soundSystem && typeof soundSystem.hover === 'function') {
+        soundSystem.hover();
+      }
+    });
+
+    card.addEventListener('click', () => {
+      if (soundSystem && typeof soundSystem.click === 'function') {
+        soundSystem.click();
+      }
+      cards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const title = card.querySelector('.card-title')?.textContent;
+      if (title) {
+        logTerminalEvent(`CAPABILITY SELECTED: [${title.trim().toUpperCase()}]`);
+      }
+    });
+  });
+
+  if (centerHub) {
+    centerHub.addEventListener('mouseenter', () => {
+      if (soundSystem && typeof soundSystem.hover === 'function') {
+        soundSystem.hover();
+      }
+      logTerminalEvent('XTECH NEURAL CORE: NOMINAL 100% OPERATIONAL');
+    });
+  }
 }
 
 /**
