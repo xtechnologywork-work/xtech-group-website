@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5.1 OUR PRODUCTS BY XTECH INTERACTION
   initProductsInteractivity(soundSystem);
 
+  // 5.2 PAUSE DECORATIVE ANIMATIONS WHEN SECTIONS ARE OFF-SCREEN
+  initOffscreenAnimationPausing();
+
   // 6. INQUIRY MODAL & FORM TRANSMISSION
   initInquiryModal(soundSystem);
 
@@ -179,27 +182,45 @@ function initSoundSystem() {
  * Navigation ScrollSpy & smooth scroll links
  */
 function initNavigation() {
-  const sections = document.querySelectorAll('section[id], footer[id]');
+  const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-pill-link');
+  if (!sections.length || !('IntersectionObserver' in window)) return;
 
-  window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY + 200;
-
-    sections.forEach((sec) => {
-      const top = sec.offsetTop;
-      const height = sec.offsetHeight;
-      const id = sec.getAttribute('id');
-
-      if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.forEach((link) => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
-      }
+  const setActive = (id) => {
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
     });
-  }, { passive: true });
+  };
+
+  // Zero layout reads on scroll: the browser reports which section crosses the reading line
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-35% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach((sec) => spy.observe(sec));
+}
+
+/**
+ * Pauses CSS + SVG (SMIL) animations in sections that are not visible
+ */
+function initOffscreenAnimationPausing() {
+  if (!('IntersectionObserver' in window)) return;
+  const targets = document.querySelectorAll('#testimonials, #marquee-section, #industries, #products');
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const visible = entry.isIntersecting;
+      entry.target.classList.toggle('is-offscreen', !visible);
+      entry.target.querySelectorAll('svg').forEach((svg) => {
+        if (typeof svg.pauseAnimations !== 'function') return;
+        visible ? svg.unpauseAnimations() : svg.pauseAnimations();
+      });
+    });
+  }, { rootMargin: '200px 0px' });
+
+  targets.forEach((el) => io.observe(el));
 }
 
 
@@ -552,6 +573,20 @@ async function initTubesBackground(soundSystem) {
   const hintEl = document.getElementById('tubes-hint');
   if (!canvas || !heroSection) return;
 
+  // 0. Skip the 775 KB WebGL scene for reduced-motion users and data-saver connections
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (reduceMotion || saveData) return;
+
+  // Defer heavy WebGL until the page has loaded and the main thread is idle
+  await new Promise((resolve) => {
+    const whenIdle = () => ('requestIdleCallback' in window)
+      ? requestIdleCallback(resolve, { timeout: 1500 })
+      : setTimeout(resolve, 200);
+    if (document.readyState === 'complete') whenIdle();
+    else window.addEventListener('load', whenIdle, { once: true });
+  });
+
   // 1. Off-screen Visibility Observer: Zero GPU/CPU waste when scrolled away
   let isHeroVisible = true;
   const heroObserver = new IntersectionObserver((entries) => {
@@ -612,10 +647,11 @@ async function initTubesBackground(soundSystem) {
 
     let module;
     try {
-      module = await importModule('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
+      // Same-origin first: no extra DNS/TLS handshake, served from our own cache
+      module = await importModule('/vendor/tubes1.min.js');
     } catch (e1) {
       try {
-        module = await importModule('/vendor/tubes1.min.js');
+        module = await importModule('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
       } catch (e2) {
         console.warn('Unable to load TubesCursor module:', e1, e2);
         return;
@@ -648,10 +684,15 @@ async function initTubesBackground(soundSystem) {
       renderer.powerPreference = 'high-performance';
       if (renderer.shadowMap) renderer.shadowMap.enabled = false;
 
-      // 3. Absolute render culling when off-screen
+      // 3. Absolute render culling when off-screen + hard 60 FPS cap on real GPU draws
       const originalRender = renderer.render.bind(renderer);
+      const drawInterval = 1000 / 60;
+      let lastDraw = 0;
       renderer.render = function(scene, camera) {
         if (!isHeroVisible) return; // 0 draw calls when scrolled past hero
+        const now = performance.now();
+        if (now - lastDraw < drawInterval - 1) return; // no wasted frames on 120/144Hz screens
+        lastDraw = now;
         return originalRender(scene, camera);
       };
     }

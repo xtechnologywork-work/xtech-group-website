@@ -1519,8 +1519,6 @@ body.kinetic-body {
   justify-content: center;
   z-index: 2;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 .hub-disc::before {
@@ -2008,6 +2006,8 @@ body.kinetic-body {
 }
 
 .img-walae {
+  width: auto;
+  height: auto;
   max-width: 220px;
   max-height: 72px;
   object-fit: contain;
@@ -2016,6 +2016,8 @@ body.kinetic-body {
 }
 
 .img-flexchange {
+  width: auto;
+  height: auto;
   max-width: 195px;
   max-height: 76px;
   object-fit: contain;
@@ -3210,4 +3212,42 @@ body.kinetic-body {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
+}
+
+/* ==========================================================================
+   99. PERFORMANCE LAYER
+   ========================================================================== */
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+
+/* Skip style/layout/paint for below-the-fold sections until they approach the viewport */
+#testimonials,
+#industries,
+#products,
+.site-footer {
+  content-visibility: auto;
+}
+#testimonials { contain-intrinsic-size: auto 760px; }
+#industries   { contain-intrinsic-size: auto 820px; }
+#products     { contain-intrinsic-size: auto 1150px; }
+.site-footer  { contain-intrinsic-size: auto 420px; }
+
+/* Freeze decorative animations while a section is off-screen (toggled by main.js) */
+.is-offscreen *,
+.is-offscreen *::before,
+.is-offscreen *::after {
+  animation-play-state: paused !important;
+}
+
+/* Respect users / devices that ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-tubes-canvas { display: none !important; }
 }
