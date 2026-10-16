@@ -124,12 +124,12 @@ const frag = `
     float r3 = rayStrength(rayPos, finalRayDir, coord, 12.1, 56.2, 0.5 * raysSpeed);
     
     float combined = (r1 * 0.45 + r2 * 0.35 + r3 * 0.2);
-    combined = pow(combined, 0.62); // Lift mid-tones for visibility
-    combined *= 2.2; // Elevated luminous beam intensity for rich dark blue contrast
+    combined = pow(combined, 0.72); // Clean mid-tone contrast
+    combined *= 1.45; // Moderated beam intensity so text is 100% visible
     
-    // Ambient atmospheric back-glow around top origin so the upper center is luminous
+    // Subtle ambient atmospheric aura around top origin
     float centerDist = length(coord - rayPos) / max(iResolution.x, iResolution.y);
-    float ambientBloom = clamp(1.0 - centerDist * 1.3, 0.0, 1.0) * 0.22;
+    float ambientBloom = clamp(1.0 - centerDist * 1.4, 0.0, 1.0) * 0.08;
     combined += ambientBloom;
 
     vec3 finalColor = raysColor * combined;
