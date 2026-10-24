@@ -281,7 +281,7 @@ const UI = {
 /* Text that intentionally stays the same in Arabic (only used for the dev check) */
 const KEEP = new Set([
   'XTECHNOLOGY GROUP', 'QATAR', 'XTECHNOLOGY GROUP QATAR', 'ALWALAE', 'FlexChange', 'BAQALA',
-  'Twitter / X', 'GitHub', 'LinkedIn', 'Discord', 'contact@xtechnology.qa', 'you@organization.qa', ':',
+  'Twitter / X', 'GitHub', 'LinkedIn', 'Discord', 'contact@xtechnology.group', 'you@organization.qa', ':',
 ]);
 
 const normalize = (text) => text.replace(/\s+/g, ' ').trim();
