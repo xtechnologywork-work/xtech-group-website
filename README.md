@@ -7,16 +7,19 @@
 
 ## ⚡ Overview
 
-Official enterprise platform for **XTECHNOLOGY GROUP QATAR**, built with precision-engineered web architecture, interactive 3D WebGL background rendering, and minimalist brutalist aesthetics.
+Official website for **XTECHNOLOGY GROUP QATAR** — a calm, typography-led single page built with plain HTML, CSS and JavaScript on Vite.
 
-- **Branding**: Official 3D Chrome & Electric Blue Emblem
-- **Color Palette**: Pitch Black (`#000000`), Electric Blue (`#1182FF`), Titanium Chrome (`#E2E8F0`)
+- **Branding**: XTECH X emblem (inline SVG, adapts to the theme) with Electric Blue (`#1182FF`) as the single accent
+- **Themes**: Light and dark, designed as equals. Follows the visitor's system setting by default; the nav toggle and the footer switch (System / Light / Dark) save the choice in `localStorage`
 - **Key Features**:
-  - Interactive 3D WebGL Tubes Engine
-  - Monolithic Character-Reveal Typewriter Headline Loop
-  - High-Speed Continuous Marquee Strip
-  - Executive Floating Command Navigation
-  - Full Mobile & Tablet Responsive Architecture
+  - Design tokens in `style.css` (`:root` / `[data-theme="dark"]`)
+  - Sticky navigation with scrollspy and a mobile menu
+  - Products, Industries, Testimonials and Contact sections
+  - Native `<dialog>` inquiry form with inline validation
+  - Subtle reveal-on-scroll, disabled for `prefers-reduced-motion`
+  - Fully responsive (640 / 768 / 1024 breakpoints)
+
+See `REDESIGN_PLAN.md` for the design rationale.
 
 ---
 
