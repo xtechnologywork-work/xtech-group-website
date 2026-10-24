@@ -9,6 +9,7 @@ const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initStarfield();
+  initProductSlider();
   initNavigation();
   initMobileMenu();
   initReveal();
@@ -101,6 +102,89 @@ function initStarfield() {
     field.classList.toggle('is-paused', !entry.isIntersecting);
   });
   observer.observe(field);
+}
+
+/* Products slider: cards drift right to left in a seamless loop.
+   Duplicate sets fill the screen; one set's width is the loop distance. */
+const SLIDE_SPEED = 32; // pixels per second
+
+function initProductSlider() {
+  const marquee = document.getElementById('products-marquee');
+  const toggle = document.getElementById('marquee-toggle');
+  if (!marquee) return;
+
+  const track = marquee.querySelector('.marquee-track');
+  const original = track.querySelector('.marquee-set');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const state = { user: false, hover: false, focus: false, offscreen: false };
+  const applyPause = () => {
+    marquee.classList.toggle('is-paused', state.user || state.hover || state.focus || state.offscreen);
+  };
+
+  const clearClones = () => track.querySelectorAll('[data-clone]').forEach((node) => node.remove());
+
+  const build = () => {
+    clearClones();
+
+    // Reduced motion: leave it as a static, swipeable row
+    if (reduceMotion.matches) {
+      marquee.classList.remove('is-running');
+      toggle.hidden = true;
+      return;
+    }
+
+    const setWidth = original.getBoundingClientRect().width;
+    if (!setWidth) return;
+
+    const copies = Math.ceil(marquee.clientWidth / setWidth) + 1;
+    for (let i = 0; i < copies; i++) {
+      const clone = original.cloneNode(true);
+      clone.dataset.clone = '';
+      clone.setAttribute('aria-hidden', 'true');
+      clone.setAttribute('inert', '');
+      clone.querySelectorAll('[id]').forEach((el) => el.removeAttribute('id'));
+      track.appendChild(clone);
+    }
+
+    track.style.setProperty('--marquee-shift', `${setWidth}px`);
+    track.style.setProperty('--marquee-duration', `${(setWidth / SLIDE_SPEED).toFixed(2)}s`);
+    marquee.classList.add('is-running');
+    toggle.hidden = false;
+  };
+
+  build();
+
+  // Rebuild when the width changes (not on height-only changes such as mobile toolbars)
+  let lastWidth = marquee.clientWidth;
+  let resizeTimer;
+  new ResizeObserver(() => {
+    if (marquee.clientWidth === lastWidth) return;
+    lastWidth = marquee.clientWidth;
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(build, 150);
+  }).observe(marquee);
+  reduceMotion.addEventListener('change', build);
+
+  // Pause on hover / keyboard focus / when scrolled out of view / by the user
+  marquee.addEventListener('pointerenter', (e) => {
+    if (e.pointerType === 'mouse') { state.hover = true; applyPause(); }
+  });
+  marquee.addEventListener('pointerleave', () => { state.hover = false; applyPause(); });
+  marquee.addEventListener('focusin', () => { state.focus = true; applyPause(); });
+  marquee.addEventListener('focusout', () => { state.focus = false; applyPause(); });
+
+  new IntersectionObserver(([entry]) => {
+    state.offscreen = !entry.isIntersecting;
+    applyPause();
+  }).observe(marquee);
+
+  toggle.addEventListener('click', () => {
+    state.user = !state.user;
+    toggle.setAttribute('aria-pressed', String(state.user));
+    toggle.setAttribute('aria-label', state.user ? 'Play products slider' : 'Pause products slider');
+    applyPause();
+  });
 }
 
 /* Sticky nav background + active section highlight */

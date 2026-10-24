@@ -158,8 +158,8 @@
 
     <!-- PRODUCTS -->
     <section class="section" id="products">
-      <div class="container">
-        <header class="section-head reveal">
+      <div class="container products-top reveal">
+        <header class="section-head">
           <p class="eyebrow">Official venture ecosystem · Verified suite</p>
           <h2 class="section-title">Our Products by Xtech</h2>
           <p class="section-sub">
@@ -172,9 +172,18 @@
           </ul>
         </header>
 
-        <div class="products">
-          <!-- ALWALAE (featured) -->
-          <article class="card product product-featured reveal">
+        <button class="marquee-toggle" type="button" id="marquee-toggle" aria-pressed="false" aria-controls="products-marquee" aria-label="Pause products slider" hidden>
+          <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>
+        </button>
+      </div>
+
+      <!-- Sliding product row: cards drift right to left and loop; main.js adds the duplicate sets -->
+      <div class="marquee" id="products-marquee" role="region" aria-roledescription="carousel" aria-label="Our products">
+        <div class="marquee-track">
+          <div class="marquee-set">
+          <!-- ALWALAE -->
+          <article class="card product">
             <div class="product-media">
               <img src="./assets/product-walae-orig.png" alt="ALWALAE — Digital Loyalty platform logo" class="product-logo logo-for-light" width="791" height="296" loading="lazy">
               <img src="./assets/product-walae-white.png" alt="" class="product-logo logo-for-dark" width="791" height="296" loading="lazy">
@@ -205,7 +214,7 @@
           </article>
 
           <!-- FlexChange -->
-          <article class="card product reveal">
+          <article class="card product">
             <div class="product-media">
               <img src="./assets/product-flexchange-orig.png" alt="FlexChange driver app logo" class="product-logo product-logo-sm logo-for-light" width="590" height="377" loading="lazy">
               <img src="./assets/product-flexchange-white.png" alt="" class="product-logo product-logo-sm logo-for-dark" width="589" height="377" loading="lazy">
@@ -236,7 +245,7 @@
           </article>
 
           <!-- BAQALA -->
-          <article class="card product reveal">
+          <article class="card product">
             <div class="product-media">
               <img src="./assets/product-baqala-thumb.jpg" alt="BAQALA — neighborhood grocery super app logo" class="product-tile" width="600" height="600" loading="lazy">
             </div>
@@ -264,6 +273,7 @@
               </div>
             </div>
           </article>
+          </div>
         </div>
       </div>
     </section>
