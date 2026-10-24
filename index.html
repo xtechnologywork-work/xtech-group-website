@@ -90,7 +90,12 @@
 
     <!-- HERO -->
     <section class="hero" id="top">
-      <div class="hero-bg" aria-hidden="true"></div>
+      <!-- Parallax starfield: three layers drifting at different speeds (stars generated in main.js) -->
+      <div class="hero-bg" id="starfield" aria-hidden="true">
+        <div class="stars stars-sm"></div>
+        <div class="stars stars-md"></div>
+        <div class="stars stars-lg"></div>
+      </div>
       <div class="container hero-inner">
         <a href="#contact" class="pill hero-pill reveal">
           <span class="dot dot-accent" aria-hidden="true"></span>

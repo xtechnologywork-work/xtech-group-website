@@ -50,7 +50,8 @@
   --success-soft: rgba(22, 163, 74, 0.08);
   --warning: #D97706;
   --warning-soft: rgba(217, 119, 6, 0.08);
-  --grid-line: rgba(0, 0, 0, 0.045);
+  --star: rgba(15, 23, 42, 0.26);
+  --hero-glow: #EDF3FB;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.16);
   --nav-bg: rgba(255, 255, 255, 0.8);
@@ -75,7 +76,8 @@
   --success-soft: rgba(34, 197, 94, 0.12);
   --warning: #F59E0B;
   --warning-soft: rgba(245, 158, 11, 0.12);
-  --grid-line: rgba(255, 255, 255, 0.05);
+  --star: rgba(255, 255, 255, 0.9);
+  --hero-glow: #1B2735;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.6);
   --nav-bg: rgba(10, 10, 10, 0.75);
@@ -428,17 +430,49 @@ h1, h2, h3 { font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; }
   text-align: center;
 }
 
+/* Parallax starfield: radial atmosphere + three star layers, faded into the page at the bottom */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  background-position: center top;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 100%);
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 100%);
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, var(--hero-glow) 0%, var(--bg) 75%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
   pointer-events: none;
+}
+
+/* Each layer is one tiny dot whose box-shadows (set in main.js as --stars) are the stars.
+   Shadows have no color, so they use currentColor and follow the theme.
+   ::after repeats the field 2000px lower so the -2000px loop is seamless. */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  color: var(--star);
+  box-shadow: var(--stars, none);
+  animation: star-drift linear infinite;
+  will-change: transform;
+}
+.stars::after {
+  content: '';
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  box-shadow: var(--stars, none);
+}
+.stars-sm { width: 1px; height: 1px; animation-duration: 50s; }
+.stars-md { width: 2px; height: 2px; animation-duration: 100s; }
+.stars-lg { width: 3px; height: 3px; animation-duration: 150s; opacity: 0.85; }
+
+.hero-bg.is-paused .stars { animation-play-state: paused; }
+
+@keyframes star-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, -2000px, 0); }
 }
 
 .hero-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
@@ -493,7 +527,10 @@ h1, h2, h3 { font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; }
   font-weight: 500;
   color: var(--text-muted);
   white-space: nowrap;
+  overflow-x: auto; /* scrolls instead of overflowing the page when the row is wider than the viewport */
+  scrollbar-width: none;
 }
+.caps-list::-webkit-scrollbar { display: none; }
 
 /* Products */
 .stat-row {
@@ -754,12 +791,19 @@ h1, h2, h3 { font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 
 /* 7. RESPONSIVE ============================================================ */
+@media (max-width: 1200px) {
+  /* Hint that the capabilities row continues off-screen */
+  .caps-list {
+    -webkit-mask-image: linear-gradient(to right, #000 88%, transparent);
+    mask-image: linear-gradient(to right, #000 88%, transparent);
+  }
+}
+
 @media (max-width: 1024px) {
   .nav-links { display: none; }
   .menu-toggle { display: inline-grid; }
 
-  .caps-list { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-  .caps-list::-webkit-scrollbar { display: none; }
+  .caps-list { justify-content: flex-start; scroll-snap-type: x mandatory; }
   .caps-list li { scroll-snap-align: start; }
 
   .industries { grid-template-columns: 1fr; }
@@ -816,4 +860,5 @@ h1, h2, h3 { font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; }
     transition-duration: 0.01ms !important;
   }
   .js .reveal { opacity: 1; transform: none; }
+  .stars { animation: none; } /* static starfield instead of a near-zero-duration loop */
 }

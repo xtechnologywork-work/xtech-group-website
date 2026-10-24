@@ -8,6 +8,7 @@ const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initStarfield();
   initNavigation();
   initMobileMenu();
   initReveal();
@@ -69,6 +70,39 @@ function initTheme() {
   });
 }
 
+/* Hero parallax starfield: each layer's stars are box-shadows on a single dot */
+const STAR_FIELD_HEIGHT = 2000; // must match the star-drift keyframe distance in style.css
+
+function generateStars(count, width) {
+  const stars = [];
+  for (let i = 0; i < count; i++) {
+    const x = Math.floor(Math.random() * width);
+    const y = Math.floor(Math.random() * STAR_FIELD_HEIGHT);
+    stars.push(`${x}px ${y}px`);
+  }
+  return stars.join(', ');
+}
+
+function initStarfield() {
+  const field = document.getElementById('starfield');
+  if (!field) return;
+
+  // Fewer stars on phones; field is as wide as the largest screen we expect to fill
+  const compact = window.matchMedia('(max-width: 640px)').matches;
+  const width = Math.min(Math.max(window.screen.width, 1440), 2560);
+  const counts = compact ? { sm: 300, md: 90, lg: 45 } : { sm: 700, md: 200, lg: 100 };
+
+  Object.entries(counts).forEach(([size, count]) => {
+    field.querySelector(`.stars-${size}`).style.setProperty('--stars', generateStars(count, width));
+  });
+
+  // Stop animating while the hero is off-screen
+  const observer = new IntersectionObserver(([entry]) => {
+    field.classList.toggle('is-paused', !entry.isIntersecting);
+  });
+  observer.observe(field);
+}
+
 /* Sticky nav background + active section highlight */
 function initNavigation() {
   const nav = document.getElementById('nav');
@@ -77,8 +111,8 @@ function initNavigation() {
   window.addEventListener('scroll', onScroll, { passive: true });
 
   const links = [...document.querySelectorAll('.nav-link')];
-  const sections = links
-    .map((link) => document.querySelector(link.getAttribute('href')))
+  // The hero is observed too, so returning to the top clears the highlight
+  const sections = [document.getElementById('top'), ...links.map((link) => document.querySelector(link.getAttribute('href')))]
     .filter(Boolean);
 
   const observer = new IntersectionObserver(
