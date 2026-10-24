@@ -263,20 +263,50 @@ h1, h2, h3 { font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; }
 .dot-success { background: var(--success); }
 .dot-warning { background: var(--warning); }
 
-.pill {
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Hero vision statement: solid label segment + statement + arrow */
+.vision {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 36px;
+  padding: 5px 14px 5px 5px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: var(--fs-small);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.vision:hover { border-color: var(--accent); }
+
+.vision-label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
-  border: 1px solid var(--border);
+  padding: 7px 14px;
   border-radius: var(--radius-pill);
-  background: var(--surface);
+  background: var(--text);
+  color: var(--bg);
   font-size: var(--fs-xs);
-  font-weight: 500;
-  color: var(--text-muted);
-  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
-.pill:hover { border-color: var(--border-strong); color: var(--text); }
+.vision-label .dot { background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+.vision-text { padding: 0 12px 0 14px; font-weight: 500; color: var(--text); letter-spacing: -0.01em; }
+
+.vision-arrow { color: var(--text-faint); transition: transform var(--dur) var(--ease), color var(--dur) var(--ease); }
+.vision:hover .vision-arrow { color: var(--accent-text); transform: translateX(3px); }
 
 .badge {
   display: inline-flex;
@@ -490,8 +520,6 @@ h1, h2, h3 { font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; }
 }
 
 .hero-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
-
-.hero-pill { margin-bottom: 32px; }
 
 .hero-title {
   font-size: var(--fs-display);
@@ -887,6 +915,11 @@ h1, h2, h3 { font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; }
   .product { width: min(320px, 82vw); }
   .nav-cta { display: none; }
   .brand-name { font-size: 0.875rem; }
+
+  /* Vision badge: stack label over statement so it never overflows */
+  .vision { flex-direction: column; gap: 10px; padding: 6px 20px 14px; border-radius: 24px; text-align: center; }
+  .vision-text { padding: 0; }
+  .vision-arrow { display: none; }
 
   .hero-caps { column-gap: 16px; }
   .hero-caps li + li::before { display: none; }
