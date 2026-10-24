@@ -2,11 +2,15 @@
    XTECHNOLOGY GROUP QATAR — Site interactions
    ========================================================================== */
 
+import { initLanguage, onLanguageChange, t } from './i18n.js';
+
 const THEME_KEY = 'xtech-theme';
 const root = document.documentElement;
 const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Language first: it records the English text before anything else changes the page
+  initLanguage();
   initTheme();
   initStarfield();
   initProductSlider();
@@ -37,7 +41,7 @@ function applyTheme(pref, animate = false) {
   root.setAttribute('data-theme', dark ? 'dark' : 'light');
 
   document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
-    btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    btn.setAttribute('aria-label', dark ? t('themeToLight') : t('themeToDark'));
   });
   document.querySelectorAll('[data-theme-choice]').forEach((btn) => {
     btn.setAttribute('aria-checked', String(btn.dataset.themeChoice === pref));
@@ -69,6 +73,8 @@ function initTheme() {
   systemDark.addEventListener('change', () => {
     if (getThemePref() === 'system') applyTheme('system', true);
   });
+
+  onLanguageChange(() => applyTheme(getThemePref()));
 }
 
 /* Hero parallax starfield: each layer's stars are box-shadows on a single dot */
@@ -179,11 +185,22 @@ function initProductSlider() {
     applyPause();
   }).observe(marquee);
 
+  const updateToggleLabel = () => {
+    toggle.setAttribute('aria-label', state.user ? t('sliderPlay') : t('sliderPause'));
+  };
+  updateToggleLabel();
+
   toggle.addEventListener('click', () => {
     state.user = !state.user;
     toggle.setAttribute('aria-pressed', String(state.user));
-    toggle.setAttribute('aria-label', state.user ? 'Play products slider' : 'Pause products slider');
+    updateToggleLabel();
     applyPause();
+  });
+
+  // The copies hold the old language's text, so rebuild them after a switch
+  onLanguageChange(() => {
+    updateToggleLabel();
+    build();
   });
 }
 
@@ -222,10 +239,12 @@ function initMobileMenu() {
     nav.classList.toggle('is-open', open);
     menu.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    toggle.setAttribute('aria-label', open ? t('menuClose') : t('menuOpen'));
     document.body.style.overflow = open ? 'hidden' : '';
   };
 
+  setOpen(false);
+  onLanguageChange(() => toggle.setAttribute('aria-label', menu.hidden ? t('menuOpen') : t('menuClose')));
   toggle.addEventListener('click', () => setOpen(menu.hidden));
   menu.querySelectorAll('a, button').forEach((el) => el.addEventListener('click', () => setOpen(false)));
   window.addEventListener('keydown', (e) => {
@@ -256,10 +275,16 @@ function initTestimonials() {
   const list = document.getElementById('testimonial-list');
   const toggle = document.getElementById('testimonials-toggle');
 
+  const updateLabel = () => {
+    toggle.textContent = list.classList.contains('is-expanded') ? t('testimonialsLess') : t('testimonialsMore');
+  };
+  updateLabel();
+  onLanguageChange(updateLabel);
+
   toggle.addEventListener('click', () => {
     const expanded = list.classList.toggle('is-expanded');
     toggle.setAttribute('aria-expanded', String(expanded));
-    toggle.textContent = expanded ? 'Show fewer testimonials' : 'Show all testimonials';
+    updateLabel();
     if (!expanded) list.scrollIntoView({ block: 'start' });
   });
 }
@@ -291,14 +316,14 @@ function initInquiryModal() {
     invalid.forEach((field) => field.closest('.field').classList.add('is-invalid'));
     if (invalid.length) {
       feedback.classList.add('is-error');
-      feedback.textContent = 'Please complete the highlighted fields.';
+      feedback.textContent = t('formError');
       invalid[0].focus();
       return;
     }
 
     const name = form.elements.name.value.trim();
     feedback.classList.remove('is-error');
-    feedback.textContent = `Thank you, ${name}. Our team will reply within 4 hours.`;
+    feedback.textContent = t('formThanks', name);
 
     window.setTimeout(() => {
       form.reset();
@@ -316,7 +341,7 @@ function initEmailCopy() {
   btn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(btn.dataset.email);
-      toast.textContent = 'Email copied to clipboard';
+      toast.textContent = t('copied');
     } catch {
       toast.textContent = btn.dataset.email;
     }

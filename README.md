@@ -11,6 +11,7 @@ Official website for **XTECHNOLOGY GROUP QATAR** — a calm, typography-led sing
 
 - **Branding**: XTECH X emblem (inline SVG, adapts to the theme) with Electric Blue (`#1182FF`) as the single accent
 - **Themes**: Light and dark, designed as equals. Follows the visitor's system setting by default; the nav toggle and the footer switch (System / Light / Dark) save the choice in `localStorage`
+- **Languages**: English and Arabic (full right-to-left layout, IBM Plex Sans Arabic). The nav button switches language and the choice is saved; `?lang=ar` / `?lang=en` links open a language directly. Arabic text lives in `i18n.js`, keyed by the English text in `index.html` — when you change English copy, update its Arabic entry too (in dev, the console lists any missing translations)
 - **Key Features**:
   - Design tokens in `style.css` (`:root` / `[data-theme="dark"]`)
   - Sticky navigation with scrollspy and a mobile menu
