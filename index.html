@@ -12,10 +12,11 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="XTECHNOLOGY GROUP QATAR">
   <meta property="og:description" content="Tech solutions for a smarter tomorrow. Enterprise cloud, intelligent AI and national digital expansion — built in Qatar.">
-  <meta property="og:image" content="./assets/xtech-branding.png">
+  <meta property="og:image" content="./assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" type="image/png" href="./assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 
   <!-- Apply the saved / system theme before first paint (prevents a flash) -->
   <script>
@@ -36,12 +37,27 @@
 </head>
 <body>
 
-  <!-- Reusable emblem: chrome arms take the text color, the wing stays brand blue -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="xtech-emblem" viewBox="40 30 320 260">
-      <polygon points="50,280 145,280 190,225 140,165 95,220" fill="currentColor" opacity="0.72" />
-      <polygon points="50,40 140,40 350,280 260,280" fill="currentColor" />
-      <polygon points="215,145 265,205 350,40 270,40" fill="var(--accent)" />
+  <!-- XTECH mark (traced from the official logo). Gradient colors come from --logo-* tokens: silver in dark, graphite in light -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="logo-arm" gradientUnits="userSpaceOnUse" x1="371" y1="362" x2="849" y2="696">
+        <stop offset="0" style="stop-color: var(--logo-arm-1)" />
+        <stop offset=".5" style="stop-color: var(--logo-arm-2)" />
+        <stop offset="1" style="stop-color: var(--logo-arm-3)" />
+      </linearGradient>
+      <linearGradient id="logo-foot" gradientUnits="userSpaceOnUse" x1="365" y1="696" x2="588" y2="612">
+        <stop offset="0" style="stop-color: var(--logo-foot-1)" />
+        <stop offset="1" style="stop-color: var(--logo-foot-2)" />
+      </linearGradient>
+      <linearGradient id="logo-wing" gradientUnits="userSpaceOnUse" x1="708" y1="517" x2="880" y2="362">
+        <stop offset="0" style="stop-color: var(--logo-wing-1)" />
+        <stop offset="1" style="stop-color: var(--logo-wing-2)" />
+      </linearGradient>
+    </defs>
+    <symbol id="xtech-emblem" viewBox="356 352 534 352">
+      <polygon points="365,696 534,549 588,612 493,696" fill="url(#logo-foot)" />
+      <polygon points="371,362 520,362 849,696 708,696" fill="url(#logo-arm)" />
+      <polygon points="645,456 750,362 880,362 708,517" fill="url(#logo-wing)" />
     </symbol>
   </svg>
 

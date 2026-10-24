@@ -50,6 +50,13 @@
   --success-soft: rgba(22, 163, 74, 0.08);
   --warning: #D97706;
   --warning-soft: rgba(217, 119, 6, 0.08);
+  --logo-arm-1: #0F172A;
+  --logo-arm-2: #3B4760;
+  --logo-arm-3: #1E293B;
+  --logo-foot-1: #4B5870;
+  --logo-foot-2: #0F172A;
+  --logo-wing-1: #0B50FF;
+  --logo-wing-2: #1182FF;
   --star: rgba(15, 23, 42, 0.26);
   --hero-glow: #EDF3FB;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
@@ -76,6 +83,13 @@
   --success-soft: rgba(34, 197, 94, 0.12);
   --warning: #F59E0B;
   --warning-soft: rgba(245, 158, 11, 0.12);
+  --logo-arm-1: #FFFFFF;
+  --logo-arm-2: #AEB9CE;
+  --logo-arm-3: #F2F5FA;
+  --logo-foot-1: #FFFFFF;
+  --logo-foot-2: #8C98B3;
+  --logo-wing-1: #1040FF;
+  --logo-wing-2: #2F8CFF;
   --star: rgba(255, 255, 255, 0.9);
   --hero-glow: #1B2735;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -325,7 +339,7 @@ h1, h2, h3 { font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; }
   letter-spacing: -0.01em;
   color: var(--text);
 }
-.brand-emblem { width: 26px; height: 22px; color: var(--text); }
+.brand-emblem { width: 32px; height: 21px; flex-shrink: 0; }
 .brand-tag {
   padding: 2px 6px;
   border: 1px solid var(--border-strong);

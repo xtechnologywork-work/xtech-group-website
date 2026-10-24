@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="356 352 534 352" width="534" height="352">
+  <defs>
+    <linearGradient id="arm" gradientUnits="userSpaceOnUse" x1="371" y1="362" x2="849" y2="696">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#AEB9CE"/><stop offset="1" stop-color="#F2F5FA"/>
+    </linearGradient>
+    <linearGradient id="foot" gradientUnits="userSpaceOnUse" x1="365" y1="696" x2="588" y2="612">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#8C98B3"/>
+    </linearGradient>
+    <linearGradient id="wing" gradientUnits="userSpaceOnUse" x1="708" y1="517" x2="880" y2="362">
+      <stop offset="0" stop-color="#1040FF"/><stop offset="1" stop-color="#2F8CFF"/>
+    </linearGradient>
+  </defs>
+  <polygon points="365,696 534,549 588,612 493,696" fill="url(#foot)"/>
+  <polygon points="371,362 520,362 849,696 708,696" fill="url(#arm)"/>
+  <polygon points="645,456 750,362 880,362 708,517" fill="url(#wing)"/>
+</svg>
