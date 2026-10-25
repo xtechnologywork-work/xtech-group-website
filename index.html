@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XTECHNOLOGY GROUP QATAR — Tech Solutions for a Smarter Tomorrow</title>
   <meta name="description" content="XTECHNOLOGY GROUP QATAR — Leading enterprise digital architecture, AI intelligent systems, multi-cloud platforms, and mission-critical solutions for Qatar and global markets.">
-  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0A0A0A" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#0A0A0A">
   <meta name="color-scheme" content="light dark">
 
   <meta property="og:type" content="website">
@@ -22,15 +21,16 @@
   <script>
     (function () {
       var root = document.documentElement;
-      var pref = 'system';
+      var pref = 'dark'; // dark is the default until the visitor picks another theme
       var lang = 'en';
-      try { pref = localStorage.getItem('xtech-theme') || 'system'; } catch (e) {}
+      try { pref = localStorage.getItem('xtech-theme') || 'dark'; } catch (e) {}
       try { lang = localStorage.getItem('xtech-lang') || 'en'; } catch (e) {}
       var urlLang = new URLSearchParams(window.location.search).get('lang');
       if (urlLang === 'en' || urlLang === 'ar') lang = urlLang;
 
       var dark = pref === 'dark' || (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
       root.setAttribute('data-theme', dark ? 'dark' : 'light');
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', dark ? '#0A0A0A' : '#FFFFFF');
       root.classList.add('js');
 
       if (lang === 'ar') {

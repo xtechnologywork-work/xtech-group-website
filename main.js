@@ -22,12 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initEmailCopy();
 });
 
-/* Theme: 'system' | 'light' | 'dark', stored per visitor */
+/* Theme: 'system' | 'light' | 'dark', stored per visitor. Dark is the default. */
+const DEFAULT_THEME = 'dark';
+
 function getThemePref() {
   try {
-    return localStorage.getItem(THEME_KEY) || 'system';
+    return localStorage.getItem(THEME_KEY) || DEFAULT_THEME;
   } catch {
-    return 'system';
+    return DEFAULT_THEME;
   }
 }
 
@@ -39,6 +41,7 @@ function applyTheme(pref, animate = false) {
     window.setTimeout(() => root.classList.remove('theme-transition'), 250);
   }
   root.setAttribute('data-theme', dark ? 'dark' : 'light');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0A0A0A' : '#FFFFFF');
 
   document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
     btn.setAttribute('aria-label', dark ? t('themeToLight') : t('themeToDark'));
