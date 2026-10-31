@@ -12,12 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Language first: it records the English text before anything else changes the page
   initLanguage();
   initTheme();
+  initHeroVideo();
   initStarfield();
-  initProductSlider();
   initNavigation();
   initMobileMenu();
   initReveal();
-  initTestimonials();
   initInquiryModal();
   initEmailCopy();
 });
@@ -352,4 +351,44 @@ function initEmailCopy() {
     window.clearTimeout(timer);
     timer = window.setTimeout(() => toast.classList.remove('is-visible'), 2000);
   });
+}
+
+
+/* Hero showcase video: reliable autoplay loop with battery-friendly observer */
+function initHeroVideo() {
+  const video = document.getElementById('hero-video');
+  if (!video) return;
+
+  video.muted = true;
+  video.defaultMuted = true;
+
+  const tryPlay = () => {
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        const resume = () => {
+          video.play().catch(() => {});
+          ['click', 'touchstart', 'scroll', 'keydown'].forEach((ev) => {
+            window.removeEventListener(ev, resume);
+          });
+        };
+        ['click', 'touchstart', 'scroll', 'keydown'].forEach((ev) => {
+          window.addEventListener(ev, resume, { passive: true });
+        });
+      });
+    }
+  };
+
+  tryPlay();
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        tryPlay();
+      } else {
+        video.pause();
+      }
+    }, { threshold: 0.05 });
+    observer.observe(video);
+  }
 }

@@ -89,7 +89,6 @@
       <nav class="nav-links" aria-label="Main">
         <a href="#products" class="nav-link">Products</a>
         <a href="#industries" class="nav-link">Industries</a>
-        <a href="#testimonials" class="nav-link">Testimonials</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
@@ -114,9 +113,8 @@
       <nav class="container mobile-menu-inner" aria-label="Mobile">
         <a href="#products" class="mobile-link">Products</a>
         <a href="#industries" class="mobile-link">Industries</a>
-        <a href="#testimonials" class="mobile-link">Testimonials</a>
         <a href="#contact" class="mobile-link">Contact</a>
-        <button class="btn btn-primary btn-lg mobile-cta" type="button" data-open-inquiry>Start a project</button>
+        <button class="btn btn-primary btn-lg mobile-cta" type="button" data-open-inquiry>Contact us</button>
       </nav>
     </div>
   </header>
@@ -124,63 +122,163 @@
   <main id="main-content">
 
     <!-- HERO -->
-    <section class="hero" id="top">
-      <!-- Parallax starfield: three layers drifting at different speeds (stars generated in main.js) -->
-      <div class="hero-bg" id="starfield" aria-hidden="true">
-        <div class="stars stars-sm"></div>
-        <div class="stars stars-md"></div>
-        <div class="stars stars-lg"></div>
+    <section class="hero hero--video" id="top" aria-label="XTECHNOLOGY GROUP showcase">
+      <div class="hero-video-wrapper">
+        <video
+          id="hero-video"
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          preload="auto"
+          aria-label="XTECHNOLOGY GROUP QATAR video showcase"
+        >
+          <source src="./assets/hero-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="hero-video-overlay" aria-hidden="true"></div>
       </div>
-      <div class="container hero-inner">
-        <a href="#contact" class="vision reveal">
-          <span class="vision-label"><span class="dot" aria-hidden="true"></span>Our Vision<span class="sr-only">:</span></span>
-          <span class="vision-text">A Smarter Qatar, Powered by Tech.</span>
-          <svg class="vision-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+    </section>
 
-        <h1 class="hero-title reveal" lang="en">
-          XTECHNOLOGY GROUP <span class="hero-title-muted">QATAR</span>
-        </h1>
+    <!-- TRUSTED BY -->
+    <section class="trusted-section" aria-label="Trusted by">
+      <div class="container trusted-header">
+        <p class="trusted-title">Trusted By</p>
+      </div>
 
-        <p class="hero-sub reveal">Tech solutions for a smarter tomorrow.</p>
+      <div class="trusted-ticker" aria-hidden="true">
+        <div class="trusted-track">
+          <!-- Set -->
+          <div class="trusted-set">
+            <!-- 1. Ministry of Commerce and Industry - State of Qatar (Qatar Maroon + White/Dark Text) -->
+            <div class="trusted-item" title="Ministry of Commerce and Industry — State of Qatar">
+              <img src="./assets/trusted-qatar-color-light.png" alt="Ministry of Commerce and Industry — State of Qatar" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-qatar-color-dark.png" alt="Ministry of Commerce and Industry — State of Qatar" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
 
-        <ul class="hero-caps reveal" aria-label="Core capabilities">
-          <li>Enterprise Cloud</li>
-          <li>Intelligent AI</li>
-          <li>National Expansion</li>
-        </ul>
+            <!-- 2. AAA Shield (Metallic Silver 3D) -->
+            <div class="trusted-item" title="AAA">
+              <img src="./assets/trusted-aaa-color.png" alt="AAA" class="trusted-logo" loading="lazy">
+            </div>
 
-        <div class="hero-actions reveal">
-          <button class="btn btn-primary btn-lg" type="button" data-open-inquiry>
-            Start a project
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <a href="#products" class="btn btn-secondary btn-lg">View products</a>
+            <!-- 3. ALWALAE (Emerald Green Emblem) -->
+            <div class="trusted-item" title="ALWALAE">
+              <img src="./assets/trusted-walae-color-light.png" alt="ALWALAE" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-walae-color-dark.png" alt="ALWALAE" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 4. FlexChange (Vibrant Orange 'F' Emblem) -->
+            <div class="trusted-item" title="FlexChange">
+              <img src="./assets/trusted-flexchange-color-light.png" alt="FlexChange" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-flexchange-color-dark.png" alt="FlexChange" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 5. BAQALA (Vibrant Turquoise/Neon Green) -->
+            <div class="trusted-item" title="BAQALA">
+              <img src="./assets/trusted-baqala-color.png" alt="BAQALA" class="trusted-logo" loading="lazy">
+            </div>
+          </div>
+          <!-- Set -->
+          <div class="trusted-set" aria-hidden="true">
+            <!-- 1. Ministry of Commerce and Industry - State of Qatar (Qatar Maroon + White/Dark Text) -->
+            <div class="trusted-item" title="Ministry of Commerce and Industry — State of Qatar">
+              <img src="./assets/trusted-qatar-color-light.png" alt="Ministry of Commerce and Industry — State of Qatar" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-qatar-color-dark.png" alt="Ministry of Commerce and Industry — State of Qatar" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 2. AAA Shield (Metallic Silver 3D) -->
+            <div class="trusted-item" title="AAA">
+              <img src="./assets/trusted-aaa-color.png" alt="AAA" class="trusted-logo" loading="lazy">
+            </div>
+
+            <!-- 3. ALWALAE (Emerald Green Emblem) -->
+            <div class="trusted-item" title="ALWALAE">
+              <img src="./assets/trusted-walae-color-light.png" alt="ALWALAE" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-walae-color-dark.png" alt="ALWALAE" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 4. FlexChange (Vibrant Orange 'F' Emblem) -->
+            <div class="trusted-item" title="FlexChange">
+              <img src="./assets/trusted-flexchange-color-light.png" alt="FlexChange" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-flexchange-color-dark.png" alt="FlexChange" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 5. BAQALA (Vibrant Turquoise/Neon Green) -->
+            <div class="trusted-item" title="BAQALA">
+              <img src="./assets/trusted-baqala-color.png" alt="BAQALA" class="trusted-logo" loading="lazy">
+            </div>
+          </div>
+          <!-- Set -->
+          <div class="trusted-set" aria-hidden="true">
+            <!-- 1. Ministry of Commerce and Industry - State of Qatar (Qatar Maroon + White/Dark Text) -->
+            <div class="trusted-item" title="Ministry of Commerce and Industry — State of Qatar">
+              <img src="./assets/trusted-qatar-color-light.png" alt="Ministry of Commerce and Industry — State of Qatar" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-qatar-color-dark.png" alt="Ministry of Commerce and Industry — State of Qatar" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 2. AAA Shield (Metallic Silver 3D) -->
+            <div class="trusted-item" title="AAA">
+              <img src="./assets/trusted-aaa-color.png" alt="AAA" class="trusted-logo" loading="lazy">
+            </div>
+
+            <!-- 3. ALWALAE (Emerald Green Emblem) -->
+            <div class="trusted-item" title="ALWALAE">
+              <img src="./assets/trusted-walae-color-light.png" alt="ALWALAE" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-walae-color-dark.png" alt="ALWALAE" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 4. FlexChange (Vibrant Orange 'F' Emblem) -->
+            <div class="trusted-item" title="FlexChange">
+              <img src="./assets/trusted-flexchange-color-light.png" alt="FlexChange" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-flexchange-color-dark.png" alt="FlexChange" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 5. BAQALA (Vibrant Turquoise/Neon Green) -->
+            <div class="trusted-item" title="BAQALA">
+              <img src="./assets/trusted-baqala-color.png" alt="BAQALA" class="trusted-logo" loading="lazy">
+            </div>
+          </div>
+          <!-- Set -->
+          <div class="trusted-set" aria-hidden="true">
+            <!-- 1. Ministry of Commerce and Industry - State of Qatar (Qatar Maroon + White/Dark Text) -->
+            <div class="trusted-item" title="Ministry of Commerce and Industry — State of Qatar">
+              <img src="./assets/trusted-qatar-color-light.png" alt="Ministry of Commerce and Industry — State of Qatar" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-qatar-color-dark.png" alt="Ministry of Commerce and Industry — State of Qatar" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 2. AAA Shield (Metallic Silver 3D) -->
+            <div class="trusted-item" title="AAA">
+              <img src="./assets/trusted-aaa-color.png" alt="AAA" class="trusted-logo" loading="lazy">
+            </div>
+
+            <!-- 3. ALWALAE (Emerald Green Emblem) -->
+            <div class="trusted-item" title="ALWALAE">
+              <img src="./assets/trusted-walae-color-light.png" alt="ALWALAE" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-walae-color-dark.png" alt="ALWALAE" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 4. FlexChange (Vibrant Orange 'F' Emblem) -->
+            <div class="trusted-item" title="FlexChange">
+              <img src="./assets/trusted-flexchange-color-light.png" alt="FlexChange" class="trusted-logo logo-for-light" loading="lazy">
+              <img src="./assets/trusted-flexchange-color-dark.png" alt="FlexChange" class="trusted-logo logo-for-dark" loading="lazy">
+            </div>
+
+            <!-- 5. BAQALA (Vibrant Turquoise/Neon Green) -->
+            <div class="trusted-item" title="BAQALA">
+              <img src="./assets/trusted-baqala-color.png" alt="BAQALA" class="trusted-logo" loading="lazy">
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CAPABILITIES ROW -->
-    <section class="caps" aria-label="Capabilities">
-      <div class="container">
-        <ul class="caps-list">
-          <li>Enterprise Cloud</li>
-          <li>AI Systems</li>
-          <li>Qatar Vision 2030</li>
-          <li>Radical Resilience</li>
-          <li>Distributed Architecture</li>
-          <li>Sub-Second Latency</li>
-          <li>Mission Critical</li>
-          <li>Future Proof</li>
-        </ul>
-      </div>
-    </section>
-
     <!-- PRODUCTS -->
-    <section class="section" id="products">
-      <div class="container products-top reveal">
-        <header class="section-head">
-          <p class="eyebrow">Official venture ecosystem · Verified suite</p>
+    <section class="section products-section" id="products">
+      <div class="container">
+        <header class="section-head products-head reveal">
+          <p class="eyebrow">Official venture ecosystem</p>
           <h2 class="section-title">Our Products by Xtech</h2>
           <p class="section-sub">
             Purpose-built technology platforms and scalable digital ventures engineered in Qatar, solving high-impact friction in retail loyalty, courier cash handling, and hyper-local grocery logistics.
@@ -192,16 +290,7 @@
           </ul>
         </header>
 
-        <button class="marquee-toggle" type="button" id="marquee-toggle" aria-pressed="false" aria-controls="products-marquee" aria-label="Pause products slider" data-i18n-skip hidden>
-          <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
-          <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>
-        </button>
-      </div>
-
-      <!-- Sliding product row: cards drift right to left and loop; main.js adds the duplicate sets -->
-      <div class="marquee" id="products-marquee" role="region" aria-roledescription="carousel" aria-label="Our products">
-        <div class="marquee-track">
-          <div class="marquee-set">
+        <div class="products-grid reveal">
           <!-- ALWALAE -->
           <article class="card product">
             <div class="product-media">
@@ -293,30 +382,35 @@
               </div>
             </div>
           </article>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- INDUSTRIES -->
     <section class="section section-subtle" id="industries">
-      <div class="container industries">
-        <div class="industries-intro reveal">
-          <p class="eyebrow">Industry intelligence</p>
-          <h2 class="section-title">Industries We Serve</h2>
-          <p class="section-sub">
-            Specialized AI solutions tailored for diverse industries and their unique challenges.
-          </p>
-          <ul class="feature-list">
-            <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+      <div class="container industries-wrapper">
+        <div class="industries-header reveal">
+          <div class="industries-header-left">
+            <p class="eyebrow">Industry intelligence</p>
+            <h2 class="section-title">Industries We Serve</h2>
+            <p class="section-sub">
+              Specialized AI solutions tailored for diverse industries and their unique challenges.
+            </p>
+          </div>
+          <ul class="feature-list" aria-label="Key capabilities">
+            <li class="feature-item">
+              <span class="feature-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
               <div>
                 <h3>Universal Integration</h3>
                 <p>Connect any store or custom platform instantly.</p>
               </div>
             </li>
-            <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+            <li class="feature-item">
+              <span class="feature-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
               <div>
                 <h3>Automated Workflows</h3>
                 <p>Trigger actions on leads, sales, and support queries.</p>
@@ -326,137 +420,130 @@
         </div>
 
         <ul class="industry-grid reveal" aria-label="Industries">
-          <li class="industry">
-            <span class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></svg></span>
-            <span class="industry-name">Real Estate</span>
+          <!-- 1. Real Estate (Doha West Bay Skyline Sunset) -->
+          <li class="industry-card">
+            <div class="industry-media">
+              <img src="./assets/industry-realestate.jpg" alt="Real Estate" class="industry-img" loading="lazy">
+              <div class="industry-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="industry-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>
+            </div>
+            <div class="industry-body">
+              <h3 class="industry-name">Real Estate</h3>
+              <span class="industry-explore" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
           </li>
-          <li class="industry">
-            <span class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/><path d="M4 2v7c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2V2"/><path d="M7 11v11"/></svg></span>
-            <span class="industry-name">Restaurants</span>
+
+          <!-- 2. Restaurants (Luxury Marina Dining Terrace) -->
+          <li class="industry-card">
+            <div class="industry-media">
+              <img src="./assets/industry-restaurants.jpg" alt="Restaurants" class="industry-img" loading="lazy">
+              <div class="industry-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="industry-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/><path d="M4 2v7c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2V2"/><path d="M7 11v11"/></svg>
+            </div>
+            <div class="industry-body">
+              <h3 class="industry-name">Restaurants</h3>
+              <span class="industry-explore" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
           </li>
-          <li class="industry">
-            <span class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14v10Z"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>
-            <span class="industry-name">Logistics</span>
+
+          <!-- 3. Logistics (High-Bay Warehouse Automation) -->
+          <li class="industry-card">
+            <div class="industry-media">
+              <img src="./assets/industry-logistics.jpg" alt="Logistics" class="industry-img" loading="lazy">
+              <div class="industry-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="industry-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14v10Z"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+            </div>
+            <div class="industry-body">
+              <h3 class="industry-name">Logistics</h3>
+              <span class="industry-explore" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
           </li>
-          <li class="industry">
-            <span class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
-            <span class="industry-name">Retail</span>
+
+          <!-- 4. Retail (Qatar Shopping Street & Storefronts) -->
+          <li class="industry-card">
+            <div class="industry-media">
+              <img src="./assets/industry-retail.jpg" alt="Retail" class="industry-img" loading="lazy">
+              <div class="industry-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="industry-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </div>
+            <div class="industry-body">
+              <h3 class="industry-name">Retail</h3>
+              <span class="industry-explore" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
           </li>
-          <li class="industry">
-            <span class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M3 10h18"/><path d="M12 3 2 10h20L12 3Z"/><path d="M6 10v11M10 10v11M14 10v11M18 10v11"/></svg></span>
-            <span class="industry-name">Finance</span>
+
+          <!-- 5. Finance (FinTech Trading Analytics) -->
+          <li class="industry-card">
+            <div class="industry-media">
+              <img src="./assets/industry-finance.jpg" alt="Finance" class="industry-img" loading="lazy">
+              <div class="industry-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="industry-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18"/><path d="M12 3 2 10h20L12 3Z"/><path d="M6 10v11M10 10v11M14 10v11M18 10v11"/></svg>
+            </div>
+            <div class="industry-body">
+              <h3 class="industry-name">Finance</h3>
+              <span class="industry-explore" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
           </li>
-          <li class="industry">
-            <span class="industry-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
-            <span class="industry-name">E-Commerce</span>
+
+          <!-- 6. E-Commerce (Digital Shopping & Instant Checkout) -->
+          <li class="industry-card">
+            <div class="industry-media">
+              <img src="./assets/industry-ecommerce.jpg" alt="E-Commerce" class="industry-img" loading="lazy">
+              <div class="industry-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="industry-badge" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            </div>
+            <div class="industry-body">
+              <h3 class="industry-name">E-Commerce</h3>
+              <span class="industry-explore" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="section" id="testimonials">
-      <div class="container">
-        <header class="section-head section-head-center reveal">
-          <p class="eyebrow">Enterprise validation</p>
-          <h2 class="section-title">Trusted by teams who ship</h2>
-          <p class="section-sub">
-            What engineering leaders, CTOs, and sovereign partners report after deploying XTECH mission-critical architectures.
-          </p>
-        </header>
-
-        <div class="testimonials" id="testimonial-list">
-          <figure class="card quote">
-            <p class="quote-tag">Sovereign Cloud</p>
-            <blockquote>“XTECH replaced our legacy monolithic cloud infrastructure with an ultra-resilient sovereign Kubernetes topology across three regions. Zero downtime migration, sub-12ms transaction times.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">TM</span><span><strong>Dr. Tariq Al-Mansoor</strong><span>CTO, Qatar Sovereign Logistics</span></span></figcaption>
-          </figure>
-          <figure class="card quote">
-            <p class="quote-tag">Next-Gen Products</p>
-            <blockquote>“Most dev studios deliver slow, bloated templates. XTECH built us a mathematical, zero-bloat edge interface in WebGL and Rust with 99.999% availability.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">ER</span><span><strong>Elena Rostova</strong><span>Chief Architecture Officer, Zenith Data</span></span></figcaption>
-          </figure>
-          <figure class="card quote">
-            <p class="quote-tag">Mission Critical</p>
-            <blockquote>“XTECH isn't just a development studio; they are tactical enterprise architects. Every deliverable was production-grade and security-audited on day one.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">DM</span><span><strong>David K. Miller</strong><span>Managing Director, Sovereign Capital</span></span></figcaption>
-          </figure>
-          <figure class="card quote">
-            <p class="quote-tag">AI Systems</p>
-            <blockquote>“Their neural agent deployment pipeline slashed our unstructured financial data processing time from 45 minutes to 3.2 seconds. Exceptional systems engineering from the XTECH team.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">MV</span><span><strong>Marcus Vance</strong><span>VP of Infrastructure, Apex Global Trading</span></span></figcaption>
-          </figure>
-          <figure class="card quote">
-            <p class="quote-tag">Sovereign AI</p>
-            <blockquote>“Their sovereign LLM cluster runs strictly on-premise within our sovereign perimeter, keeping our proprietary reservoir intelligence completely secure and isolated.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">NS</span><span><strong>Nasser Al-Sulaiti</strong><span>Operations Lead, PetroTech Holdings</span></span></figcaption>
-          </figure>
-          <figure class="card quote">
-            <p class="quote-tag">National Compliance</p>
-            <blockquote>“In healthcare, sovereign national compliance is non-negotiable. XTECH's zero-trust infrastructure passed every sovereign data audit with flying colors.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">FH</span><span><strong>Fatima Al-Hajri</strong><span>Head of Cloud, National Health Grid</span></span></figcaption>
-          </figure>
-
-          <figure class="card quote is-extra">
-            <p class="quote-tag">Zero Trust</p>
-            <blockquote>“The zero-trust cryptographic perimeter XTECH implemented survived our unannounced red-team offensive penetration audit without a single exposed attack vector.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">SL</span><span><strong>Sarah Lin</strong><span>Head of Platform Security, CyberShield ME</span></span></figcaption>
-          </figure>
-          <figure class="card quote is-extra">
-            <p class="quote-tag">Cloud Topology</p>
-            <blockquote>“Deploying XTECH's enterprise cloud blueprint reduced our multi-cloud computing overhead by 38% while doubling automated disaster recovery redundancy.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">JC</span><span><strong>James Chen</strong><span>Principal Engineer, CloudScale Int.</span></span></figcaption>
-          </figure>
-          <figure class="card quote is-extra">
-            <p class="quote-tag">Neural Mesh</p>
-            <blockquote>“The telemetry and real-time observability engineered into our XTECH AI platform gives us microsecond-level insight into our distributed neural mesh.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">RD</span><span><strong>Robert De Vries</strong><span>Chief Technology Officer, Nordic Edge AI</span></span></figcaption>
-          </figure>
-          <figure class="card quote is-extra">
-            <p class="quote-tag">Fullstack</p>
-            <blockquote>“XTECH's distributed gRPC microservices architecture handled 42,000 requests per second during peak national campaigns without a millisecond of network jitter.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">KA</span><span><strong>Khalid Al-Kuwari</strong><span>Director of Digital Services, Gulf FinTech Group</span></span></figcaption>
-          </figure>
-          <figure class="card quote is-extra">
-            <p class="quote-tag">High-Velocity UI</p>
-            <blockquote>“XTECH engineers don't cut corners. Their edge-rendered architecture delivers instantaneous page interactions across all North African and GCC networks.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">AB</span><span><strong>Amira Benali</strong><span>VP of Engineering, Maghreb Telecom</span></span></figcaption>
-          </figure>
-          <figure class="card quote is-extra">
-            <p class="quote-tag">Edge Telemetry</p>
-            <blockquote>“From low-latency embedded telematics to our distributed control plane, XTECH proved why they are the elite engineering tier in the region.”</blockquote>
-            <figcaption><span class="avatar" aria-hidden="true">OC</span><span><strong>Omar Cherif</strong><span>Founder &amp; CEO, Horizon Autonomous Fleet</span></span></figcaption>
-          </figure>
-        </div>
-
-        <div class="testimonials-more">
-          <button class="btn btn-secondary" type="button" id="testimonials-toggle" aria-controls="testimonial-list" aria-expanded="false" data-i18n-skip>
-            Show all testimonials
-          </button>
-        </div>
-      </div>
-    </section>
-
     <!-- CONTACT -->
-    <section class="section section-tight" id="contact">
+    <section class="section" id="contact">
       <div class="container">
         <div class="cta reveal">
           <p class="eyebrow cta-eyebrow">Ready to scale tomorrow?</p>
-          <h2 class="cta-title">Let's build</h2>
-          <p class="cta-sub">
-            Available for select enterprise strategic contracts, Qatar national digital expansion initiatives, and bespoke AI platform architecture.
-          </p>
+          <h2 class="cta-title">Contact Xtech Team</h2>
           <div class="cta-actions">
-            <button class="btn btn-inverse btn-lg" type="button" data-open-inquiry>
-              Start a project
+            <a href="https://wa.me/9745170550" target="_blank" rel="noopener noreferrer" class="btn btn-inverse btn-lg">
+              Contact us
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
+            </a>
             <div class="cta-email">
               <span class="cta-email-label">Or email us</span>
               <a href="mailto:contact@xtechnology.group" class="cta-email-link">contact@xtechnology.group</a>
               <button class="icon-btn icon-btn-inverse" type="button" id="copy-email" data-email="contact@xtechnology.group" aria-label="Copy email address">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
               </button>
+              <span class="cta-divider" aria-hidden="true">·</span>
+              <a href="https://wa.me/9745170550" target="_blank" rel="noopener noreferrer" class="cta-phone" dir="ltr">+974 5170 550</a>
             </div>
           </div>
         </div>
@@ -484,7 +571,6 @@
           <a href="#top">Home</a>
           <a href="#products">Products</a>
           <a href="#industries">Industries</a>
-          <a href="#testimonials">Testimonials</a>
           <a href="#contact">Contact</a>
         </div>
 

@@ -49,6 +49,9 @@ const AR = {
   'Start a project': 'ابدأ مشروعك',
   'View products': 'استعرض المنتجات',
 
+  // Trusted by
+  'Trusted By': 'شركاء النجاح',
+
   // Capabilities row
   'Capabilities': 'القدرات',
   'AI Systems': 'أنظمة الذكاء الاصطناعي',
@@ -203,6 +206,7 @@ const AR = {
   // Contact
   'Ready to scale tomorrow?': 'مستعدون للتوسع غداً؟',
   "Let's build": 'لنبنِ معاً',
+  'Contact Xtech Team': 'تواصل مع فريق Xtech',
   'Available for select enterprise strategic contracts, Qatar national digital expansion initiatives, and bespoke AI platform architecture.':
     'متاحون لعقود استراتيجية مختارة مع المؤسسات، ومبادرات التوسع الرقمي الوطني في قطر، وتصميم منصات ذكاء اصطناعي مخصّصة.',
   'Or email us': 'أو راسلنا عبر البريد',
